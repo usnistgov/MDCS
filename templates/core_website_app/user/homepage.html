@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="row" id="intro">
+            <div class="col-md-5 col-md-offset-2">
+                <h2>Materials Data Curator</h2>
+                <p>
+                    This system allows for the curation of Material Data in a repository using
+                    predefined templates.
+                </p>
+                <p>
+                    This is being developed at the National Institute of Standards and Technology and
+                    is made available to solicit comments from the Material Science community. Please
+                    do not enter any proprietary data into this system.
+                </p>
+            </div>
+            <div class="col-md-3">
+                <img id="mgi-diagram" src="{% static 'core_website_app/img/mgi_diagram.jpg' %}"
+                     alt="Material Genome Initiative diagram">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5 col-md-offset-1" id="tiles">
+    </div>
+    <div class="col-md-5" id="templates">
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<h2 id="available-options">Available Options</h2>
+{% for tile in tiles %}
+<div class="tile">
+    <div class="icon">
+        <i class="fa {{ tile.logo }}"></i>
+    </div>
+    <div class="text">
+        <h3><a href="{{ tile.link }}">{{ tile.title }}</a></h3>
+        <p>
+            {{ tile.text }}
+        </p>
+    </div>
+</div>
+{% endfor %}

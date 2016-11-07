@@ -1,1 +1,4 @@
 Django==1.8.15
+django-simple-menu
+core_main_app
+core_website_app

@@ -1,0 +1,58 @@
+#intro {
+    margin-top: 0.25em;
+    text-align: justify;
+}
+
+#intro #mgi-diagram {
+    width: 15em;
+}
+
+#browse-btn {
+    float: right;
+    color: #c0c0c0;
+    font-size: 0.6em;
+}
+
+/**
+ * Tiles CSS
+ */
+
+.tile .icon {
+    background-color: rgb(190, 120, 40);
+    background-image: -moz-linear-gradient(center top , rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)), url("../img/bg01.png");
+    border-radius: 100%;
+    box-shadow: 0 0 0 7px white, 0 0 0 8px #e0e0e0;
+    color: #fff;
+    cursor: default;
+    display: inline-block;
+    height: 2em;
+    line-height: 2em;
+    margin: 0.5em 0.75em 0.25em 0.25em;
+    width: 2em;
+    font-size: 2em;
+
+    float: left;
+    text-align: center;
+}
+
+.tile {
+    display: inline-block;
+    width: 100%;
+}
+
+.tile .text h3 {
+    margin-bottom: 0.1em;
+}
+
+.tile .text {
+    margin-top: 1.25em;
+    font-size: 0.85em;
+    text-align: justify;
+}
+
+/**
+ *
+ **/
+#available-options {
+    margin-bottom: 0;
+}

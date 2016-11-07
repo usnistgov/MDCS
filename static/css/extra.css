@@ -1,0 +1,16 @@
+#content {
+    background-color: #fff;
+    margin: 0 1.5em;
+    padding: 1.5em;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.textarea_lock_h {
+    resize: vertical
+}
+
+.alert-danger a {
+    color: #a94442;
+}
+

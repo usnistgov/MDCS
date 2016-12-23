@@ -39,13 +39,18 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Extra apps
     "rest_framework",
     "rest_framework_mongoengine",
-
     "menu",
 
+    # Core apps
     "core_main_app",
     "core_website_app",
+    "core_oaipmh_common_app",
+    "core_oaipmh_harvester_app",
+
+    # Local apps
     "mdcs_home"
 )
 

@@ -28,7 +28,6 @@ def tiles(request):
 
     # TODO Remove the next lines once curate, explore and compose are online
     installed_apps = list(installed_apps)
-    installed_apps.append("core_curate_app")
     installed_apps.append("core_explore_app")
     installed_apps.append("core_compose_app")
 
@@ -39,7 +38,7 @@ def tiles(request):
     if "core_curate_app" in installed_apps:
         curate_tile = {
             "logo": "fa-edit",
-            "link": reverse("core_website_homepage"),  # FIXME Change it the correct URL
+            "link": reverse("core_curate_index"),
             "title": "Curate your Materials Data",
             "text": "Click here to select a form template and then fill out the corresponding form."
         }

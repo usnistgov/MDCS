@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     "core_website_app",
     "core_oaipmh_common_app",
     "core_oaipmh_harvester_app",
+    "core_curate_app",
 
     # Local apps
     "mdcs_home"
@@ -212,3 +213,6 @@ WEBSITE_ADMIN_COLOR = "yellow"
 WEBSITE_SHORT_TITLE = "MDCS"
 
 DATA_AUTO_PUBLISH = True
+
+# Customization Label
+CUSTOM_CURATE = 'Data Curation'

@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     "core_curate_app",
     "core_parser_app",
     "core_parser_app.tools.parser", # FIXME: make parser an app
+    "core_composer_app",
 
     # Local apps
     "mdcs_home"

@@ -17,8 +17,16 @@
                 <i class="fa fa-user"></i> {{ user }} <i class="fa fa-chevron-down"></i>
             </a>
             <ul>
-                <li><a href="#">Profile</a></li>
+                {% block dashboard_menu %}
+                    {% generate_menu %}
+
+                    {% for item in menus.dashboard %}
+                        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                    {% endfor %}
+                {% endblock %}
+                {% if user.is_staff %}
                 <li><a href="{% url 'admin:core_main_app_admin_home' %}">Administration</a></li>
+                {% endif %}
                 <li class="divider"></li>
                 <li><a href="{% url 'core_website_logout' %}"><i class="fa fa-sign-out"></i> Logout</a></li>
             </ul>

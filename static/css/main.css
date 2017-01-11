@@ -5,6 +5,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
 	Modified by NIST to fit the MDCS template
+	@author Philippe Dessauw
 */
 
 /* Reset */
@@ -2211,7 +2212,7 @@
 
 /* Button */
 
-	input[type="submit"],
+	/*input[type="submit"],*/
 	input[type="reset"],
 	input[type="button"],
 	.button {
@@ -2242,7 +2243,7 @@
 		letter-spacing: -0.025em;
 	}
 
-		input[type="submit"]:hover,
+		/*input[type="submit"]:hover,*/
 		input[type="reset"]:hover,
 		input[type="button"]:hover,
 		.button:hover {
@@ -2250,7 +2251,7 @@
 			color: #fff !important;
 		}
 
-		input[type="submit"]:active,
+		/*input[type="submit"]:active,*/
 		input[type="reset"]:active,
 		input[type="button"]:active,
 		.button:active {

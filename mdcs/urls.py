@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^home/', include("mdcs_home.urls")),
     url(r'^', include("core_website_app.urls")),
     url(r'^curate/', include("core_curate_app.urls")),
+    url(r'^', include("core_parser_app.urls")),
 ]

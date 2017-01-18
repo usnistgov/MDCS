@@ -4,3 +4,4 @@ core_main_app
 core_website_app
 core_oaipmh_common_app
 core_oaipmh_harvester_app
+core_dashboard_app

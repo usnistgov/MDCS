@@ -53,6 +53,7 @@ INSTALLED_APPS = (
     "core_parser_app",
     "core_parser_app.tools.parser", # FIXME: make parser an app
     "core_composer_app",
+    "core_dashboard_app",
 
     # Local apps
     "mdcs_home"
@@ -219,3 +220,11 @@ DATA_AUTO_PUBLISH = True
 
 # Customization Label
 CUSTOM_CURATE = 'Data Curation'
+
+# Dashboard Menu
+DASHBOARD_MENU = {
+    "My Profile": "core_dashboard_profile",
+}
+
+# Dashboard templates
+DASHBOARD_HOME_TEMPLATE = 'my_profile.html'

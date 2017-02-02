@@ -6,7 +6,7 @@
 
             {% for item in menus.main %}
                 <li {% if item == selected_menu %}class="current"{% endif %}>
-                    <a href="{{ item.url }}">{{ item.title }}</a>
+                    <a href="{{ item.url }}"><i class="fa fa-{{ item.icon }}"></i> {{ item.title }}</a>
                 </li>
             {% endfor %}
         {% endblock %}

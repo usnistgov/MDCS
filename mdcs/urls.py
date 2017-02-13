@@ -22,7 +22,9 @@ urlpatterns = [
     url(r'^home/', include("mdcs_home.urls")),
     url(r'^', include("core_website_app.urls")),
     url(r'^curate/', include("core_curate_app.urls")),
+    url(r'^composer/', include("core_composer_app.urls")),
     url(r'^', include("core_parser_app.urls")),
+    url(r'^explore/example/', include("core_explore_example_app.urls")),
     url(r'^dashboard/', include("core_dashboard_app.urls")),
     url(r'^oai_pmh/', include("core_oaipmh_harvester_app.urls")),
 ]

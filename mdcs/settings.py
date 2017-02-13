@@ -54,6 +54,9 @@ INSTALLED_APPS = (
     "core_parser_app",
     "core_parser_app.tools.parser", # FIXME: make parser an app
     "core_composer_app",
+    "core_explore_common_app",
+    "core_explore_federated_search_app",
+    "core_explore_example_app",
     "core_dashboard_app",
 
     # Local apps
@@ -229,3 +232,5 @@ DASHBOARD_MENU = {
 
 # Dashboard templates
 DASHBOARD_HOME_TEMPLATE = 'my_profile.html'
+
+DATA_SOURCES_EXPLORE_APPS = ['core_explore_federated_search_app']

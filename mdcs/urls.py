@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^curate/', include("core_curate_app.urls")),
     url(r'^', include("core_parser_app.urls")),
     url(r'^dashboard/', include("core_dashboard_app.urls")),
+    url(r'^oai_pmh/', include("core_oaipmh_harvester_app.urls")),
 ]

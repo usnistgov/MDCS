@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^composer/', include("core_composer_app.urls")),
     url(r'^', include("core_parser_app.urls")),
     url(r'^explore/example/', include("core_explore_example_app.urls")),
+    url(r'^federated_search/', include("core_explore_federated_search_app.urls")),
     url(r'^dashboard/', include("core_dashboard_app.urls")),
     url(r'^oai_pmh/', include("core_oaipmh_harvester_app.urls")),
 ]

@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     "core_oaipmh_provider_app",
     "core_curate_app",
     "core_parser_app",
+    "core_parser_app.tools.modules", # FIXME: make modules an app
     "core_parser_app.tools.parser", # FIXME: make parser an app
     "core_composer_app",
     "core_explore_common_app",

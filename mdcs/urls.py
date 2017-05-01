@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^curate/', include("core_curate_app.urls")),
     url(r'^composer/', include("core_composer_app.urls")),
     url(r'^parser/', include("core_parser_app.urls")),
+    url(r'^exporter/', include("core_exporters_app.urls")),
     url(r'^explore/common/', include("core_explore_common_app.urls")),
     url(r'^explore/example/', include("core_explore_example_app.urls")),
     url(r'^federated_search/', include("core_explore_federated_search_app.urls")),

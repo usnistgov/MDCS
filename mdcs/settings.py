@@ -55,6 +55,7 @@ INSTALLED_APPS = (
     "core_parser_app.tools.modules", # FIXME: make modules an app
     "core_parser_app.tools.parser", # FIXME: make parser an app
     "core_composer_app",
+    "core_exporters_app",
     "core_explore_common_app",
     "core_explore_federated_search_app",
     "core_explore_example_app",

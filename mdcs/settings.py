@@ -226,12 +226,4 @@ DATA_AUTO_PUBLISH = True
 # Customization Label
 CUSTOM_CURATE = 'Data Curation'
 
-# Dashboard Menu
-DASHBOARD_MENU = {
-    "My Profile": "core_dashboard_profile",
-}
-
-# Dashboard templates
-DASHBOARD_HOME_TEMPLATE = 'my_profile.html'
-
 DATA_SOURCES_EXPLORE_APPS = ['core_explore_federated_search_app']

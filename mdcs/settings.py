@@ -15,7 +15,6 @@ from mongoengine.connection import connect
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -52,8 +51,8 @@ INSTALLED_APPS = (
     "core_oaipmh_provider_app",
     "core_curate_app",
     "core_parser_app",
-    "core_parser_app.tools.modules", # FIXME: make modules an app
-    "core_parser_app.tools.parser", # FIXME: make parser an app
+    "core_parser_app.tools.modules",  # FIXME: make modules an app
+    "core_parser_app.tools.parser",  # FIXME: make parser an app
     "core_composer_app",
     "core_exporters_app",
     "core_explore_common_app",
@@ -101,7 +100,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mdcs.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
@@ -111,7 +109,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -125,7 +122,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
@@ -229,3 +225,7 @@ DATA_AUTO_PUBLISH = True
 CUSTOM_CURATE = 'Data Curation'
 
 DATA_SOURCES_EXPLORE_APPS = ['core_explore_federated_search_app', 'core_explore_oaipmh_app']
+
+# FIXME: set desired value before release
+# Lists in data not stored if number of elements is over the limit (e.g. 100)
+SEARCHABLE_DATA_OCCURRENCES_LIMIT = None

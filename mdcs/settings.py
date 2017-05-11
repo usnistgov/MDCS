@@ -57,6 +57,7 @@ INSTALLED_APPS = (
     "core_composer_app",
     "core_exporters_app",
     "core_explore_common_app",
+    "core_explore_oaipmh_app",
     "core_explore_federated_search_app",
     "core_explore_example_app",
     "core_dashboard_app",
@@ -227,4 +228,4 @@ DATA_AUTO_PUBLISH = True
 # Customization Label
 CUSTOM_CURATE = 'Data Curation'
 
-DATA_SOURCES_EXPLORE_APPS = ['core_explore_federated_search_app']
+DATA_SOURCES_EXPLORE_APPS = ['core_explore_federated_search_app', 'core_explore_oaipmh_app']

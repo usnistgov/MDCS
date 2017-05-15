@@ -28,10 +28,10 @@
                 <li><a href="{% url 'admin:core_main_app_admin_home' %}">Administration</a></li>
                 {% endif %}
                 <li class="divider"></li>
-                <li><a href="{% url 'core_website_logout' %}"><i class="fa fa-sign-out"></i> Logout</a></li>
+                <li><a href="{% url 'core_website_app_logout' %}"><i class="fa fa-sign-out"></i> Logout</a></li>
             </ul>
             {% else %}
-            <a href="{% url 'core_website_login' %}" class="btn-custom">
+            <a href="{% url 'core_website_app_login' %}" class="btn-custom">
                 <i class="fa fa-sign-in"></i> Log In / Sign Up
             </a>
             {% endif %}

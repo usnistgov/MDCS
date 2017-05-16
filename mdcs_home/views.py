@@ -26,11 +26,6 @@ def tiles(request):
     from django.conf import settings
     installed_apps = settings.INSTALLED_APPS
 
-    # TODO Remove the next lines once curate, explore and compose are online
-    installed_apps = list(installed_apps)
-    installed_apps.append("core_explore_app")
-    installed_apps.append("core_compose_app")
-
     context = {
         "tiles": []
     }
@@ -45,20 +40,20 @@ def tiles(request):
 
         context["tiles"].append(curate_tile)
 
-    if "core_explore_app" in installed_apps:
+    if "core_explore_example_app" in installed_apps:
         explore_tile = {
             "logo": "fa-search",
-            "link": reverse("core_website_homepage"),  # FIXME Change it the correct URL
+            "link":  reverse("core_explore_example_index"),
             "title": "Explore the repository",
             "text": "Click here to search for Materials Data in the repository using flexible queries."
         }
 
         context["tiles"].append(explore_tile)
 
-    if "core_compose_app" in installed_apps:
+    if "core_composer_app" in installed_apps:
         compose_tile = {
             "logo": "fa-file-code-o",
-            "link": reverse("core_website_homepage"),  # FIXME Change it the correct URL
+            "link": reverse("core_composer_index"),
             "title": "Compose a template",
             "text": "Click here to compose your own template."
         }

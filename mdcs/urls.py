@@ -17,7 +17,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-
+    url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     url(r'^', include("core_main_app.urls")),
     url(r'^home/', include("mdcs_home.urls")),
     url(r'^', include("core_website_app.urls")),

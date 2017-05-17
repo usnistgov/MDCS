@@ -61,6 +61,7 @@ INSTALLED_APPS = (
     "core_explore_federated_search_app",
     "core_federated_search_app",
     "core_explore_example_app",
+    "core_explore_keyword_app",
     "core_dashboard_app",
 
     # Local apps

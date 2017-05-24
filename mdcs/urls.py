@@ -32,4 +32,5 @@ urlpatterns = [
     url(r'^dashboard/', include("core_dashboard_app.urls")),
     url(r'^oai_pmh/', include("core_oaipmh_harvester_app.urls")),
     url(r'^oai_pmh/server/', include("core_oaipmh_provider_app.urls")),
+    url(r'^docs/api', include('rest_framework_swagger.urls')),
 ]

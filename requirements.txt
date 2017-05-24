@@ -11,3 +11,4 @@ core_explore_federated_search_app==1.0.0-alpha1
 core_explore_oaipmh_app==1.0.0-alpha1
 core_composer_app==1.0.0-alpha1
 core_exporters_app==1.0.0-alpha1
+django-rest-swagger==0.1.14

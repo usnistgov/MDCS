@@ -224,6 +224,8 @@ DATA_AUTO_PUBLISH = True
 
 # Customization Label
 CUSTOM_CURATE = 'Data Curation'
+CUSTOM_DATA = "Materials Data"
+CUSTOM_NAME = "Curator"
 
 DATA_SOURCES_EXPLORE_APPS = ['core_explore_federated_search_app', 'core_explore_oaipmh_app']
 

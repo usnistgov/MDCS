@@ -1,17 +1,20 @@
 from django.core.urlresolvers import reverse
 from django.shortcuts import render
 from core_main_app.components.template_version_manager.api import get_global_version_managers
+from django.conf import settings
 
 
 def template_list(request):
-    """
+    """ Display the last HOMEPAGE_NB_LAST_TEMPLATES templates.
+    Args:
+        request:
 
-    :param request:
-    :return:
+    Returns:
+
     """
     context = {
         "templates": [version_manager for version_manager in get_global_version_managers()
-                      if not version_manager.is_disabled]
+                      if not version_manager.is_disabled][:settings.HOMEPAGE_NB_LAST_TEMPLATES]
     }
 
     return render(request, "mdcs_home/template_list.html", context)

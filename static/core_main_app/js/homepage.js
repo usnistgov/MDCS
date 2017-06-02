@@ -1,6 +1,6 @@
 function loadActionTiles() {
     $.ajax({
-        url: "/home/tiles",
+        url: tilesGetUrl,
         method: "GET",
         success: function(data) {
             $("#tiles").html(data);
@@ -14,7 +14,7 @@ function loadActionTiles() {
 
 function loadTemplateList() {
     $.ajax({
-        url: "/home/templates",
+        url: templatesGetUrl,
         method: "GET",
         success: function(data) {
             $("#templates").html(data);

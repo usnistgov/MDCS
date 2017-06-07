@@ -191,7 +191,8 @@ LOGGING = {
 MONGO_USER = "mgi_user"
 MONGO_PASSWORD = "mgi_password"
 DB_NAME = "mgi"
-MONGODB_URI = "mongodb://" + MONGO_USER + ":" + MONGO_PASSWORD + "@localhost/" + DB_NAME
+DB_SERVER = "localhost"
+MONGODB_URI = "mongodb://" + MONGO_USER + ":" + MONGO_PASSWORD + "@" + DB_SERVER + "/" + DB_NAME
 connect(DB_NAME, host=MONGODB_URI)
 
 # core_main_app settings

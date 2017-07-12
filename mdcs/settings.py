@@ -7,7 +7,6 @@ https://docs.djangoproject.com/en/1.8/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
@@ -48,6 +47,8 @@ INSTALLED_APPS = (
 
     # Core apps
     "core_main_app",
+    "core_exporters_app",
+    "core_exporters_app.exporters.xsl",
     "core_website_app",
     "core_oaipmh_common_app",
     "core_oaipmh_harvester_app",
@@ -57,8 +58,6 @@ INSTALLED_APPS = (
     "core_parser_app.tools.modules",  # FIXME: make modules an app
     "core_parser_app.tools.parser",  # FIXME: make parser an app
     "core_composer_app",
-    "core_exporters_app",
-    "core_exporters_app.exporters.xsl",
     "core_explore_common_app",
     "core_explore_oaipmh_app",
     "core_explore_federated_search_app",

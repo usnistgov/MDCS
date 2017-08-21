@@ -289,6 +289,8 @@ SWAGGER_SETTINGS = {
     "api_key": '',  # An API key
     "is_authenticated": False,  # Set to True to enforce user authentication,
     "is_superuser": False,  # Set to True to enforce admin only access
+    'LOGIN_URL': 'core_main_app_login',
+    'LOGOUT_URL': 'core_main_app_logout',
 }
 
 REST_FRAMEWORK = {

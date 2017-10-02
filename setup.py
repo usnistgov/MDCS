@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name="mdcs",
-    version="2.0.0-alpha3",
+    version="2.0.0-alpha4",
     description=("Materials Data Curation System package",),
     author="NIST IT Lab",
     author_email="itl_inquiries@nist.gov",

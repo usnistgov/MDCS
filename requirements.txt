@@ -1,3 +1,4 @@
+core_main_app==1.0.0-alpha4  # FIXME remove when fixed requirements for all packages
 core_website_app==1.0.0-alpha4
 core_oaipmh_provider_app==1.0.0-alpha4
 core_dashboard_app==1.0.0-alpha4

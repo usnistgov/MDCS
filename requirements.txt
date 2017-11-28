@@ -1,11 +1,3 @@
-core_main_app==1.0.0-alpha5  # FIXME remove when fixed requirements for all packages
-core_website_app==1.0.0-alpha5
-core_oaipmh_provider_app==1.0.0-alpha5
-core_dashboard_app==1.0.0-alpha5
-core_curate_app==1.0.0-alpha5
-core_explore_example_app==1.0.0-alpha5
-core_explore_keyword_app==1.0.0-alpha3
-core_explore_federated_search_app==1.0.0-alpha5
-core_explore_oaipmh_app==1.0.0-alpha5
-core_composer_app==1.0.0-alpha5
-core_exporters_app==1.0.0-alpha5
+celery==4.1.0
+Django==1.11.7
+mongoengine==0.11.0

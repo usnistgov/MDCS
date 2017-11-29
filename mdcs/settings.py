@@ -65,6 +65,13 @@ INSTALLED_APPS = (
     "core_explore_keyword_app",
     "core_dashboard_app",
 
+    # modules
+    "core_module_blob_host_app",
+    "core_module_excel_uploader_app",
+    "core_module_periodic_table_app",
+    "core_module_chemical_composition_app",
+
+
     # Local apps
     "mdcs_home"
 )

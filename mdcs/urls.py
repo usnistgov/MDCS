@@ -15,6 +15,8 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from core_parser_app.tools.modules.discover import discover_modules
+
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -35,5 +37,11 @@ urlpatterns = [
     url(r'^dashboard/', include("core_dashboard_app.urls")),
     url(r'^oai_pmh/', include("core_oaipmh_harvester_app.urls")),
     url(r'^oai_pmh/server/', include("core_oaipmh_provider_app.urls")),
-
+    url(r'^', include('core_module_blob_host_app.urls')),
+    url(r'^', include('core_module_excel_uploader_app.urls')),
+    url(r'^', include('core_module_periodic_table_app.urls')),
+    url(r'^', include('core_module_chemical_composition_app.urls')),
 ]
+
+# TODO: see if we can automate the discovery and run it from parser app
+discover_modules(urlpatterns)

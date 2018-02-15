@@ -24,16 +24,23 @@
                         <li><a href="{{ item.url }}">{{ item.title }}</a></li>
                     {% endfor %}
                 {% endblock %}
+                <li class="divider"></li>
+                {% block user_menu %}
+                    {% generate_menu %}
+
+                    {% for item in menus.user %}
+                        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                    {% endfor %}
+                {% endblock %}
                 {% if user.is_staff %}
                 <li><a href="{% url 'admin:core_main_app_admin_home' %}">Administration</a></li>
                 {% endif %}
-                <li class="divider"></li>
                 <li><a href="{% url 'core_main_app_logout' %}"><i class="fa fa-sign-out"></i> Logout</a></li>
             </ul>
             {% else %}
-            <a href="{% url 'core_main_app_login' %}" class="btn-custom">
-                <i class="fa fa-sign-in"></i> Log In / Sign Up
-            </a>
+                <a href="{% url 'core_main_app_login' %}" class="btn-custom">
+                    <i class="fa fa-sign-in"></i> Log In / Sign Up
+                </a>
             {% endif %}
         </li>
     </ul>

@@ -4,8 +4,12 @@
 <div id="footer">
     <div class="copyright">
         <ul class="menu">
-            <li>Materials Data Curation System 2.0.0-beta1 (2012 - {% now "Y" %})</li>
-            <li>Designed by <a href="https://nist.gov"><img src="{% static 'img/logo_nist_black.png' %}" class="small-logo"/></a></li>
+            <li>Materials Data Curation System {% include "theme/footer/version.html" %} (2012 - {% now "Y" %})</li>
+            <li>
+                Designed by <a href="https://nist.gov"><img src="{% static 'img/logo_nist_black.png' %}"
+                                                            class="small-logo"
+                                                            alt="National Institute of Standards and Technology"/></a>
+            </li>
             {% block footer_menu %}
                 {% generate_menu %}
 

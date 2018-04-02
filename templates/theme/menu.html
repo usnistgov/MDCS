@@ -1,6 +1,15 @@
 {% load menu %}
+{% load staticfiles %}
 <nav id="nav">
     <ul>
+        {% if DISPLAY_NIST_HEADERS %}
+        <li id="nist-logo" style="">
+            <a href="https://www.nist.gov/" title="National Institute of Standards and Technology">
+                <img src="{% static "img/logo_nist_white.svg" %}" alt="National Institute of Standards and Technology"
+                    style=""/>
+            </a>
+        </li>
+        {% endif %}
         {% block navigation_menu %}
             {% generate_menu %}
 

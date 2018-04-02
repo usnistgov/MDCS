@@ -10,16 +10,23 @@
 {% endcomment %}
 
 {% block theme_css %}
+    <link rel=icon href="{% static 'img/favicon.png' %}" sizes="16x16" type="image/png">
+
     <!--[if lte IE 8]><script src="{% static 'ie/html5shiv.js' %}"></script><![endif]-->
     <link rel="stylesheet" href="{% static 'css/main.css' %}" />
     <link rel="stylesheet" href="{% static 'css/menu.css' %}" />
     <link rel="stylesheet" href="{% static 'css/extra.css' %}" />
     <link rel="stylesheet" href="{% static 'css/btn_custom.css' %}" />
 
+    {% if DISPLAY_NIST_HEADERS %}
+    <link rel="stylesheet" href="{% static 'css/nist.css' %}" />
+    {% endif %}
+
     <!--[if lte IE 9]><link rel="stylesheet" href="{% static 'ie/ie9.css' %}" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="{% static 'ie/ie8.css' %}" /><![endif]-->
 {% endblock %}
 {% block theme_js %}
+
     <script src="{% static 'libs/skel/3.0.1/skel-3.0.1.js' %}"></script>
     <script src="{% static 'libs/jquery.dropotron/1.4.3/jquery.dropotron-1.4.3.js' %}"></script>
     <script src="{% static 'js/util.js' %}"></script>
@@ -42,6 +49,10 @@
             {% block app_data %}{% endblock %}
         </div>
 
-        {% include 'theme/footer.html' %}
+        {% if DISPLAY_NIST_HEADERS %}
+            {% include 'theme/footer/nist.html' %}
+        {% else %}
+            {% include 'theme/footer/default.html' %}
+        {% endif %}
     </div>
 {% endblock %}

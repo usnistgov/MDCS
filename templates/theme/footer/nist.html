@@ -1,0 +1,61 @@
+{% load staticfiles %}
+{% load menu %}
+
+<div class="nist-footer" style="margin-top: 1em;">
+    <div class="row">
+        <div class="col-md-3 col-sm-4">
+            <a href="https://www.nist.gov/" title="National Institute of Standards and Technology">
+                <img src="{% static 'img/logo_nist_full_white.png' %}"
+                     alt="National Institute of Standards and Technology" style="max-width: 100%"/>
+            </a>
+        </div>
+        <div class="col-md-7 col-sm-5" style="text-align:center">
+            <ul style="line-height: 1.5rem;">
+                <li class="nist-footer__menu-item">
+                    <a href="https://www.nist.gov/privacy-policy">Privacy Statement</a>
+                </li>
+                <li class="nist-footer__menu-item">
+                    <a href="https://www.nist.gov/privacy-policy#privpolicy">Privacy Policy</a>
+                </li>
+                <li class="nist-footer__menu-item">
+                    <a href="https://www.nist.gov/privacy-policy#secnot">Security Notice</a>
+                </li>
+                <li class="nist-footer__menu-item">
+                    <a href="https://www.nist.gov/privacy-policy#accesstate">Accessibility Statement</a>
+                </li>
+                <li class="nist-footer__menu-item">
+                    <a href="https://www.nist.gov/privacy">NIST Privacy Program</a>
+                </li>
+                <li class="nist-footer__menu-item">
+                    <a href="https://www.nist.gov/no-fear-act-policy">No Fear Act Policy</a>
+                </li>
+                <li class="nist-footer__menu-item">
+                    <a href="https://www.nist.gov/disclaimer">Disclaimer</a>
+                </li>
+                <li class="nist-footer__menu-item">
+                    <a href="https://www.nist.gov/office-director/freedom-information-act">FOIA</a>
+                </li>
+                <li class="nist-footer__menu-item">
+                    <a href="https://www.nist.gov/environmental-policy-statement">Environmental Policy Statement</a>
+                </li>
+                <li class="nist-footer__menu-item">
+                    <a href="https://www.nist.gov/privacy-policy#cookie">Cookie Disclaimer</a>
+                </li>
+                <li class="nist-footer__menu-item">
+                    <a href="https://www.nist.gov/summary-report-scientific-integrity">Scientific Integrity Summary</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-2 col-sm-3">
+            <ul style="text-align: right; line-height: 1.25rem">
+                <li>NIST Material Data Curator System</li>
+                <li>Version: {% include "theme/footer/version.html" %} (2012 - {% now "Y" %})</li>
+                <li>
+                    Powered by:
+                    <img src="{% static 'img/cdcs_logo.png' %}" alt="cdcs-logo" class="cdsc-logo"/>
+                    <a href="https://github.com/usnistgov/mdcs-stratton">CDCS</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

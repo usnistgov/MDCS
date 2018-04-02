@@ -104,6 +104,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 "core_main_app.utils.custom_context_processors.domain_context_processor",  # Needed by any curator app
+                "mdcs.custom_context_processors.domain_context_processor",  # Needed by MDCS
             ],
         },
     },
@@ -275,6 +276,8 @@ CUSTOM_CURATE = 'Data Curation'
 CUSTOM_DATA = "Materials Data"
 CUSTOM_NAME = "Curator"
 
+DISPLAY_NIST_HEADERS = True
+
 DATA_SOURCES_EXPLORE_APPS = ['core_explore_federated_search_app', 'core_explore_oaipmh_app']
 
 # FIXME: set desired value before release
@@ -304,8 +307,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
-    )
-    ,
+    ),
     # 'DEFAULT_PERMISSION_CLASSES': (
     #     'rest_framework.permissions.IsAuthenticated',
     # )

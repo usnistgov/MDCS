@@ -4,7 +4,7 @@ core_dashboard_app==1.0.0-beta1
 core_explore_example_app==1.0.0-beta1
 core_explore_keyword_app==1.0.0-beta1
 core_explore_federated_search_app==1.0.0-beta1
-core_explore_oaipmh_app==1.0.0-beta1
+core_explore_oaipmh_app==1.0.0-beta2
 core_exporters_app==1.0.0-beta1
 core_federated_search_app==1.0.0-beta1
 core_oaipmh_provider_app==1.0.0-beta1

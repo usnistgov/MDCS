@@ -57,20 +57,20 @@ INSTALLED_APPS = (
     "core_parser_app.tools.modules",  # FIXME: make modules an app
     "core_parser_app.tools.parser",  # FIXME: make parser an app
     "core_composer_app",
-    "core_explore_common_app",
-    "core_explore_oaipmh_app",
     "core_explore_federated_search_app",
     "core_federated_search_app",
+    "core_explore_common_app",
+    "core_explore_oaipmh_app",
     "core_explore_example_app",
     "core_explore_keyword_app",
     "core_dashboard_app",
+    "core_dashboard_common_app",
 
     # modules
     "core_module_blob_host_app",
     "core_module_excel_uploader_app",
     "core_module_periodic_table_app",
     "core_module_chemical_composition_app",
-
 
     # Local apps
     "mdcs_home"
@@ -314,5 +314,9 @@ REST_FRAMEWORK = {
 }
 
 HOMEPAGE_NB_LAST_TEMPLATES = 6
+""" integer: How many templates is displayed on the homepage
+"""
 
 PARSER_DOWNLOAD_DEPENDENCIES = True
+""" boolean: Does the parser download dependencies
+"""

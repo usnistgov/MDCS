@@ -78,6 +78,7 @@ INSTALLED_APPS = (
 
 MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -105,6 +106,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 "core_main_app.utils.custom_context_processors.domain_context_processor",  # Needed by any curator app
                 "mdcs.custom_context_processors.domain_context_processor",  # Needed by MDCS
+                "django.template.context_processors.i18n",
             ],
         },
     },

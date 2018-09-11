@@ -14,3 +14,4 @@ core_module_blob_host_app==1.0.0-beta5
 core_module_excel_uploader_app==1.0.0-beta5
 core_module_periodic_table_app==1.0.0-beta5
 core_module_chemical_composition_app==1.0.0-beta5
+core_module_text_area_app==1.0.0-beta5

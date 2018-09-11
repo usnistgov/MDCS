@@ -71,6 +71,7 @@ INSTALLED_APPS = (
     "core_module_excel_uploader_app",
     "core_module_periodic_table_app",
     "core_module_chemical_composition_app",
+    "core_module_text_area_app",
 
     # Local apps
     "mdcs_home"

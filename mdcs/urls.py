@@ -41,6 +41,7 @@ urlpatterns = [
     url(r'^', include('core_module_excel_uploader_app.urls')),
     url(r'^', include('core_module_periodic_table_app.urls')),
     url(r'^', include('core_module_chemical_composition_app.urls')),
+    url(r'^', include('core_module_text_area_app.urls')),
 ]
 
 # TODO: see if we can automate the discovery and run it from parser app

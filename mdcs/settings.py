@@ -279,8 +279,9 @@ WEBSITE_SHORT_TITLE = "MDCS"
 DATA_AUTO_PUBLISH = True
 
 # Customization Label
-CUSTOM_CURATE = 'Data Curation'
 CUSTOM_DATA = "Materials Data"
+CUSTOM_TITLE = "Materials Data Curation System"
+CUSTOM_SUBTITLE = "Part of the Materials Genome Initiative"
 CUSTOM_NAME = "Curator"
 
 DISPLAY_NIST_HEADERS = True

@@ -18,10 +18,6 @@
     <link rel="stylesheet" href="{% static 'css/extra.css' %}" />
     <link rel="stylesheet" href="{% static 'css/btn_custom.css' %}" />
 
-    {% if DISPLAY_NIST_HEADERS %}
-    <link rel="stylesheet" href="{% static 'css/nist.css' %}" />
-    {% endif %}
-
     <!--[if lte IE 9]><link rel="stylesheet" href="{% static 'ie/ie9.css' %}" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="{% static 'ie/ie8.css' %}" /><![endif]-->
 {% endblock %}
@@ -49,10 +45,6 @@
             {% block app_data %}{% endblock %}
         </div>
 
-        {% if DISPLAY_NIST_HEADERS %}
-            {% include 'theme/footer/nist.html' %}
-        {% else %}
-            {% include 'theme/footer/default.html' %}
-        {% endif %}
+        {% include 'theme/footer/default.html' %}
     </div>
 {% endblock %}

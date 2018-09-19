@@ -2,14 +2,11 @@
 {% load staticfiles %}
 <nav id="nav">
     <ul>
-        {% if DISPLAY_NIST_HEADERS %}
-        <li id="nist-logo" style="">
-            <a href="https://www.nist.gov/" title="National Institute of Standards and Technology">
-                <img src="{% static "img/logo_nist_white.svg" %}" alt="National Institute of Standards and Technology"
-                    style=""/>
+        <li id="cdcs-main" style="padding:0;width:20%">
+            <a href="https://cdcs.nist.gov/" title="Configurable Data Curation System (CDCS)">
+                <img src="{% static "img/cdcs_logo.svg" %}"  alt="Configurable Data Curation System (CDCS)" style="height:2.5em;margin:0;padding:0;margin-top:-0.25em;"/>
             </a>
         </li>
-        {% endif %}
         {% block navigation_menu %}
             {% generate_menu %}
 

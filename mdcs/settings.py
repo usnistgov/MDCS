@@ -284,7 +284,6 @@ CUSTOM_TITLE = "Materials Data Curation System"
 CUSTOM_SUBTITLE = "Part of the Materials Genome Initiative"
 CUSTOM_NAME = "Curator"
 
-DISPLAY_NIST_HEADERS = True
 
 DATA_SOURCES_EXPLORE_APPS = ['core_explore_federated_search_app', 'core_explore_oaipmh_app']
 

@@ -1823,12 +1823,12 @@
 		transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
 		color: #37c0fb;
 		text-decoration: none;
-		border-bottom: dotted 1px;
 	}
 
 		a:hover {
 			color: #37c0fb;
 			border-bottom-color: transparent;
+                        text-decoration:unset;
 		}
 
 	strong, b {
@@ -2457,6 +2457,31 @@
 				#nav > ul > li > ul {
 					display: none;
 				}
+#nav > ul > #cdcs-main {
+  float: left;
+  text-align: left;
+  padding-left: 2em;
+}
+
+#nav > ul > #cdcs-main > a {
+  margin-bottom: 0;
+}
+
+#nav > ul > #cdcs-main img {
+  width: 45%;
+  margin-top: -0.25em;
+}
+
+.cdcs-menu__item {
+  list-style: none;
+}
+
+.cdcs-logo {
+    bottom: -15px;
+    width: 1.75em;
+    vertical-align: middle;
+    margin-left: 0;
+}
 
 /* Dropotron */
 
@@ -2503,15 +2528,6 @@
 
 /* Banner */
 
-	#banner {
-		background-image: url("../../images/banner.jpg");
-		background-position: center center;
-		background-size: cover;
-		height: 28em;
-		text-align: center;
-		position: relative;
-	}
-
 		#banner header {
 			position: absolute;
 			bottom: 0;
@@ -2556,32 +2572,6 @@
 		.wrapper.style1 {
 			background: #fff;
 		}
-
-		.wrapper.style2 {
-			background-color: #fff;
-			background-image: url("images/bg02.png"), url("images/bg03.png"), url("../img/bg01.png");
-			background-position: top left,						bottom left,					top left;
-			background-size: 100% 6em,						100% 6em,						auto;
-			background-repeat: no-repeat,						no-repeat,						repeat;
-		}
-
-		.wrapper.style3 {
-			background-color: #37c0fb;
-			background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("../img/bg01.png");
-			background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("../img/bg01.png");
-			background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("../img/bg01.png");
-			background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("../img/bg01.png");
-			color: #fff;
-		}
-
-			.wrapper.style3 .button {
-				background: #fff;
-				color: #474747;
-			}
-
-				.wrapper.style3 .button:hover {
-					color: #37c0fb !important;
-				}
 
 /* CTA */
 

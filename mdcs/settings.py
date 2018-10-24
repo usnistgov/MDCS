@@ -328,3 +328,7 @@ HOMEPAGE_NB_LAST_TEMPLATES = 6
 PARSER_DOWNLOAD_DEPENDENCIES = True
 """ boolean: Does the parser download dependencies
 """
+
+EXPLORE_ADD_DEFAULT_LOCAL_DATA_SOURCE_TO_QUERY = True
+""" boolean: Do we add the local data source to new queries by default
+"""

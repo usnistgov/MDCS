@@ -220,13 +220,18 @@ ADMINS = [('admin', 'admin@curator.org')]
 MANAGERS = [('manager', 'moderator@curator.org')]
 
 USE_BACKGROUND_TASK = False
-BROKER_URL = 'redis://localhost:6379/0'
+# FIXME: set a redis password in production
+# REDIS_PASSWORD = 'redispass'
+# REDIS_URL = 'redis://:' + REDIS_PASSWORD + '@localhost:6379/0'
+
+REDIS_URL = 'redis://localhost:6379/0'
+BROKER_URL = REDIS_URL
 BROKER_TRANSPORT_OPTIONS = {
     'visibility_timeout': 3600,
     'fanout_prefix': True,
     'fanout_patterns': True
 }
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = REDIS_URL
 
 # core_website_app settings
 SERVER_URI = "http://localhost:8000"

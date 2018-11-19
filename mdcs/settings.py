@@ -332,3 +332,7 @@ PARSER_DOWNLOAD_DEPENDENCIES = True
 EXPLORE_ADD_DEFAULT_LOCAL_DATA_SOURCE_TO_QUERY = True
 """ boolean: Do we add the local data source to new queries by default
 """
+
+SSL_CERTIFICATES_DIR = 'certs'
+""" :py:class:`str`: SSL certificates directory location.
+"""

@@ -341,3 +341,7 @@ EXPLORE_ADD_DEFAULT_LOCAL_DATA_SOURCE_TO_QUERY = True
 SSL_CERTIFICATES_DIR = 'certs'
 """ :py:class:`str`: SSL certificates directory location.
 """
+
+XSD_URI_RESOLVER = 'REQUESTS_RESOLVER'
+""" :py:class:`str`: XSD URI Resolver for lxml validation. Choose from:  None, 'REQUESTS_RESOLVER'.
+"""

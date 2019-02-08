@@ -216,8 +216,8 @@ connect(DB_NAME, host=MONGODB_URI)
 SERVER_EMAIL = ""
 EMAIL_SUBJECT_PREFIX = ""
 USE_EMAIL = False
-ADMINS = [('admin', 'admin@curator.org')]
-MANAGERS = [('manager', 'moderator@curator.org')]
+ADMINS = [('admin', 'admin@example.com')]
+MANAGERS = [('manager', 'moderator@example.com')]
 
 USE_BACKGROUND_TASK = False
 # FIXME: set a redis password in production

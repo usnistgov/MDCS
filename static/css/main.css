@@ -1821,7 +1821,7 @@
 		-webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
-		color: #37c0fb;
+		color: #316982;
 		text-decoration: none;
 	}
 
@@ -3113,3 +3113,7 @@
 			}
 
 	}
+/* Bootstrap overide */
+.badge {
+    background-color: #585757 !important;
+}

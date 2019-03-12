@@ -2,32 +2,62 @@
 {% load staticfiles %}
 <nav id="nav">
     <ul>
-        <li id="cdcs-main" style="padding:0;width:20%">
-            <a href="https://cdcs.nist.gov/" title="Configurable Data Curation System (CDCS)">
-                <img src="{% static "img/cdcs_logo.svg" %}"  alt="Configurable Data Curation System (CDCS)" style="height:2.5em;margin:0;padding:0;margin-top:-0.25em;"/>
-            </a>
+        <!-- Start MDCS title left -->
+        <li id="cdcs-main" style="padding:0;">
+            <div id="cdcs-menu-title">
+                <a href="https://cdcs.nist.gov/" title="Configurable Data Curation System (CDCS)">
+                    Materials Data Curation System
+                </a>
+            </div>
         </li>
+        <!-- End MDCS title left -->
+
+        <!-- Start float left menu-->
         {% block navigation_menu %}
-            {% generate_menu %}
-
-            {% for item in menus.main %}
-                <li {% if item == selected_menu %}class="current"{% endif %}>
-                    <a href="{{ item.url }}"><i class="fa fa-{{ item.icon }}"></i> {{ item.title }}</a>
-                </li>
-            {% endfor %}
-        {% endblock %}
-
+        {% generate_menu %}
+        {% for item in menus.nodropdown %}
+        <li>
+            <a href="{{ item.url }}">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a>
+        </li>
+        {% endfor %}
         <li class="nested">
+            <a href="#">
+                Data Exploration <i class="fa fa-caret-down"></i></a>
+            </a>
+            <ul>
+                {% generate_menu %}
+                {% for item in menus.explorer %}
+                    <li><a href="{{ item.url }}">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li class="nested">
+            <a href="#">
+                Composer <i class="fa fa-caret-down"></i>
+            </a>
+            <ul>
+                {% generate_menu %}
+
+                {% for item in menus.composer %}
+                    <li><a href="{{ item.url }}">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endblock %}
+        <!-- End float right menu-->
+
+        <!-- Start float right menu-->
+        <li class="nested float-right">
             {% if user.is_authenticated %}
-            <a href="#" class="btn-custom">
-                <i class="fa fa-user"></i> {{ user }} <i class="fa fa-chevron-down"></i>
+            <a href="#">
+                <i class="fa fa-user-circle-o"></i> {{ user }} <i class="fa fa-caret-down"></i>
             </a>
             <ul>
                 {% block dashboard_menu %}
                     {% generate_menu %}
 
                     {% for item in menus.dashboard %}
-                        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                        <li><a href="{{ item.url }}">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
                     {% endfor %}
                 {% endblock %}
                 <li class="divider"></li>
@@ -35,19 +65,32 @@
                     {% generate_menu %}
 
                     {% for item in menus.user %}
-                        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                        <li><a href="{{ item.url }}">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
                     {% endfor %}
                 {% endblock %}
                 {% if user.is_staff %}
-                <li><a href="{% url 'admin:core_main_app_admin_home' %}">Administration</a></li>
+                <li><a href="{% url 'admin:core_main_app_admin_home' %}"><i class="fa fa-cog"></i> Administration</a></li>
                 {% endif %}
                 <li><a href="{% url 'core_main_app_logout' %}"><i class="fa fa-sign-out"></i> Logout</a></li>
             </ul>
             {% else %}
-                <a href="{% url 'core_main_app_login' %}" class="btn-custom">
+                <a href="{% url 'core_main_app_login' %}">
                     <i class="fa fa-sign-in"></i> Log In / Sign Up
                 </a>
             {% endif %}
         </li>
+        <li class="nested float-right">
+            <a href="#">
+                Help <i class="fa fa-caret-down"></i>
+            </a>
+            <ul>
+                {% generate_menu %}
+                {% for item in menus.help %}
+                    <li><a href="{{ item.url }}">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        <!-- End float right menu-->
+
     </ul>
 </nav>

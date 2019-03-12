@@ -2336,7 +2336,7 @@
 
 	#header {
 		text-align: center;
-		/*padding: 1em 0 0 0;*/
+		padding-bottom: 2em;
 		background-color: #ccc;
 		background-image: url("../img/graphy.png");
 		background-position: top left;
@@ -2364,28 +2364,17 @@
                     top: -0.5em;
 
 					font-size: 1.5em;
-					color: rgb(190, 120, 40);
+					color: #474747;
 				}
 
 	#nav {
 		cursor: default;
-		background-color: #333;
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("../img/bg01.png");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("../img/bg01.png");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("../img/bg01.png");
-		background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("../img/bg01.png");
+		background-color: #925520;
 		padding: 0;
 		text-align: right;
+		-webkit-box-shadow: 0 2px 10px 1px #6E6E6E;
+        box-shadow: 0 2px 10px 1px #6E6E6E;
 	}
-
-		#nav:after {
-			content: '';
-			display: block;
-			width: 100%;
-			height: 0.75em;
-			background-color: rgb(190, 120, 40);
-			background-image: url("../img/bg01.png");
-		}
 
 		#nav > ul {
 			margin: 0;
@@ -2396,11 +2385,13 @@
 				position: relative;
 				display: inline-block;
 				margin-left: 1em;
+				float: left;
 			}
 
                 /* Added by NIST */
 			    #nav > ul > li > a:not(.btn-custom) {
-					color: #999/*#c0c0c0*/;
+					color: #fff/*#c0c0c0*/;
+					padding-bottom: 9pt;
 				}
 
 				#nav > ul > li a {
@@ -2408,55 +2399,34 @@
 					border: 0;
 					display: block;
 					/*padding: 1.5em 0.5em 1.35em 0.5em;*/
-					padding: 1em 0.5em;
-					margin: 0.25em 0;
+					padding: 0.5em 0.5em;
+					/*margin: 0.25em 0;*/
 				}
+
 
 				#nav > ul > li:first-child {
 					margin-left: 0;
 				}
 
-				#nav > ul > li:hover a {
-					color: #fff;
+				#nav > ul > li > a:hover{
+					background-color: #774b26;
 				}
-
-				#nav > ul > li.current {
-					font-weight: 600;
-				}
-
-					#nav > ul > li.current:before {
-						-moz-transform: rotateZ(45deg);
-						-webkit-transform: rotateZ(45deg);
-						-ms-transform: rotateZ(45deg);
-						transform: rotateZ(45deg);
-						width: 0.75em;
-						height: 0.75em;
-						content: '';
-						display: block;
-						position: absolute;
-						bottom: -0.5em;
-						left: 50%;
-						margin-left: -0.375em;
-						/*background-color: #37c0fb;*/
-			            background-color: rgb(190, 120, 40);
-						background-image: url("../img/bg01.png");
-					}
-
-					#nav > ul > li.current a {
-						color: #fff;
-					}
-
-				/*#nav > ul > li.active a {
-					color: #fff;
-				}
-
-				#nav > ul > li.active.current:before {
-					opacity: 0;
-				}*/
 
 				#nav > ul > li > ul {
 					display: none;
 				}
+
+.float-right {
+    float: right !important;
+}
+
+#cdcs-menu-title a {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 1.2em;
+}
+
 #nav > ul > #cdcs-main {
   float: left;
   text-align: left;
@@ -2464,12 +2434,8 @@
 }
 
 #nav > ul > #cdcs-main > a {
+  padding-bottom: 0;
   margin-bottom: 0;
-}
-
-#nav > ul > #cdcs-main img {
-  width: 45%;
-  margin-top: -0.25em;
 }
 
 .cdcs-menu__item {
@@ -2486,17 +2452,14 @@
 /* Dropotron */
 
 	.dropotron {
-		background-color: #333;
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0)), url("../img/bg01.png");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0)), url("../img/bg01.png");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0)), url("../img/bg01.png");
-		background-image: linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0)), url("../img/bg01.png");
+		background-color: #fff;
 		border-radius: 5px;
-		color: #fff;
+		color: #000;
 		min-width: 10em;
 		padding: 1em 0;
 		/*text-align: center;*/
-		box-shadow: 0 1em 1em 0 rgba(0, 0, 0, 0.5);
+		/*box-shadow: 0 1em 1em 0 rgba(0, 0, 0, 0.5);*/
+		box-shadow: 0 6px 12px rgba(0,0,0,.175)
 	}
 
 		.dropotron > li {
@@ -2505,23 +2468,20 @@
 		}
 
 			.dropotron > li > a {
-				color: #999/*#c0c0c0*/;
+				color: #000/*#c0c0c0*/;
 				text-decoration: none;
 				border: 0;
-			    margin: 0 0.6em 0 0.5em; /* modified by NIST */
-			    padding: 0 0.5em;
+				padding-left: 1em;
 			}
 
 			.dropotron > li.active > a, .dropotron > li:hover > a {
-				color: #fff;
 				/* Added by NIST */
-				background-color: rgb(190, 120, 40);
-                border-radius: 5px;
+				background-color: #e0e0e0;
 			}
 
 		.dropotron.level-0 {
 			border-radius: 0 0 5px 5px;
-			font-size: 0.9em;
+			font-size: 0.8em;
 			padding-top: 0;
 			margin-top: -1px;
 		}
@@ -2594,43 +2554,25 @@
 /* Footer */
 
 	#footer {
-		/*padding: 4em 0 8em 0;*/
-		padding: 1em 0 3em 0;
+	    display: inline-flex;
+		color: white;
+		height: 3em;
+        background-color: #925520;
+        margin-top: 1em;
+        width: 100%;
+
 	}
 
-		#footer a {
-			color: inherit;
-			border-bottom-color: rgba(71, 71, 71, 0.25);
-		}
+	#footer a {
+        color: white;
+	}
 
-			#footer a:hover {
-				color: #37c0fb;
-				border-bottom-color: transparent;
-			}
-
-		#footer .container {
-			margin-bottom: 4em;
-		}
-
-		#footer .icons {
-			text-align: center;
-			margin: 0;
-		}
-
-			#footer .icons a {
-				color: #999;
-			}
-
-				#footer .icons a:hover {
-					color: #474747;
-				}
-
-		#footer .copyright {
-			color: #999;
-			margin-top: 1.5em;
-			text-align: center;
-			font-size: 0.9em;
-		}
+	#footer div {
+	    margin: 0 2em 0 2em;
+	    margin-top: 0.5em;
+	    width: 49%;
+	    text-align: left;
+	}
 
 /* Wide */
 
@@ -2639,7 +2581,7 @@
 		/* Basic */
 
 			body, input, select, textarea {
-				font-size: 14pt;
+				font-size: 17pt;
 				line-height: 1.5em;
 			}
 
@@ -2679,9 +2621,9 @@
 
 		/* Header */
 
-			#header {
+			/*#header {
 				padding: 2em 0 0 0;
-			}
+			}*/
 
 				#header h1 {
 					padding: 0 0 1.75em 0;

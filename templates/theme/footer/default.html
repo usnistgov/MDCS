@@ -2,39 +2,10 @@
 {% load menu %}
 
 <div id="footer">
-    <div class="copyright">
-        <ul class="menu">
-        <div class="col-md-2 col-sm-3">
-            <ul style="text-align: right; line-height: 1.25rem">
-                <li>
-                Designed by <a href="https://nist.gov"><img src="{% static 'img/logo_nist_black.png' %}"
-                                                            class="small-logo"
-                                                            alt="National Institute of Standards and Technology"/></a>
-                </li>
-            </ul>
+        <div>CDCS Version {% include "theme/footer/version.html" %}</div>
+        <div style="float: right; text-align: right;">
+            Powered by:
+            <img src="{% static 'img/cdcs_logo.png' %}" alt="cdcs-logo" class="cdcs-logo"/>
+            <a href="https://github.com/usnistgov/mdcs">CDCS</a>
         </div>
-            {% block footer_menu %}
-                {% generate_menu %}
-
-                {% for item in menus.footer %}
-                    <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-                {% endfor %}
-            {% endblock %}
-        <div class="col-md-2 col-sm-3">
-            <ul style="text-align: right; line-height: 1.25rem">
-                <li>Materials Data Curation System</li>
-                <li>Version: {% include "theme/footer/version.html" %} (2012 - {% now "Y" %})</li>
-            </ul>
-        </div>
-        <div class="col-md-2 col-sm-3">
-            <ul style="text-align: right; line-height: 1.25rem">
-                <li>
-                    Powered by:
-                    <img src="{% static 'img/cdcs_logo.png' %}" alt="cdcs-logo" class="cdcs-logo"/>
-                    <a href="https://github.com/usnistgov/mdcs">CDCS</a>
-                </li>
-            </ul>
-        </div>
-        </ul>
-    </div>
 </div>

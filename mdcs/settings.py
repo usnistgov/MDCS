@@ -25,6 +25,8 @@ ALLOWED_HOSTS = []
 
 MENU_SELECT_PARENTS = False
 
+CURATE_MENU_NAME = 'Data Curation'
+
 # Application definition
 
 INSTALLED_APPS = (

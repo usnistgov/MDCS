@@ -54,7 +54,7 @@
         $(
             '<div id="titleBar">' +
                 '<a href="#navPanel" class="toggle"></a>' +
-                '<span class="title">' + $('#logo').html() + '</span>' +
+                '<span class="title">' + $('#cdcs-menu-title a').html() + '</span>' +
             '</div>'
         )
             .appendTo($body);

@@ -27,7 +27,7 @@
             <ul>
                 {% generate_menu %}
                 {% for item in menus.explorer %}
-                    <li><a href="{{ item.url }}">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
+                    <li><a href="{{ item.url }}" class="cdcs-menu-item">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
                 {% endfor %}
             </ul>
         </li>
@@ -38,7 +38,7 @@
             <ul>
                 {% generate_menu %}
                 {% for item in menus.composer %}
-                    {% if not item.require_authentication or user.is_authenticated %}<li><a href="{{ item.url }}">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>{% endif %}
+                    {% if not item.require_authentication or user.is_authenticated %}<li><a href="{{ item.url }}" class="cdcs-menu-item">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>{% endif %}
                 {% endfor %}
             </ul>
         </li>
@@ -56,7 +56,7 @@
                     {% generate_menu %}
 
                     {% for item in menus.dashboard %}
-                        <li><a href="{{ item.url }}">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
+                        <li><a href="{{ item.url }}" class="cdcs-menu-item">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
                     {% endfor %}
                 {% endblock %}
                 <li class="divider"></li>
@@ -64,13 +64,13 @@
                     {% generate_menu %}
 
                     {% for item in menus.user %}
-                        <li><a href="{{ item.url }}">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
+                        <li><a href="{{ item.url }}" class="cdcs-menu-item">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
                     {% endfor %}
                 {% endblock %}
                 {% if user.is_staff %}
-                <li><a href="{% url 'admin:core_main_app_admin_home' %}"><i class="fa fa-cog"></i> Administration</a></li>
+                <li><a href="{% url 'admin:core_main_app_admin_home' %}" class="cdcs-menu-item"><i class="fa fa-cog"></i> Administration</a></li>
                 {% endif %}
-                <li><a href="{% url 'core_main_app_logout' %}"><i class="fa fa-sign-out"></i> Logout</a></li>
+                <li><a href="{% url 'core_main_app_logout' %}" class="cdcs-menu-item"><i class="fa fa-sign-out"></i> Logout</a></li>
             </ul>
             {% else %}
                 <a href="{% url 'core_main_app_login' %}">
@@ -85,7 +85,7 @@
             <ul>
                 {% generate_menu %}
                 {% for item in menus.help %}
-                    <li><a href="{{ item.url }}">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
+                    <li><a href="{{ item.url }}" class="cdcs-menu-item">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
                 {% endfor %}
             </ul>
         </li>

@@ -2397,6 +2397,12 @@
 					display: none;
 				}
 
+
+.cdcs-menu-item {
+    padding: 3px;
+    min-width: 205px;
+}
+
 .float-right {
     float: right !important;
 }

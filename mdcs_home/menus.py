@@ -13,14 +13,14 @@
   * Composer menu
 
     * Create New Template
-    * My Template
+    * My Templates
     * My Types
 
   * Dashboard menu
 
     * My Workspaces
     * My Records
-    * My Drafts
+    * My Forms
     * My Files
 
   * Help menu
@@ -31,8 +31,10 @@
 """
 
 from django.core.urlresolvers import reverse
-from mdcs.settings import CURATE_MENU_NAME
 from menu import Menu, MenuItem
+
+from core_main_app.utils.labels import get_form_label
+from mdcs.settings import CURATE_MENU_NAME
 
 Menu.add_item(
     "nodropdown", MenuItem("Home", reverse("core_main_app_homepage"), icon="home")
@@ -54,7 +56,7 @@ Menu.add_item(
 )
 
 Menu.add_item(
-    "composer", MenuItem("My Template", reverse("core_dashboard_templates"))
+    "composer", MenuItem("My Templates", reverse("core_dashboard_templates"))
 )
 
 Menu.add_item(
@@ -71,7 +73,7 @@ Menu.add_item(
 )
 
 Menu.add_item(
-    "dashboard", MenuItem("My Drafts", reverse('core_dashboard_forms'), icon="file-text-o")
+    "dashboard", MenuItem("My {0}s".format(get_form_label().title()), reverse('core_dashboard_forms'), icon="file-text-o")
 )
 
 Menu.add_item(

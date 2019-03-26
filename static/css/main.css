@@ -24,8 +24,13 @@
 		display: block;
 	}
 
+    html {
+        height: 100%;
+    }
+
 	body {
 		line-height: 1;
+		height: 100%;
 	}
 
 	ol, ul {
@@ -165,7 +170,7 @@
 
 	}
 
-	@media screen and (max-width: 840px) {
+	@media screen and (max-width: 860px) {
 
 		.container.\31 25\25 {
 			width: 100%;
@@ -1144,9 +1149,18 @@
 			margin-left: 8.33333%;
 		}
 
+		/* Menu */
+		#cdcs-menu-title a {
+          margin-left: 0em !important;
+        }
+
+        #nav > ul {
+            padding-right: 0.5em !important;  /* Added by NIST */
+		}
+
 	}
 
-	@media screen and (max-width: 840px) {
+	@media screen and (max-width: 860px) {
 
 		.row > * {
 			padding: 30px 0 0 30px;
@@ -1828,7 +1842,7 @@
 		a:hover {
 			color: #37c0fb;
 			border-bottom-color: transparent;
-                        text-decoration:unset;
+            text-decoration:unset;
 		}
 
 	strong, b {
@@ -2334,39 +2348,6 @@
 
 /* Header */
 
-	#header {
-		text-align: center;
-		padding-bottom: 2em;
-		background-color: #ccc;
-		background-image: url("../img/graphy.png");
-		background-position: top left;
-		background-size: 3em 6em;
-		background-repeat: repeat;
-	}
-
-			#header header {
-				text-align: center;
-				/*margin: 0 0 2em 0;*/
-				padding-left: 2em;
-				padding-right: 2em;
-			}
-
-				#header header h1 {
-					font-size: 2.25em;
-					margin-bottom: 0.5em;
-				}
-
-				#header header p {
-                    position: relative;
-                    border-top: solid 1px #858585;
-                    padding: 0.5em 0;
-                    margin: 0;
-                    top: -0.5em;
-
-					font-size: 1.5em;
-					color: #474747;
-				}
-
 	#nav {
 		cursor: default;
 		background-color: #925520;
@@ -2625,7 +2606,7 @@
 				padding: 2em 0 0 0;
 			}*/
 
-				#header h1 {
+				#nav h1 {
 					padding: 0 0 1.75em 0;
 				}
 
@@ -2650,7 +2631,7 @@
 		/* Footer */
 
 			#footer {
-				padding: 3em 0 3em 0;
+				padding: 0.5em 0 0.5em 0;
 			}
 
 				#footer .container {
@@ -2678,7 +2659,7 @@
 		display: none;
 	}
 
-	@media screen and (max-width: 840px) {
+	@media screen and (max-width: 860px) {
 
 		/* Basic */
 
@@ -2737,7 +2718,7 @@
 
 		/* Header */
 
-			#header {
+			#nav {
 				display: none;
 			}
 
@@ -2810,15 +2791,11 @@
 				top: 0;
 				width: 100%;
 				z-index: 10001;
-				background-color: #333;
-				background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("../img/bg01.png");
-				background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("../img/bg01.png");
-				background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("../img/bg01.png");
-				background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("../img/bg01.png");
 				height: 44px;
+				background-color: #925520;
 				line-height: 44px;
-				/*box-shadow: 0 4px 0 0 #37c0fb;*/
-				box-shadow: 0 4px 0 0 rgb(190,120,40);
+				webkit-box-shadow: 0 2px 10px 1px #6E6E6E;
+                box-shadow: 0 2px 10px 1px #6E6E6E;
 			}
 
 				#titleBar .title {
@@ -2862,7 +2839,6 @@
 						text-align: center;
 						width: 44px;
 						color: #fff;
-						opacity: 0.5;
 					}
 
 					/*#titleBar .toggle:active:before {
@@ -2901,7 +2877,7 @@
 				#navPanel .link {
 					border-bottom: 0;
 					border-top: solid 1px rgba(255, 255, 255, 0.05);
-					color: #888;
+					color: #cecece;
 					display: block;
 					height: 48px;
 					line-height: 48px;
@@ -3108,9 +3084,15 @@
 		/* Footer */
 
 			#footer {
-				padding: 2em 20px;
+				padding: 1em 5px;
 				text-align: left;
 			}
+
+			#footer div {
+                margin: 0 0em 0 0em;
+                margin-top: 0em;
+                width: 49%;
+            }
 
 	}
 /* Bootstrap overide */

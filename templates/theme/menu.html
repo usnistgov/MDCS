@@ -37,9 +37,8 @@
             </a>
             <ul>
                 {% generate_menu %}
-
                 {% for item in menus.composer %}
-                    <li><a href="{{ item.url }}">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
+                    {% if not item.require_authentication or user.is_authenticated %}<li><a href="{{ item.url }}">{% if item.icon %}<i class="fa fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>{% endif %}
                 {% endfor %}
             </ul>
         </li>

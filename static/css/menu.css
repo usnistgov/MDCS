@@ -1,4 +1,9 @@
 #nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    margin-top: 0;
+    z-index: 500;
     font-size: 0.80em;
 }
 

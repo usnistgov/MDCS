@@ -44,9 +44,7 @@
 {% block body %}
     <div id="page-wrapper">
         {# Page header #}
-        <div id="header">
-            {% include 'theme/menu.html' %}
-        </div>
+        {% include 'theme/menu.html' %}
 
         <div id="content" class="container-fluid">
             {% block app_data %}{% endblock %}

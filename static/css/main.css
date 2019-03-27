@@ -2443,7 +2443,7 @@
 		border-radius: 5px;
 		color: #000;
 		min-width: 10em;
-		padding: 1em 0;
+		/*padding: 1em 0;*/
 		/*text-align: center;*/
 		/*box-shadow: 0 1em 1em 0 rgba(0, 0, 0, 0.5);*/
 		box-shadow: 0 6px 12px rgba(0,0,0,.175)

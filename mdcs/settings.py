@@ -68,6 +68,7 @@ INSTALLED_APPS = (
     "core_explore_keyword_app",
     "core_dashboard_app",
     "core_dashboard_common_app",
+    "core_file_preview_app",
 
     # modules
     "core_module_blob_host_app",

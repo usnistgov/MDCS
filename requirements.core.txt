@@ -15,3 +15,4 @@ core_module_excel_uploader_app==1.2.0
 core_module_periodic_table_app==1.2.0
 core_module_chemical_composition_app==1.2.0
 core_module_text_area_app==1.2.0
+core_file_preview_app==1.0.0

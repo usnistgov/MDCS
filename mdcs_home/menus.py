@@ -33,7 +33,7 @@
 from django.core.urlresolvers import reverse
 from menu import Menu, MenuItem
 
-from core_main_app.utils.labels import get_form_label
+from core_main_app.utils.labels import get_form_label, get_data_label
 from mdcs.settings import CURATE_MENU_NAME
 
 Menu.add_item(
@@ -69,7 +69,8 @@ Menu.add_item(
 )
 
 Menu.add_item(
-    "dashboard", MenuItem("My Records", reverse('core_dashboard_records'), icon="file-text-o")
+    "dashboard", MenuItem("My {0}s".format(get_data_label().title()), reverse('core_dashboard_records'),
+                          icon="file-text-o")
 )
 
 Menu.add_item(

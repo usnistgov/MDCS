@@ -1940,10 +1940,6 @@
 			letter-spacing: -0.025em;
 		}
 
-	footer {
-		margin: 0 0 3em 0;
-	}
-
 		footer > :last-child {
 			margin-bottom: 0;
 		}
@@ -2725,7 +2721,7 @@
 		/* Header */
 
 			#nav {
-				display: none;
+				display: none !important;
 			}
 
 		/* Banner */
@@ -2790,11 +2786,9 @@
 				-webkit-transition: -webkit-transform 0.5s ease;
 				-ms-transition: -ms-transform 0.5s ease;
 				transition: transform 0.5s ease;
+				position: relative;
 				display: block;
 				height: 44px;
-				left: 0;
-				position: fixed;
-				top: 0;
 				width: 100%;
 				z-index: 10001;
 				height: 44px;

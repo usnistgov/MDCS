@@ -56,8 +56,7 @@
                 '<a href="#navPanel" class="toggle"></a>' +
                 '<span class="title">' + $('#cdcs-menu-title a').html() + '</span>' +
             '</div>'
-        )
-            .appendTo($body);
+        ).prependTo('#page-wrapper');
 
         // Navigation Panel.
         $(

@@ -9,6 +9,7 @@
 
 #page-wrapper {
     height: inherit;
+    display: inline;
 }
 
 .textarea_lock_h {

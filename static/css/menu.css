@@ -1,10 +1,10 @@
 #nav {
     width: 100%;
-    position: fixed;
-    top: 0;
     margin-top: 0;
+    display: inline-block;
     z-index: 500;
     font-size: 0.80em;
+    width: 100%;
 }
 
 li.divider {

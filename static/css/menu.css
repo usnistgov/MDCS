@@ -1,6 +1,8 @@
 #nav {
     width: 100%;
     margin-top: 0;
+    position: sticky;
+    top:0;
     display: inline-block;
     z-index: 500;
     font-size: 0.80em;
@@ -51,5 +53,3 @@ li.divider {
     opacity: 0.4;
     filter: alpha(opacity=40); /* msie */
 }
-
-

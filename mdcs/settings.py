@@ -200,7 +200,7 @@ LOGGING = {
             'formatter': 'fmt-default',
         },
         'console': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'class': 'logging.StreamHandler',
             'formatter': 'fmt-default'
         },

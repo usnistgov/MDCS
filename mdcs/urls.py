@@ -37,6 +37,7 @@ urlpatterns = [
     url(r'^dashboard/', include("core_dashboard_app.urls")),
     url(r'^oai_pmh/', include("core_oaipmh_harvester_app.urls")),
     url(r'^oai_pmh/server/', include("core_oaipmh_provider_app.urls")),
+    url(r'^file-preview/', include("core_file_preview_app.urls")),
     url(r'^', include('core_module_blob_host_app.urls')),
     url(r'^', include('core_module_excel_uploader_app.urls')),
     url(r'^', include('core_module_periodic_table_app.urls')),

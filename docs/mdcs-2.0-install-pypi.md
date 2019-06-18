@@ -221,7 +221,6 @@ $$ pip install --no-cache-dir -r requirements.core.txt
 ```
 
 #### Start MongoDB server.
-
 ```
 $$ mongod --config conf\mongodb.conf
 ```
@@ -503,3 +502,46 @@ $$ python manage.py runserver 127.0.0.1:8000
 * Example: login with:
 	* username: mgi_superuser
 	* password: mgi_superuser_pwd
+
+## Note: Migration from a 3.4.x to 4.0.x mongoDB server
+
+This migration is only for existing and populated database. It allows to perform a migration of of a standalone MongoDB server without losing data.
+
+1. Turn off the mongo daemon and install the 3.6.x binaries.
+2. Turn on the 3.6.x version of the newly installed mongo daemon.
+3. MongoDB is now running on a 3.6.x server with a 3.4.x data storage. The feature compatibility version need to be setup on the new MongoDB server engine. This modification will perform several operations on the data storage to match with the MongoDB server engine. First, a custom role to grant the permission to the admin user has to be created. Start a connection to the running 3.6.x deamon:
+    ```
+    mongo --host <mongo_url> --port <port> -u <admin_login> -p <admin_pwd> --authenticationDatabase admin)
+    ```
+
+    Create the new role named fcv:
+
+    ```
+    use admin
+    db.getSiblingDB("admin").createRole({role: "fcvRole",privileges: [{ resource: { db: "$setFeatureCompatibilityVersion", collection: "version"}, actions: ["update"]},{ resource:{cluster: true}, actions: [ "getParameter"]}],roles: []});
+    ```
+
+4. Grant the new fcv role to the admin user
+    ```
+    db.grantRolesToUser('<admin_login>', [{ role: 'fcvRole', db: 'admin' }])
+    ```
+5. Then set the feature compatibility version to 3.6
+    ```
+    db.adminCommand( { setFeatureCompatibilityVersion: "3.6" } )
+    ```
+6. Restart the MongoDB server
+
+MongoDB is now running on a 3.6.x server with the correct data storage. The migration from this 3.6.x to the latest MongoDB server version 4.0.x can now be performed.
+
+1. Turn off the mongo daemon and install the 4.0.x binaries
+2. Turn on the 4.0.x version of your mongo daemon
+3. MongoDB is now running on a 4.0.x server with a 3.6.x data storage. The feature compatibility version to the new MongoDB server engine need to be set. In this new version of MongoDB engine the fcv role we created previously is not enough to execute the  feature compatibility version command, so a new privilege to the admin user need to be granted. Start a connection to the new MongoDB server similar to the previous step (3.) and then grant the clusterAdmin role to the admin user:
+    ```
+    use admin
+    db.grantRolesToUser('<admin_login>', [{ role: 'clusterAdmin', db: 'admin' }])"
+    ```
+5. Then set the feature compatibility version to 4.0
+    ```
+    db.adminCommand( { setFeatureCompatibilityVersion: "4.0" } )'
+    ```
+6. Restart to MongoDB server. The migration is completed.

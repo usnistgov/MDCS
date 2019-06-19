@@ -1,7 +1,8 @@
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.shortcuts import render
+
 from core_main_app.components.template_version_manager.api import get_global_version_managers
-from django.conf import settings
 
 
 def template_list(request):

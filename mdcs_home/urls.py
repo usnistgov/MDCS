@@ -1,6 +1,7 @@
 """mdcs URL Configuration
 """
 from django.conf.urls import url
+
 from mdcs_home import views
 
 urlpatterns = [

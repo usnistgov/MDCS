@@ -10,10 +10,11 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 import os
 
 from mongoengine.connection import connect
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-from core_main_app.utils.logger.logger_utils import set_generic_handler, set_generic_logger,\
+from core_main_app.utils.logger.logger_utils import set_generic_handler, set_generic_logger, \
     update_logger_with_local_app
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/

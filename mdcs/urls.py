@@ -17,7 +17,6 @@ from django.contrib import admin
 
 from core_parser_app.tools.modules.discover import discover_modules
 
-
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),

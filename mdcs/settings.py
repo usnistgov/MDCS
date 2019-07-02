@@ -177,7 +177,7 @@ LOGGER_FILE_SECURITY = os.path.join(BASE_DIR, "logfile_security.txt")
 LOGGER_FILE_APP = os.path.join(BASE_DIR, "logfile_app.txt")
 
 LOGGER_LEVEL = os.getenv('DJANGO_LOG_LEVEL', 'DEBUG')
-LOGGER_CLIENT_LEVEL = os.getenv('DJANGO_LOG_LEVEL', 'DEBUG')
+LOGGER_CLIENT_LEVEL = os.getenv('DJANGO_LOG_LEVEL', 'INFO')
 LOGGER_SERVER_LEVEL = os.getenv('DJANGO_LOG_LEVEL', 'DEBUG')
 LOGGER_DB_LEVEL = os.getenv('DJANGO_LOG_LEVEL', 'DEBUG')
 LOGGER_APP_LEVEL = os.getenv('DJANGO_LOG_LEVEL', 'DEBUG')
@@ -195,7 +195,7 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'fmt-default': {
-            'format': "%(asctime)s\t%(name)s\t%(pathname)s\tl.%(lineno)s\t%(message)s",
+            'format': "%(levelname)s: %(asctime)s\t%(name)s\t%(pathname)s\tl.%(lineno)s\t%(message)s",
             'datefmt': "%Y-%m-%d %H:%M:%S"
         },
     },

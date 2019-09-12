@@ -110,7 +110,7 @@
 
 ###	1. Install supporting applications on your host system.
 
-* Python 2.7: https://www.continuum.io/downloads (choose python 2)
+* Python 3.6.8: https://www.anaconda.com/distribution/ (choose python 3.x)
 * MongoDB 3.4.1: https://www.mongodb.com/download-center#community
 * Redis 5.0: https://redis.io/download
 * Celery    : NOTE: This is installed below via `pip install`.

@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     "rest_framework_mongoengine",
     "menu",
     "tz_detect",
+    "defender",
 
     # Core apps
     "core_main_app",
@@ -92,6 +93,7 @@ MIDDLEWARE = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    'defender.middleware.FailedLoginMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -390,4 +392,24 @@ SSL_CERTIFICATES_DIR = 'certs'
 
 XSD_URI_RESOLVER = 'REQUESTS_RESOLVER'
 """ :py:class:`str`: XSD URI Resolver for lxml validation. Choose from:  None, 'REQUESTS_RESOLVER'.
+"""
+
+# Configure Django Defender
+DEFENDER_REDIS_URL = REDIS_URL
+""" :py:class:`str`: The Redis url for defender. 
+"""
+DEFENDER_COOLOFF_TIME = 60
+""" integer: Period of inactivity after which old failed login attempts will be forgotten
+"""
+DEFENDER_LOGIN_FAILURE_LIMIT = 3
+""" integer: The number of login attempts allowed before a record is created for the failed login.
+"""
+DEFENDER_STORE_ACCESS_ATTEMPTS = True
+""" boolean: Store the login attempt to the database.
+"""
+DEFENDER_USE_CELERY = True
+""" boolean: Use Celery to store the login attempt to the database.
+"""
+DEFENDER_LOCKOUT_URL = "/locked"
+""" string: url to the defender error page (defined in core_main_app)
 """

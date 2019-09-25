@@ -282,17 +282,7 @@ CELERY_RESULT_BACKEND = REDIS_URL
 # core_website_app settings
 SERVER_URI = "http://localhost:8000"
 
-# Password Policy
-# Determines wether to use the password history.
-PASSWORD_USE_HISTORY = False
-# A list of raw strings representing paths to ignore while checking if a user has to change his/her password.
-PASSWORD_CHANGE_MIDDLEWARE_EXCLUDED_PATHS = []
-# Specifies the number of user's previous passwords to remember when the password history is being used.
-# PASSWORD_HISTORY_COUNT = 1
-# Determines after how many seconds a user is forced to change his/her password.
-# PASSWORD_DURATION_SECONDS = 24 * 90 * 3600
-# Don't log the person out in the middle of a session. Only do the checks at login time.
-PASSWORD_CHECK_ONLY_AT_LOGIN = True
+# Password settings for django.contrib.auth validators
 # Specifies the minimum length for passwords.
 PASSWORD_MIN_LENGTH = 5
 # Specifies the minimum amount of required letters in a password.
@@ -305,19 +295,8 @@ PASSWORD_MIN_LOWERCASE_LETTERS = 0
 PASSWORD_MIN_NUMBERS = 0
 # Specifies the minimum amount of required symbols in a password.
 PASSWORD_MIN_SYMBOLS = 0
-# Specifies a list of common sequences to attempt to match a password against.
-# PASSWORD_COMMON_SEQUENCES = [u'0123456789', u'`1234567890-=', u'~!@#$%^&*()_+', u'abcdefghijklmnopqrstuvwxyz',
-#                             u"quertyuiop[]\\asdfghjkl;'zxcvbnm,./", u'quertyuiop{}|asdfghjkl;"zxcvbnm<>?',
-#                             u'quertyuiopasdfghjklzxcvbnm', u"1qaz2wsx3edc4rfv5tgb6yhn7ujm8ik,9ol.0p;/-['=]\\",
-#                             u'qazwsxedcrfvtgbyhnujmikolp']
-PASSWORD_COMMON_SEQUENCES = []
-# A minimum distance of the difference between old and new password. A positive integer.
-# Values greater than 1 are recommended.
-PASSWORD_DIFFERENCE_DISTANCE = 0
 # Specifies the maximum amount of consecutive characters allowed in passwords.
-PASSWORD_MAX_CONSECUTIVE = 10
-# A list of project specific words to check a password against.
-PASSWORD_WORDS = []
+PASSWORD_MAX_OCCURRENCE = None
 
 # ===============================================
 # Website configuration

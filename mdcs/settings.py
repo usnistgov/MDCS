@@ -44,7 +44,6 @@ INSTALLED_APPS = (
     'oauth2_provider',
 
     # Extra apps
-    "password_policies",
     "rest_framework",
     "rest_framework_swagger",
     "rest_framework_mongoengine",
@@ -98,7 +97,6 @@ MIDDLEWARE = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'tz_detect.middleware.TimezoneMiddleware',
-    # 'password_policies.middleware.PasswordChangeMiddleware',
 )
 
 ROOT_URLCONF = 'mdcs.urls'

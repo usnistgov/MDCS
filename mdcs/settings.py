@@ -384,8 +384,9 @@ EXPLORE_ADD_DEFAULT_LOCAL_DATA_SOURCE_TO_QUERY = True
 """ boolean: Do we add the local data source to new queries by default
 """
 
-SSL_CERTIFICATES_DIR = 'certs'
-""" :py:class:`str`: SSL certificates directory location.
+SSL_CERTIFICATES_DIR = True
+""" Either a boolean, in which case it controls whether requests verify the server's TLS certificate, 
+or a string, in which case it must be a path to a CA bundle to use.
 """
 
 XSD_URI_RESOLVER = 'REQUESTS_RESOLVER'

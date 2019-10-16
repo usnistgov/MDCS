@@ -45,7 +45,7 @@ INSTALLED_APPS = (
 
     # Extra apps
     "rest_framework",
-    "rest_framework_swagger",
+    "drf_yasg",
     "rest_framework_mongoengine",
     "menu",
     "tz_detect",

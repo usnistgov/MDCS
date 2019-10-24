@@ -30,7 +30,7 @@
     * Help
 """
 
-from django.urls import reverse
+from django.core.urlresolvers import reverse
 from menu import Menu, MenuItem
 
 from core_main_app.utils.labels import get_form_label, get_data_label

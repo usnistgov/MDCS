@@ -39,8 +39,11 @@ urlpatterns = [
     url(r'^oai_pmh/server/', include("core_oaipmh_provider_app.urls")),
     url(r'^file-preview/', include("core_file_preview_app.urls")),
     url(r'^', include('core_module_blob_host_app.urls')),
+    url(r'^', include('core_module_remote_blob_host_app.urls')),
+    url(r'^', include('core_module_advanced_blob_host_app.urls')),
     url(r'^', include('core_module_excel_uploader_app.urls')),
     url(r'^', include('core_module_periodic_table_app.urls')),
+    url(r'^', include('core_module_chemical_composition_simple_app.urls')),
     url(r'^', include('core_module_chemical_composition_app.urls')),
     url(r'^', include('core_module_text_area_app.urls')),
 ]

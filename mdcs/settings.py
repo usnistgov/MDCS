@@ -76,9 +76,12 @@ INSTALLED_APPS = (
 
     # modules
     "core_module_blob_host_app",
+    "core_module_remote_blob_host_app",
+    "core_module_advanced_blob_host_app",
     "core_module_excel_uploader_app",
     "core_module_periodic_table_app",
     "core_module_chemical_composition_app",
+    "core_module_chemical_composition_simple_app",
     "core_module_text_area_app",
 
     # Local apps

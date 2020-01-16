@@ -1986,11 +1986,6 @@
 		line-height: 1em;
 	}
 
-	input[disabled] {
-        background-color: #efefef;
-        opacity: 0.8;
-    }
-
 	label {
 		display: block;
 		color: inherit;

@@ -74,6 +74,7 @@ INSTALLED_APPS = (
     "core_dashboard_app",
     "core_dashboard_common_app",
     "core_file_preview_app",
+    "core_linked_records_app",
     # modules
     "core_module_blob_host_app",
     "core_module_remote_blob_host_app",
@@ -472,4 +473,22 @@ DISPLAY_HELP_FOOTER = False
 """
 DISPLAY_RULES_OF_BEHAVIOR_FOOTER = False
 """ boolean: display the rules of behavior link in the footer
+"""
+
+ID_PROVIDER_SYSTEMS = {
+    "local": {
+        "class": "core_linked_records_app.utils.providers.local.LocalIdProvider",
+        "args": [SERVER_URI],
+    },
+}
+""" dict: all the provider system available for registring PIDs
+"""
+
+ID_PROVIDER_PREFIXES = ["cdcs"]
+""" list<str>: accepted providers if manually specifying PIDs (first item is the
+default prefix)
+"""
+
+PID_XPATH = "root.pid"
+""" string: location of the PID in the document, specified as dot notation
 """

@@ -400,3 +400,6 @@ DISPLAY_EDIT_BUTTON = True
 DATA_SORTING_FIELDS = ['-last_modification_date']
 """ ::py:class:`str` Default sort fields for the data query. 
 """
+DISPLAY_LAST_MODIFICATION_DATE = True
+""" boolean: Display the last modification date.
+"""

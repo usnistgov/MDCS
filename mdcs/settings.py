@@ -394,3 +394,5 @@ DEFENDER_USE_CELERY = True
 DEFENDER_LOCKOUT_URL = "/locked"
 """ string: url to the defender error page (defined in core_main_app)
 """
+"""Display the edit button on the result page"""
+DISPLAY_EDIT_BUTTON = True

@@ -400,6 +400,17 @@ DISPLAY_EDIT_BUTTON = True
 DATA_SORTING_FIELDS = ['-last_modification_date']
 """ Array<string>: Default sort fields for the data query. 
 """
+DATA_DISPLAYED_SORTING_FIELDS = [
+    {'field': 'last_modification_date', 'display': 'Last updated', 'ordering': '-last_modification_date'},
+    {'field': 'last_modification_date', 'display': 'First updated', 'ordering': '+last_modification_date'},
+    {'field': 'title', 'display': 'Titles (A-Z)', 'ordering': '+title'},
+    {'field': 'title', 'display': 'Titles (Z-A)', 'ordering': '-title'},
+    {'field': 'template', 'display': 'Templates', 'ordering': '+template'}
+]
+"""The default sorting fields displayed on the GUI, Data model field Array"""
+SORTING_DISPLAY_TYPE = 'single'
+"""Result sorting graphical display type ('multi' / 'single')"""
 DEFAULT_DATE_TOGGLE_VALUE = True
 """ boolean: Set the toggle default value in the records list
 """
+

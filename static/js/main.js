@@ -29,9 +29,11 @@
 			$body = $('body');
 
 		// Disable animations/transitions until the page has loaded.
-        setTimeout($window.on('load', function() {
-            $body.removeClass('is-loading');
-        }));
+        setTimeout(function(){
+            $(document).ready( function() {
+                $body.removeClass('is-loading');
+            });
+        });
 
         $body.addClass('is-loading');
 		// Fix: Placeholder polyfill.

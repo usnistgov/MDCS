@@ -38,3 +38,12 @@ a {
 .sticky + #content {
     margin-top: 55px;
 }
+
+#footer #footer-right {
+    float: right;
+    text-align: right;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}

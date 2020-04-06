@@ -1,4 +1,17 @@
+/* Bootstrap overide */
+.btn.btn-primary {
+    background-color: #0059b9 !important;
+    border-color: #545454
+}
+
+.btn.btn-secondary {
+background-color: #f9f9f9 !important;
+    border-color: #949494 !important;
+    color: black !important;
+}
+
 #content {
+    width: calc(100% - 3em);
     min-height: calc(100% - 151px);
     background-color: #fff;
     margin: 0 1.5em;

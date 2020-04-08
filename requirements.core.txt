@@ -3,11 +3,12 @@ core_composer_app==1.8.0
 core_curate_app==1.8.0
 core_dashboard_common_app==1.8.0
 core_dashboard_app==1.8.0
+core_explore_common_app==1.8.1
 core_explore_example_app==1.8.0
 core_explore_keyword_app==1.8.0
 core_explore_federated_search_app==1.8.0
 core_explore_oaipmh_app==1.8.0
-core_exporters_app==1.8.0
+core_exporters_app==1.8.1
 core_federated_search_app==1.8.0
 core_oaipmh_provider_app==1.8.0
 core_website_app==1.8.0

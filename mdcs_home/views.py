@@ -66,7 +66,7 @@ def tiles(request):
 
     if "core_composer_app" in installed_apps:
         compose_tile = {
-            "logo": "fa-file-code-o",
+            "logo": "fa-file-code",
             "link": reverse("core_composer_index"),
             "title": "Compose a template",
             "text": "Click here to compose your own template."

@@ -70,11 +70,11 @@ Menu.add_item(
 
 Menu.add_item(
     "dashboard", MenuItem("My {0}s".format(get_data_label().title()), reverse('core_dashboard_records'),
-                          icon="file-text-o")
+                          icon="file-alt")
 )
 
 Menu.add_item(
-    "dashboard", MenuItem("My {0}s".format(get_form_label().title()), reverse('core_dashboard_forms'), icon="file-text-o")
+    "dashboard", MenuItem("My {0}s".format(get_form_label().title()), reverse('core_dashboard_forms'), icon="file-alt")
 )
 
 Menu.add_item(

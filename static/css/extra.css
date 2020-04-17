@@ -1,13 +1,13 @@
 /* Bootstrap overide */
 .btn.btn-primary {
-    background-color: #0059b9 !important;
-    border-color: #545454
+    background-color: #007ac1 !important;
+    border-color: #565656;
 }
 
 .btn.btn-secondary {
-background-color: #f9f9f9 !important;
-    border-color: #949494 !important;
-    color: black !important;
+    background-color: #f9f9f9 !important;
+    border-color: #d4d4d4 !important;
+    color: #313131 !important;
 }
 
 #content {
@@ -33,7 +33,11 @@ background-color: #f9f9f9 !important;
     color: #a94442;
 }
 
-/*Bootstrap overide*/
+.page-item.active .page-link {
+    background-color: #007ac1 !important;
+    border-color: #565656;
+}
+
 .badge {
     background-color: #505050
 }
@@ -50,6 +54,10 @@ a {
 
 .sticky + #content {
     margin-top: 55px;
+}
+
+.modal-footer {
+  justify-content: space-between !important;
 }
 
 #footer #footer-right {

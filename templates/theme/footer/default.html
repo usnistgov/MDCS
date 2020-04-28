@@ -2,13 +2,27 @@
 {% load menu %}
 
 <div id="footer">
-        <div>
+
+
+    <div class="d-flex">
+        <div class="mr-auto">
             CDCS Version {% include "theme/footer/version.html" %}
         </div>
-        <div id="footer-right">
-            <a class="small" href="{% url "core_website_app_terms" %}">Terms of Use</a> |
-            Powered by:
-            <img src="{% static 'img/cdcs_logo.png' %}" alt="cdcs-logo" class="cdcs-logo"/>
-            <a href="https://github.com/usnistgov/mdcs">CDCS</a>
+        <div id="footer-right" class="d-flex">
+            {% block footer_menu %}
+                {% generate_menu %}
+                <ul class="menu">
+                    {% for item in menus.footer %}
+                        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endblock %}
+            <span>
+                Powered by:
+                <img src="{% static 'img/cdcs_logo.png' %}" alt="cdcs-logo" class="cdcs-logo"/>
+                <a href="https://github.com/usnistgov/mdcs">CDCS</a>
+            </span>
         </div>
+    </div>
+
 </div>

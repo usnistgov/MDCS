@@ -59,12 +59,3 @@ a {
 .modal-footer {
   justify-content: space-between !important;
 }
-
-#footer #footer-right {
-    float: right;
-    text-align: right;
-}
-
-#footer a:hover {
-    text-decoration: underline;
-}

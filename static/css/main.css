@@ -2537,7 +2537,6 @@
 /* Footer */
 
 	#footer {
-	    display: inline-flex;
 		color: white;
 		height: 3em;
         background-color: #925520;
@@ -2551,11 +2550,24 @@
 	}
 
 	#footer div {
-	    margin: 0 2em 0 2em;
-	    margin-top: 0.5em;
-	    width: 49%;
-	    text-align: left;
+	    margin: 0 1.2em 0 1.2em;
+	    margin-top: 0.7em;
 	}
+
+    #footer a:hover {
+        text-decoration: underline;
+    }
+
+    #footer-right li:last-child {
+        border-right: solid 1px #e0e0e0;
+        margin-right: 1em;
+        padding-right: 1em;
+    }
+
+    #footer-right ul {
+        margin: 0;
+        padding: 0;
+    }
 
 /* Wide */
 

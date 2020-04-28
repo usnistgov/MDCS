@@ -413,4 +413,19 @@ SORTING_DISPLAY_TYPE = 'single'
 DEFAULT_DATE_TOGGLE_VALUE = True
 """ boolean: Set the toggle default value in the records list
 """
+DISPLAY_PRIVACY_POLICY_FOOTER = False
+""" boolean: display the privacy policy link in the footer
+"""
+DISPLAY_TERMS_OF_USE_FOOTER = True
+""" boolean: display the terms of use link in the footer
+"""
+DISPLAY_CONTACT_FOOTER = False
+""" boolean: display the contact link in the footer
+"""
+DISPLAY_HELP_FOOTER = False
+""" boolean: display the help link in the footer
+"""
+DISPLAY_RULES_OF_BEHAVIOR_FOOTER = False
+""" boolean: display the rules of behavior link in the footer
+"""
 

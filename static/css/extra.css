@@ -4,10 +4,18 @@
     border-color: #565656;
 }
 
+.btn.btn-primary:hover {
+    background-color: #005f96 !important;
+}
+
 .btn.btn-secondary {
     background-color: #f9f9f9 !important;
     border-color: #d4d4d4 !important;
     color: #313131 !important;
+}
+
+.btn.btn-secondary:hover {
+    background-color: #e2e2e2 !important;
 }
 
 #content {

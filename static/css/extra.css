@@ -67,3 +67,8 @@ a {
 .modal-footer {
   justify-content: space-between !important;
 }
+
+.errorlist {
+    color: red;
+    margin-bottom: .1em;
+}

@@ -1,22 +1,12 @@
 {% load staticfiles %}
-{% load menu %}
 
 <div id="footer">
-
-
     <div class="d-flex">
         <div class="mr-auto">
             CDCS Version {% include "theme/footer/version.html" %}
         </div>
         <div id="footer-right" class="d-flex">
-            {% block footer_menu %}
-                {% generate_menu %}
-                <ul class="menu">
-                    {% for item in menus.footer %}
-                        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
-                    {% endfor %}
-                </ul>
-            {% endblock %}
+            {% include 'core_website_app/user/footer_menu.html' %}
             <span>
                 Powered by:
                 <img src="{% static 'img/cdcs_logo.png' %}" alt="cdcs-logo" class="cdcs-logo"/>

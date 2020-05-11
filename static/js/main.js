@@ -54,7 +54,7 @@
         // Title Bar.
         $(
             '<div id="titleBar">' +
-                '<a href="#navPanel" class="toggle"></a>' +
+                '<a href="#navPanel" class="toggle"><i class="fas fa-bars ml-2"></i></a>' +
                 '<span class="title">' + $('#cdcs-menu-title a').html() + '</span>' +
             '</div>'
         ).prependTo('#page-wrapper');

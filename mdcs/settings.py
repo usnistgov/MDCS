@@ -11,8 +11,11 @@ import os
 
 from mongoengine.connection import connect
 
-from core_main_app.utils.logger.logger_utils import set_generic_handler, set_generic_logger, \
-    update_logger_with_local_app
+from core_main_app.utils.logger.logger_utils import (
+    set_generic_handler,
+    set_generic_logger,
+    update_logger_with_local_app,
+)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '<secret_key>'
+SECRET_KEY = "<secret_key>"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -29,20 +32,19 @@ ALLOWED_HOSTS = []
 
 MENU_SELECT_PARENTS = False
 
-CURATE_MENU_NAME = 'Data Curation'
+CURATE_MENU_NAME = "Data Curation"
 
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.sites',
-    'django.contrib.staticfiles',
-    'oauth2_provider',
-
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.sites",
+    "django.contrib.staticfiles",
+    "oauth2_provider",
     # Extra apps
     "rest_framework",
     "drf_yasg",
@@ -50,7 +52,6 @@ INSTALLED_APPS = (
     "menu",
     "tz_detect",
     "defender",
-
     # Core apps
     "core_main_app",
     "core_exporters_app",
@@ -73,7 +74,6 @@ INSTALLED_APPS = (
     "core_dashboard_app",
     "core_dashboard_common_app",
     "core_file_preview_app",
-
     # modules
     "core_module_blob_host_app",
     "core_module_remote_blob_host_app",
@@ -83,40 +83,37 @@ INSTALLED_APPS = (
     "core_module_chemical_composition_app",
     "core_module_chemical_composition_simple_app",
     "core_module_text_area_app",
-
     # Local apps
-    "mdcs_home"
+    "mdcs_home",
 )
 
 MIDDLEWARE = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
     # 'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
-    'defender.middleware.FailedLoginMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    'tz_detect.middleware.TimezoneMiddleware',
+    "defender.middleware.FailedLoginMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "tz_detect.middleware.TimezoneMiddleware",
 )
 
-ROOT_URLCONF = 'mdcs.urls'
+ROOT_URLCONF = "mdcs.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            'templates'
-        ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": ["templates"],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
                 "core_main_app.utils.custom_context_processors.domain_context_processor",  # Needed by any curator app
                 "django.template.context_processors.i18n",
             ],
@@ -124,24 +121,24 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'mdcs.wsgi.application'
+WSGI_APPLICATION = "mdcs.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -149,24 +146,20 @@ USE_L10N = True
 
 USE_TZ = True
 
-LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale'),
-)
+LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = 'static.prod'
+STATIC_URL = "/static/"
+STATIC_ROOT = "static.prod"
 
 STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'django.contrib.staticfiles.finders.FileSystemFinder',
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "django.contrib.staticfiles.finders.FileSystemFinder",
 )
 
-STATICFILES_DIRS = (
-    'static',
-)
+STATICFILES_DIRS = ("static",)
 
 # Logging
 LOGGING_SERVER = True
@@ -179,57 +172,57 @@ LOGGER_FILE_DB = os.path.join(BASE_DIR, "logfile_db.txt")
 LOGGER_FILE_SECURITY = os.path.join(BASE_DIR, "logfile_security.txt")
 LOGGER_FILE_APP = os.path.join(BASE_DIR, "logfile_app.txt")
 
-LOGGER_LEVEL = os.getenv('DJANGO_LOG_LEVEL', 'DEBUG')
-LOGGER_CLIENT_LEVEL = os.getenv('DJANGO_LOG_LEVEL', 'INFO')
-LOGGER_SERVER_LEVEL = os.getenv('DJANGO_LOG_LEVEL', 'DEBUG')
-LOGGER_DB_LEVEL = os.getenv('DJANGO_LOG_LEVEL', 'DEBUG')
-LOGGER_APP_LEVEL = os.getenv('DJANGO_LOG_LEVEL', 'DEBUG')
+LOGGER_LEVEL = os.getenv("DJANGO_LOG_LEVEL", "DEBUG")
+LOGGER_CLIENT_LEVEL = os.getenv("DJANGO_LOG_LEVEL", "INFO")
+LOGGER_SERVER_LEVEL = os.getenv("DJANGO_LOG_LEVEL", "DEBUG")
+LOGGER_DB_LEVEL = os.getenv("DJANGO_LOG_LEVEL", "DEBUG")
+LOGGER_APP_LEVEL = os.getenv("DJANGO_LOG_LEVEL", "DEBUG")
 
 LOGGER_MAX_BYTES = 500000
 LOGGER_BACKUP_COUNT = 2
 
 local_logger_conf = {
-    'handlers': ['app_handler', 'console'],
-    'level': LOGGER_APP_LEVEL,
+    "handlers": ["app_handler", "console"],
+    "level": LOGGER_APP_LEVEL,
 }
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'fmt-default': {
-            'format': "%(levelname)s: %(asctime)s\t%(name)s\t%(pathname)s\tl.%(lineno)s\t%(message)s",
-            'datefmt': "%Y-%m-%d %H:%M:%S"
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "fmt-default": {
+            "format": "%(levelname)s: %(asctime)s\t%(name)s\t%(pathname)s\tl.%(lineno)s\t%(message)s",
+            "datefmt": "%Y-%m-%d %H:%M:%S",
         },
     },
-    'handlers': {
-        'logfile-security': {
-            'level': 'DEBUG',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': LOGGER_FILE_SECURITY,
-            'maxBytes': LOGGER_MAX_BYTES,
-            'backupCount': LOGGER_BACKUP_COUNT,
-            'formatter': 'fmt-default',
+    "handlers": {
+        "logfile-security": {
+            "level": "DEBUG",
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": LOGGER_FILE_SECURITY,
+            "maxBytes": LOGGER_MAX_BYTES,
+            "backupCount": LOGGER_BACKUP_COUNT,
+            "formatter": "fmt-default",
         },
-        'console': {
-            'level': 'INFO',
-            'class': 'logging.StreamHandler',
-            'formatter': 'fmt-default'
+        "console": {
+            "level": "INFO",
+            "class": "logging.StreamHandler",
+            "formatter": "fmt-default",
         },
-        'app_handler': {
-            'level': LOGGER_APP_LEVEL,
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': LOGGER_FILE_APP,
-            'maxBytes': LOGGER_MAX_BYTES,
-            'backupCount': LOGGER_BACKUP_COUNT,
-            'formatter': 'fmt-default',
-        }
+        "app_handler": {
+            "level": LOGGER_APP_LEVEL,
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": LOGGER_FILE_APP,
+            "maxBytes": LOGGER_MAX_BYTES,
+            "backupCount": LOGGER_BACKUP_COUNT,
+            "formatter": "fmt-default",
+        },
     },
-    'loggers': {
-        'django.security': {
-            'handlers': ['console', 'logfile-security'],
-            'level': LOGGER_LEVEL,
-            'propagate': True,
+    "loggers": {
+        "django.security": {
+            "handlers": ["console", "logfile-security"],
+            "level": LOGGER_LEVEL,
+            "propagate": True,
         },
     },
 }
@@ -237,48 +230,89 @@ LOGGING = {
 update_logger_with_local_app(LOGGING, local_logger_conf, INSTALLED_APPS)
 
 if LOGGING_CLIENT:
-    set_generic_handler(LOGGING, 'logfile-template', LOGGER_CLIENT_LEVEL, LOGGER_FILE_CLIENT, LOGGER_MAX_BYTES,
-                        LOGGER_BACKUP_COUNT, 'logging.handlers.RotatingFileHandler')
-    set_generic_logger(LOGGING, 'django.template', LOGGER_CLIENT_LEVEL, ['console', 'logfile-template'])
-    set_generic_handler(LOGGING, 'logfile-request', LOGGER_CLIENT_LEVEL, LOGGER_FILE_CLIENT, LOGGER_MAX_BYTES,
-                        LOGGER_BACKUP_COUNT, 'logging.handlers.RotatingFileHandler')
-    set_generic_logger(LOGGING, 'django.request', LOGGER_CLIENT_LEVEL, ['console', 'logfile-request'])
+    set_generic_handler(
+        LOGGING,
+        "logfile-template",
+        LOGGER_CLIENT_LEVEL,
+        LOGGER_FILE_CLIENT,
+        LOGGER_MAX_BYTES,
+        LOGGER_BACKUP_COUNT,
+        "logging.handlers.RotatingFileHandler",
+    )
+    set_generic_logger(
+        LOGGING, "django.template", LOGGER_CLIENT_LEVEL, ["console", "logfile-template"]
+    )
+    set_generic_handler(
+        LOGGING,
+        "logfile-request",
+        LOGGER_CLIENT_LEVEL,
+        LOGGER_FILE_CLIENT,
+        LOGGER_MAX_BYTES,
+        LOGGER_BACKUP_COUNT,
+        "logging.handlers.RotatingFileHandler",
+    )
+    set_generic_logger(
+        LOGGING, "django.request", LOGGER_CLIENT_LEVEL, ["console", "logfile-request"]
+    )
 
 if LOGGING_SERVER:
-    set_generic_handler(LOGGING, 'logfile-server', LOGGER_SERVER_LEVEL, LOGGER_FILE_SERVER, LOGGER_MAX_BYTES,
-                        LOGGER_BACKUP_COUNT, 'logging.handlers.RotatingFileHandler')
-    set_generic_logger(LOGGING, 'django.server', LOGGER_SERVER_LEVEL, ['console', 'logfile-server'])
+    set_generic_handler(
+        LOGGING,
+        "logfile-server",
+        LOGGER_SERVER_LEVEL,
+        LOGGER_FILE_SERVER,
+        LOGGER_MAX_BYTES,
+        LOGGER_BACKUP_COUNT,
+        "logging.handlers.RotatingFileHandler",
+    )
+    set_generic_logger(
+        LOGGING, "django.server", LOGGER_SERVER_LEVEL, ["console", "logfile-server"]
+    )
 
 if LOGGING_DB:
-    set_generic_handler(LOGGING, 'logfile-django-db-backend', LOGGER_DB_LEVEL, LOGGER_FILE_DB, LOGGER_MAX_BYTES,
-                        LOGGER_BACKUP_COUNT, 'logging.handlers.RotatingFileHandler')
-    set_generic_logger(LOGGING, 'django.db.backends', LOGGER_DB_LEVEL, ['console', 'logfile-django-db-backend'])
+    set_generic_handler(
+        LOGGING,
+        "logfile-django-db-backend",
+        LOGGER_DB_LEVEL,
+        LOGGER_FILE_DB,
+        LOGGER_MAX_BYTES,
+        LOGGER_BACKUP_COUNT,
+        "logging.handlers.RotatingFileHandler",
+    )
+    set_generic_logger(
+        LOGGING,
+        "django.db.backends",
+        LOGGER_DB_LEVEL,
+        ["console", "logfile-django-db-backend"],
+    )
 
 MONGO_USER = "mgi_user"
 MONGO_PASSWORD = "mgi_password"
 DB_NAME = "mgi"
 DB_SERVER = "localhost"
-MONGODB_URI = "mongodb://" + MONGO_USER + ":" + MONGO_PASSWORD + "@" + DB_SERVER + "/" + DB_NAME
+MONGODB_URI = (
+    "mongodb://" + MONGO_USER + ":" + MONGO_PASSWORD + "@" + DB_SERVER + "/" + DB_NAME
+)
 connect(DB_NAME, host=MONGODB_URI)
 
 # core_main_app settings
 SERVER_EMAIL = ""
 EMAIL_SUBJECT_PREFIX = ""
 USE_EMAIL = False
-ADMINS = [('admin', 'admin@example.com')]
-MANAGERS = [('manager', 'moderator@example.com')]
+ADMINS = [("admin", "admin@example.com")]
+MANAGERS = [("manager", "moderator@example.com")]
 
 USE_BACKGROUND_TASK = False
 # FIXME: set a redis password in production
 # REDIS_PASSWORD = 'redispass'
 # REDIS_URL = 'redis://:' + REDIS_PASSWORD + '@localhost:6379/0'
 
-REDIS_URL = 'redis://localhost:6379/0'
+REDIS_URL = "redis://localhost:6379/0"
 BROKER_URL = REDIS_URL
 BROKER_TRANSPORT_OPTIONS = {
-    'visibility_timeout': 3600,
-    'fanout_prefix': True,
-    'fanout_patterns': True
+    "visibility_timeout": 3600,
+    "fanout_prefix": True,
+    "fanout_patterns": True,
 }
 CELERY_RESULT_BACKEND = REDIS_URL
 
@@ -319,7 +353,10 @@ CUSTOM_SUBTITLE = "Part of the Materials Genome Initiative"
 CUSTOM_NAME = "Curator"
 
 
-DATA_SOURCES_EXPLORE_APPS = ['core_explore_federated_search_app', 'core_explore_oaipmh_app']
+DATA_SOURCES_EXPLORE_APPS = [
+    "core_explore_federated_search_app",
+    "core_explore_oaipmh_app",
+]
 
 # FIXME: set desired value before release
 # Lists in data not stored if number of elements is over the limit (e.g. 100)
@@ -327,27 +364,27 @@ SEARCHABLE_DATA_OCCURRENCES_LIMIT = None
 
 SWAGGER_SETTINGS = {
     "exclude_namespaces": [],  # List URL namespaces to ignore
-    "api_version": '1.1',  # Specify your API's version
+    "api_version": "1.1",  # Specify your API's version
     "api_path": "/",  # Specify the path to your API not a root level
     "enabled_methods": [  # Specify which methods to enable in Swagger UI
-        'get',
-        'post',
-        'put',
-        'patch',
-        'delete'
+        "get",
+        "post",
+        "put",
+        "patch",
+        "delete",
     ],
-    "api_key": '',  # An API key
+    "api_key": "",  # An API key
     "is_authenticated": False,  # Set to True to enforce user authentication,
     "is_superuser": False,  # Set to True to enforce admin only access
-    'LOGIN_URL': 'core_main_app_login',
-    'LOGOUT_URL': 'core_main_app_logout',
+    "LOGIN_URL": "core_main_app_login",
+    "LOGOUT_URL": "core_main_app_logout",
 }
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
     ),
     # 'DEFAULT_PERMISSION_CLASSES': (
     #     'rest_framework.permissions.IsAuthenticated',
@@ -371,7 +408,7 @@ SSL_CERTIFICATES_DIR = True
 or a string, in which case it must be a path to a CA bundle to use.
 """
 
-XSD_URI_RESOLVER = 'REQUESTS_RESOLVER'
+XSD_URI_RESOLVER = "REQUESTS_RESOLVER"
 """ :py:class:`str`: XSD URI Resolver for lxml validation. Choose from:  None, 'REQUESTS_RESOLVER'.
 """
 
@@ -397,18 +434,26 @@ DEFENDER_LOCKOUT_URL = "/locked"
 DISPLAY_EDIT_BUTTON = True
 """ boolean: Display the edit button on the result page
 """
-DATA_SORTING_FIELDS = ['-last_modification_date']
+DATA_SORTING_FIELDS = ["-last_modification_date"]
 """ Array<string>: Default sort fields for the data query. 
 """
 DATA_DISPLAYED_SORTING_FIELDS = [
-    {'field': 'last_modification_date', 'display': 'Last updated', 'ordering': '-last_modification_date'},
-    {'field': 'last_modification_date', 'display': 'First updated', 'ordering': '+last_modification_date'},
-    {'field': 'title', 'display': 'Titles (A-Z)', 'ordering': '+title'},
-    {'field': 'title', 'display': 'Titles (Z-A)', 'ordering': '-title'},
-    {'field': 'template', 'display': 'Templates', 'ordering': '+template'}
+    {
+        "field": "last_modification_date",
+        "display": "Last updated",
+        "ordering": "-last_modification_date",
+    },
+    {
+        "field": "last_modification_date",
+        "display": "First updated",
+        "ordering": "+last_modification_date",
+    },
+    {"field": "title", "display": "Titles (A-Z)", "ordering": "+title"},
+    {"field": "title", "display": "Titles (Z-A)", "ordering": "-title"},
+    {"field": "template", "display": "Templates", "ordering": "+template"},
 ]
 """The default sorting fields displayed on the GUI, Data model field Array"""
-SORTING_DISPLAY_TYPE = 'single'
+SORTING_DISPLAY_TYPE = "single"
 """Result sorting graphical display type ('multi' / 'single')"""
 DEFAULT_DATE_TOGGLE_VALUE = True
 """ boolean: Set the toggle default value in the records list
@@ -428,4 +473,3 @@ DISPLAY_HELP_FOOTER = False
 DISPLAY_RULES_OF_BEHAVIOR_FOOTER = False
 """ boolean: display the rules of behavior link in the footer
 """
-

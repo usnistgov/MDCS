@@ -492,3 +492,7 @@ default prefix)
 PID_XPATH = "root.pid"
 """ string: location of the PID in the document, specified as dot notation
 """
+
+AUTO_SET_PID = False
+""" boolean: enable the automatic pid generation for saved data.
+"""

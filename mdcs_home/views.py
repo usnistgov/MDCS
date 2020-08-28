@@ -8,7 +8,7 @@ from core_main_app.components.template_version_manager.api import (
 
 
 def template_list(request):
-    """ Display the last HOMEPAGE_NB_LAST_TEMPLATES templates.
+    """Display the last HOMEPAGE_NB_LAST_TEMPLATES templates.
     Args:
         request:
 

@@ -72,3 +72,11 @@ a {
     color: red;
     margin-bottom: .1em;
 }
+/* End Bootstrap overide */
+
+/* Fontawesome overide */
+.fa span {
+    font-family: 'Source Sans Pro', sans-serif !important;
+}
+/* End fontawesome overide */
+

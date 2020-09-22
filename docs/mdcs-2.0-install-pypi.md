@@ -293,7 +293,7 @@ $$ mongo --port 27017
 	* Enter your own mongodb usernames and passwords for administrative and non-administrative accounts, respectively, here. Please see the example below.
 
 ```
-$$ mongo --port 27017 -u "<mongodb_admin_username>" -p "<mongodb_admin_username>" --authenticationDatabase admin
+$$ mongo --port 27017 -u "<mongodb_admin_username>" -p "<mongodb_admin_password>" --authenticationDatabase admin
 	use mgi
 	db.createUser(
 	{

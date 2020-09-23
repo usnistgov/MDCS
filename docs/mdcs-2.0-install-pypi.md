@@ -20,12 +20,12 @@
   1. **Suppporting Utilities:** The specific supporting utilities that are downloaded (i.e., redis, celery, mongo) - the install links for all those point to generic locations where you should just choose the ones appropriate to your platform.
 
   2. **Virtual Environment:** The specific python virtual environment may be varied, but it doesn't have to be.
-     1. That is, you can install `mkvirtualenv` on Linux or Mac. So, those commands should remain idential.
+     1. That is, you can install `Anaconda` on Windows, Linux or Mac. So, those commands should remain identical.
      2. If you decide to use a different one, just substitute any desired python virtual environment application and the instructions inside of it should remain the same.
      3. If you use an alternative application for creating and using python virtual environments, then merely use the appropriate equivalent commands for each command involving the python virtual environment.
      4. Mostly, the commands used for the python virtual environment have to do with:
-       1. creating it (`mkvirtualenv`),
-       2. activating it (`workon <mdcs_virtual_environment_name>`),
+       1. creating it (`conda create`),
+       2. activating it (`conda activate <mdcs_virtual_environment_name>`),
        3. deactivating it (`deactivate <mdcs_virtual_environment_name>`).
          * NOTE: Corresponding commands for related utilities often use very similar or identical commands.
 
@@ -58,7 +58,7 @@
 | MDCS application port number               | 8000                                         |
 | MDCS virtual environment name              | mdcs_env                            |
 | MDCS Superuser username                    | mgi_superuser                                |
-| MDCS Superuser email                       | user_email@institution.com                   |
+| MDCS Superuser email                       | user_email@example.com                   |
 | MDCS Superuser password                    | mgi_superuser_pwd                            |
 | MongoDB administrative username            | mdb_admin_user                               |
 | MongoDB administrative password            | mdb_admin_pwd                                |
@@ -132,28 +132,30 @@
 $ cmd.exe
 ```
 
-#### Install mkvirtualenv
+#### Install Anaconda
+
 
 * NOTE: This enables you to install the MDCS software in Python virtual environments.
 
-* Command:
+- Download and Install [Anaconda](https://www.anaconda.com/distribution/) for the Python 3.x distribution
+- Start the Anaconda Navigator and:
+   - click on "Environment",
+   - then click on "base (root)",
+   - and "Open Terminal".
+
+
+* Then run the following commands:
 ```
-$ pip install virtualenvwrapper
-$ mkdir <install_path>\
-$ cd <install_path>\
-$ mkvirtualenv <mdcs_virtual_environment_name>
+$(base) conda create -n <mdcs_virtual_environment_name> python=<python_version>
+$(base) conda activate <mdcs_virtual_environment_name>
 ```
 * Example:
 ```
-$ pip install virtualenvwrapper
-$ mkdir c:\mdcs\
-$ cd c:\mdcs\
-$ mkvirtualenv mdcs_env
+$(base) conda create -n mdcs_env python=3.6.8
+$(base) conda activate mdcs_env
+$(mdcs_env)
 ```
 
-* NOTE: This __mkvirtualenv__ command:
-	* Creates a new __Python virtual environment__: __mdcs_env__.
-	* Automatically puts you into the virtual-environment after creating it.
 
 #### Install the latest version of pip installation utility inside the newly-created virtual-environment.
 
@@ -236,12 +238,12 @@ $ cmd.exe
 
 * Command:
 ```
-$ workon <mdcs_virtual_environment_name>
+$ conda activate <mdcs_virtual_environment_name>
 $$ cd <install_path>\mdcs-master\
 ```
 * Example:
 ```
-$ workon mdcs_env
+$ conda activate mdcs_env
 $$ cd <install_path>\mdcs-master\
 ```
 
@@ -389,7 +391,7 @@ $$ celery -A mdcs worker -l info -Ofair --purge
 
 ```
 $ cd <install_path>\mdcs-master\
-$ workon mdcs_env
+$ conda activate mdcs_env
 
 
 $$ python manage.py migrate auth
@@ -419,7 +421,7 @@ $$ python manage.py createsuperuser
 * Example:
 	* When prompted, fill in the following info:
 		* username      : mgi_superuser
-		* email         : user_email@institution.com
+		* email         : user_email@example.com
 		* password (x2) : mgi_superuser_pwd
 
 #### Run the system.

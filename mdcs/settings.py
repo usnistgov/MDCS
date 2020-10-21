@@ -478,7 +478,7 @@ DISPLAY_RULES_OF_BEHAVIOR_FOOTER = False
 ID_PROVIDER_SYSTEMS = {
     "local": {
         "class": "core_linked_records_app.utils.providers.local.LocalIdProvider",
-        "args": [SERVER_URI],
+        "args": [],
     },
 }
 """ dict: all the provider system available for registring PIDs

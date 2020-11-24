@@ -1,10 +1,15 @@
-from django.conf import settings
-from django.urls import reverse
-from django.shortcuts import render
+import logging
 
+from django.conf import settings
+from django.shortcuts import render
+from django.urls import reverse
+
+from core_main_app.access_control.exceptions import AccessControlError
 from core_main_app.components.template_version_manager.api import (
     get_global_version_managers,
 )
+
+logger = logging.getLogger(__name__)
 
 
 def template_list(request):
@@ -15,14 +20,16 @@ def template_list(request):
     Returns:
 
     """
-    context = {
-        "templates": [
+    try:
+        templates = [
             version_manager
-            for version_manager in get_global_version_managers()
+            for version_manager in get_global_version_managers(request=request)
             if not version_manager.is_disabled
         ][: settings.HOMEPAGE_NB_LAST_TEMPLATES]
-    }
-
+    except AccessControlError:
+        templates = []
+        logger.warning("Access Forbidden: unable to get template list.")
+    context = {"templates": templates}
     return render(request, "mdcs_home/template_list.html", context)
 
 

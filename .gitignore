@@ -237,3 +237,6 @@ radon.xml
 
 #virtual env
 venv/
+
+# env variables
+.env

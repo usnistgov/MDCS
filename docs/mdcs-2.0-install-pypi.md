@@ -17,7 +17,7 @@
 * To apply the given PyPI process to a Linux environment to get a basic installation going, there are only slight modifications to should be performed.
 * Specific differences you should be aware of when installing on Linux or Mac are as follows:
 
-  1. **Suppporting Utilities:** The specific supporting utilities that are downloaded (i.e., redis, celery, mongo) - the install links for all those point to generic locations where you should just choose the ones appropriate to your platform.
+  1. **Supporting Utilities:** The specific supporting utilities that are downloaded (i.e., redis, celery, mongo) - the install links for all those point to generic locations where you should just choose the ones appropriate to your platform.
 
   2. **Virtual Environment:** The specific python virtual environment may be varied, but it doesn't have to be.
      1. That is, you can install `Anaconda` on Windows, Linux or Mac. So, those commands should remain identical.
@@ -111,7 +111,7 @@
 ###	1. Install supporting applications on your host system.
 
 * Python 3.6.8: https://www.anaconda.com/distribution/ (choose python 3.x)
-* MongoDB 3.4.1: https://www.mongodb.com/download-center#community
+* MongoDB 4.0.3: https://www.mongodb.com/download-center#community
 * Redis 5.0: https://redis.io/download
 * Celery    : NOTE: This is installed below via `pip install`.
 * gettext   : This utility is necessary for supporting internationalization in MDCS 2.0 systems >= MDCS 2.0 beta2.

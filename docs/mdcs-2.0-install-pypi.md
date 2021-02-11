@@ -335,6 +335,7 @@ variables. Here is a list of expected environment variables:
 | Variable | Description |
 | ----------- | ----------- |
 | DJANGO_SECRET_KEY     | [Secret Key](https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/#secret-key) for Django (should be a "large random value") |
+| ALLOWED_HOSTS         | Comma-separated list of hosts (e.g. ALLOWED_HOSTS=127.0.0.1,localhost), see [Allowed Hosts](https://docs.djangoproject.com/en/2.2/ref/settings/#allowed-hosts) for more info.|
 | SERVER_URI            | URI of the server (e.g. for local deployment, http://127.0.0.1:8000) |
 | SERVER_NAME           | Name of the server (e.g. MDCS) |
 | MONGO_HOST            | MongoDB host |

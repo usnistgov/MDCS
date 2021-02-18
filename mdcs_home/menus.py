@@ -22,6 +22,7 @@
     * My Records
     * My Forms
     * My Files
+    * My Queries
 
   * Help menu
 
@@ -92,6 +93,10 @@ Menu.add_item(
 
 Menu.add_item(
     "dashboard", MenuItem("My Files", reverse("core_dashboard_files"), icon="file")
+)
+
+Menu.add_item(
+    "dashboard", MenuItem("My Queries", reverse("core_dashboard_queries"), icon="link")
 )
 
 Menu.add_item(

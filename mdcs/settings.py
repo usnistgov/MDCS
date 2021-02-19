@@ -187,6 +187,55 @@ STATICFILES_FINDERS = (
 
 STATICFILES_DIRS = ("static",)
 
+# Password Validators
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        "OPTIONS": {
+            "min_length": 8,
+        },
+    },
+    {
+        "NAME": "core_main_app.commons.validators.UpperCaseLetterCountValidator",
+        "OPTIONS": {
+            "min_uppercase_letters": 1,
+        },
+    },
+    {
+        "NAME": "core_main_app.commons.validators.LowerCaseLetterCountValidator",
+        "OPTIONS": {
+            "min_lowercase_letters": 1,
+        },
+    },
+    {
+        "NAME": "core_main_app.commons.validators.NonAlphanumericCountValidator",
+        "OPTIONS": {
+            "min_nonalphanumeric_letters": 1,
+        },
+    },
+    {
+        "NAME": "core_main_app.commons.validators.DigitsCountValidator",
+        "OPTIONS": {
+            "min_digits": 1,
+        },
+    },
+    {
+        "NAME": "core_main_app.commons.validators.MaxOccurrenceCountValidator",
+        "OPTIONS": {
+            "max_occurrence": 5,
+        },
+    },
+]
+
 # Django REST Framework
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (

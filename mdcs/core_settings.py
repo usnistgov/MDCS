@@ -14,22 +14,6 @@ CURATE_MENU_NAME = "Data Curation"
 WEBSITE_ADMIN_COLOR = "yellow"
 # black, black-light, blue, blue-light, green, green-light, purple, purple-light, red, red-light, yellow, yellow-light
 
-# Password settings for django.contrib.auth validators
-# Specifies the minimum length for passwords.
-PASSWORD_MIN_LENGTH = 5
-# Specifies the minimum amount of required letters in a password.
-PASSWORD_MIN_LETTERS = 0
-# Specifies the minimum amount of required uppercase letters in a password.
-PASSWORD_MIN_UPPERCASE_LETTERS = 0
-# Specifies the minimum amount of required lowercase letters in a password.
-PASSWORD_MIN_LOWERCASE_LETTERS = 0
-# Specifies the minimum amount of required numbers in a password.
-PASSWORD_MIN_NUMBERS = 0
-# Specifies the minimum amount of required symbols in a password.
-PASSWORD_MIN_SYMBOLS = 0
-# Specifies the maximum amount of consecutive characters allowed in passwords.
-PASSWORD_MAX_OCCURRENCE = None
-
 DATA_SOURCES_EXPLORE_APPS = [
     "core_explore_federated_search_app",
     "core_explore_oaipmh_app",

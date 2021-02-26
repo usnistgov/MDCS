@@ -96,7 +96,7 @@ Menu.add_item(
 )
 
 Menu.add_item(
-    "dashboard", MenuItem("My Queries", reverse("core_dashboard_queries"), icon="link")
+    "dashboard", MenuItem("My Queries", reverse("core_dashboard_queries"), icon="search")
 )
 
 Menu.add_item(

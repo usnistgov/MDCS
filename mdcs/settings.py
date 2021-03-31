@@ -20,12 +20,16 @@ from core_main_app.utils.logger.logger_utils import (
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ["DJANGO_SECRET_KEY"] if "DJANGO_SECRET_KEY" in os.environ else None
+SECRET_KEY = (
+    os.environ["DJANGO_SECRET_KEY"] if "DJANGO_SECRET_KEY" in os.environ else None
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = os.environ["ALLOWED_HOSTS"].split(",") if "ALLOWED_HOSTS" in os.environ else []
+ALLOWED_HOSTS = (
+    os.environ["ALLOWED_HOSTS"].split(",") if "ALLOWED_HOSTS" in os.environ else []
+)
 
 # Databases
 
@@ -33,10 +37,14 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "HOST": os.environ["POSTGRES_HOST"] if "POSTGRES_HOST" in os.environ else None,
-        "PORT": int(os.environ["POSTGRES_PORT"]) if "POSTGRES_PORT" in os.environ else 5432,
+        "PORT": int(os.environ["POSTGRES_PORT"])
+        if "POSTGRES_PORT" in os.environ
+        else 5432,
         "NAME": os.environ["POSTGRES_DB"] if "POSTGRES_DB" in os.environ else None,
         "USER": os.environ["POSTGRES_USER"] if "POSTGRES_USER" in os.environ else None,
-        "PASSWORD": os.environ["POSTGRES_PASS"] if "POSTGRES_PASS" in os.environ else None,
+        "PASSWORD": os.environ["POSTGRES_PASS"]
+        if "POSTGRES_PASS" in os.environ
+        else None,
     }
 }
 

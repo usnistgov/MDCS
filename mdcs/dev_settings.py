@@ -2,6 +2,7 @@
 """
 
 from dotenv import load_dotenv
+
 # load environment variables from .env
 load_dotenv()
 

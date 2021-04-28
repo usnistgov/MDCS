@@ -240,3 +240,7 @@ venv/
 
 # env variables
 .env
+
+# Celery files
+celerybeat-schedule.*
+

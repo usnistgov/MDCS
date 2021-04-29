@@ -111,3 +111,7 @@ PID_XPATH = "root.pid"
 AUTO_SET_PID = False
 """ boolean: enable the automatic pid generation for saved data.
 """
+
+ENABLE_SAML2_SSO_AUTH = os.getenv("ENABLE_SAML2_SSO_AUTH", "False").lower() == "true"
+""" boolean: enable SAML2 SSO authentication.
+"""

@@ -7,8 +7,6 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-from .core_settings import *
-import os
 from mongoengine.connection import connect
 
 from core_main_app.utils.logger.logger_utils import (
@@ -16,6 +14,8 @@ from core_main_app.utils.logger.logger_utils import (
     set_generic_logger,
     update_logger_with_local_app,
 )
+from .core_settings import *
+import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -442,3 +442,44 @@ if SERVER_URI.lower().startswith("https"):
 
     # Set x-frame options
     X_FRAME_OPTIONS = "SAMEORIGIN"
+
+if ENABLE_SAML2_SSO_AUTH:
+    import saml2
+    import saml2.saml
+    from core_main_app.utils.saml2.utils import load_saml_config_from_env
+
+    # Update Django Settings
+    if "djangosaml2" not in INSTALLED_APPS:
+        INSTALLED_APPS = INSTALLED_APPS + ("djangosaml2",)
+    if "djangosaml2.middleware.SamlSessionMiddleware" not in MIDDLEWARE:
+        MIDDLEWARE = MIDDLEWARE + ("djangosaml2.middleware.SamlSessionMiddleware",)
+    AUTHENTICATION_BACKENDS = (
+        "django.contrib.auth.backends.ModelBackend",
+        "djangosaml2.backends.Saml2Backend",
+    )
+
+    # Configure djangosaml2
+    SAML_SESSION_COOKIE_NAME = "saml_session"
+    LOGIN_REDIRECT_URL = "/"
+    LOGOUT_REDIRECT_URL = "/"
+    SAML_DEFAULT_BINDING = saml2.BINDING_HTTP_POST
+    SAML_LOGOUT_REQUEST_PREFERRED_BINDING = saml2.BINDING_HTTP_POST
+    SAML_IGNORE_LOGOUT_ERRORS = True
+    SAML_DJANGO_USER_MAIN_ATTRIBUTE = os.getenv(
+        "SAML_DJANGO_USER_MAIN_ATTRIBUTE", "username"
+    )
+    SAML_USE_NAME_ID_AS_USERNAME = (
+        os.getenv("SAML_USE_NAME_ID_AS_USERNAME", "False").lower() == "true"
+    )
+    SAML_CREATE_UNKNOWN_USER = (
+        os.getenv("SAML_CREATE_UNKNOWN_USER", "False").lower() == "true"
+    )
+    SAML_ATTRIBUTE_MAPPING = {
+        "uid": ("username",),
+        "mail": ("email",),
+        "cn": ("first_name",),
+        "sn": ("last_name",),
+    }
+
+    # Configure Pysaml2
+    SAML_CONFIG = load_saml_config_from_env(server_uri=SERVER_URI, base_dir=BASE_DIR)

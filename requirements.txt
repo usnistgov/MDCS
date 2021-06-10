@@ -1,4 +1,4 @@
 celery==4.4.7
 kombu==4.6.11
-Django==2.2.20
+Django==2.2.24
 mongoengine==0.23.0

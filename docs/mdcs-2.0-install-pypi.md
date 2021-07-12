@@ -392,11 +392,12 @@ python manage.py runserver
 ```
 
 NOTES:
-- Additional packages are required for development. In your dev
-environment, run the following command to install those packages:
-```
-$$ pip install -r requirements.dev.txt
-```
+- For development purposes, additional packages are required and bundled with the 
+  [core_main_app](https://github.com/usnistgov/core_main_app) package. To install these
+  development packages, run:
+	```
+	$$ pip install core_main_app[develop]
+	```
 - the key differences between the main `settings.py` file and the
 `dev_settings.py` file is that the development version overrides the
 databases setting to use sqlite3 instead of postgres, and sets the

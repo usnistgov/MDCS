@@ -446,7 +446,10 @@ if SERVER_URI.lower().startswith("https"):
 if ENABLE_SAML2_SSO_AUTH:
     import saml2
     import saml2.saml
-    from core_main_app.utils.saml2.utils import load_saml_config_from_env
+    from core_main_app.utils.saml2.utils import (
+        load_saml_config_from_env,
+        load_django_attribute_map_from_env,
+    )
 
     # Update Django Settings
     if "djangosaml2" not in INSTALLED_APPS:
@@ -474,12 +477,7 @@ if ENABLE_SAML2_SSO_AUTH:
     SAML_CREATE_UNKNOWN_USER = (
         os.getenv("SAML_CREATE_UNKNOWN_USER", "False").lower() == "true"
     )
-    SAML_ATTRIBUTE_MAPPING = {
-        "uid": ("username",),
-        "mail": ("email",),
-        "cn": ("first_name",),
-        "sn": ("last_name",),
-    }
+    SAML_ATTRIBUTE_MAPPING = load_django_attribute_map_from_env()
 
     # Configure Pysaml2
     SAML_CONFIG = load_saml_config_from_env(server_uri=SERVER_URI, base_dir=BASE_DIR)

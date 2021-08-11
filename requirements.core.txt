@@ -20,4 +20,4 @@ core_module_chemical_composition_app==1.17.*
 core_module_chemical_composition_simple_app==1.17.*
 core_module_text_area_app==1.17.*
 core_file_preview_app==1.15.*
-core_linked_records_app==1.0.0-beta8
+core_linked_records_app==1.0.*

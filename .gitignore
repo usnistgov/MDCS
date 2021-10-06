@@ -145,6 +145,7 @@ coverage.xml
 logfile*
 db.sqlite3
 db_test.sqlite3
+media
 
 # Sphinx documentation
 docs/_build/

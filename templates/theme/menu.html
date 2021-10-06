@@ -69,7 +69,7 @@
                         {% endfor %}
                     {% endblock %}
                     {% if user.is_staff %}
-                    <li><a href="{% url 'admin:core_main_app_admin_home' %}" class="cdcs-menu-item"><i class="fas fa-cog"></i> Administration</a></li>
+                    <li><a href="{% url 'core-admin:core_main_app_admin_home' %}" class="cdcs-menu-item"><i class="fas fa-cog"></i> Administration</a></li>
                     {% endif %}
                     <li><a href="{% url 'core_main_app_logout' %}" class="cdcs-menu-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                 </ul>

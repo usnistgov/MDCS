@@ -48,6 +48,8 @@ DATABASES = {
     }
 }
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 MONGO_HOST = os.environ["MONGO_HOST"] if "MONGO_HOST" in os.environ else ""
 MONGO_PORT = os.environ["MONGO_PORT"] if "MONGO_PORT" in os.environ else "27017"
 MONGO_DB = os.environ["MONGO_DB"] if "MONGO_DB" in os.environ else ""

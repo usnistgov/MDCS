@@ -1,4 +1,4 @@
-celery==4.4.7
+celery==5.2.2
 kombu==4.6.11
 Django==3.2.*
 mongoengine==0.23.0

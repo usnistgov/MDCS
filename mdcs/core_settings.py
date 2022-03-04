@@ -115,3 +115,34 @@ AUTO_SET_PID = False
 ENABLE_SAML2_SSO_AUTH = os.getenv("ENABLE_SAML2_SSO_AUTH", "False").lower() == "true"
 """ boolean: enable SAML2 SSO authentication.
 """
+
+MONGODB_INDEXING = os.getenv("MONGODB_INDEXING", "False").lower() == "true"
+""" :py:class:`bool`: Use MongoDB for data indexing.
+    If True: 
+        - a copy of the data will be stored in MongoDB,
+        - queries will be executed against MongoDB.
+"""
+
+GRIDFS_STORAGE = os.getenv("GRIDFS_STORAGE", "False").lower() == "true"
+""" :py:class:`bool`: Use GridFS for file storage.
+"""
+
+MONGO_HOST = os.getenv("MONGO_HOST", "localhost")
+""" :py:class:`str`: MongoDB host.
+"""
+
+MONGO_PORT = os.getenv("MONGO_PORT", "27017")
+""" :py:class:`str`: MongoDB port.
+"""
+
+MONGO_DB = os.getenv("MONGO_DB", "")
+""" :py:class:`str`: MongoDB database.
+"""
+
+MONGO_USER = os.getenv("MONGO_USER", "")
+""" :py:class:`str`: MongoDB user.
+"""
+
+MONGO_PASS = os.getenv("MONGO_PASS", "")
+""" :py:class:`str`: MongoDB password.
+"""

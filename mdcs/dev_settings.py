@@ -19,3 +19,6 @@ DATABASES = {
 }
 
 AUTH_PASSWORD_VALIDATORS = []
+
+# Disable async mongo updates
+MONGODB_ASYNC_SAVE = False

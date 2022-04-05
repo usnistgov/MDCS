@@ -480,3 +480,37 @@ if ENABLE_SAML2_SSO_AUTH:
     # Configure Pysaml2
     SAML_CONFIG = load_saml_config_from_env(server_uri=SERVER_URI, base_dir=BASE_DIR)
     SAML_ACS_FAILURE_RESPONSE_FUNCTION = "core_main_app.views.user.views.saml2_failure"
+
+# configure handle server PIDs according to environment settings
+if ENABLE_HANDLE_PID:
+    HDL_USER = (
+        f"300%3A{ID_PROVIDER_PREFIX_DEFAULT}/"
+        f'{os.getenv("HANDLE_NET_USER", "ADMIN")}'
+    )
+
+    ID_PROVIDER_SYSTEMS = {
+        "handle.net": {
+            "class": "core_linked_records_app.utils.providers.handle_net.HandleNetSystem",
+            "args": [
+                os.getenv("HANDLE_NET_URL", "https://handle-net.domain"),
+                HDL_USER,
+                os.getenv("HANDLE_NET_SECRET_KEY", "admin"),
+            ],
+        }
+    }
+
+    HANDLE_NET_RECORD_INDEX = os.getenv("HANDLE_NET_RECORD_INDEX", 1)
+    HANDLE_NET_ADMIN_DATA = {
+        "index": int(os.getenv("HANDLE_NET_ADMIN_INDEX", 100)),
+        "type": os.getenv("HANDLE_NET_ADMIN_TYPE", "HS_ADMIN"),
+        "data": {
+            "format": os.getenv("HANDLE_NET_ADMIN_DATA_FORMAT", "admin"),
+            "value": {
+                "handle": f"0.NA/{ID_PROVIDER_PREFIX_DEFAULT}",
+                "index": int(os.getenv("HANDLE_NET_ADMIN_DATA_INDEX", 200)),
+                "permissions": os.getenv(
+                    "HANDLE_NET_ADMIN_DATA_PERMISSIONS", "011111110011"
+                ),
+            },
+        },
+    }

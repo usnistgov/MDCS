@@ -86,32 +86,32 @@ ID_PROVIDER_SYSTEMS = {
     "local": {
         "class": "core_linked_records_app.utils.providers.local.LocalIdProvider",
         "args": [],
-    },
-    # "handle": {
-    #     "class": "core_linked_records_app.utils.providers.handle_net.HandleNetSystem",
-    #     "args": [
-    #         "https://handle-server.example.org:8000",
-    #         "300%3APREFIX/USER",
-    #         "password",
-    #     ],
-    # },
+    }
 }
 """ dict: provider systems available for registering PIDs.
 """
 
-ID_PROVIDER_PREFIXES = ["cdcs"]
+ID_PROVIDER_PREFIXES = (
+    os.environ["ID_PROVIDER_PREFIXES"].split(",")
+    if "ID_PROVIDER_PREFIXES" in os.environ
+    else ["cdcs"]
+)
 """ list<str>: accepted providers if manually specifying PIDs (first item is the
 default prefix)
 """
 
-PID_XPATH = "root.pid"
+PID_XPATH = os.getenv("PID_XPATH", "root.pid")
 """ string: location of the PID in the document, specified as dot notation
 """
 
-AUTO_SET_PID = False
+AUTO_SET_PID = os.getenv("AUTO_SET_PID", "False").lower() == "true"
 """ boolean: enable the automatic pid generation for saved data.
 """
 
 ENABLE_SAML2_SSO_AUTH = os.getenv("ENABLE_SAML2_SSO_AUTH", "False").lower() == "true"
 """ boolean: enable SAML2 SSO authentication.
+"""
+
+ENABLE_HANDLE_PID = os.getenv("ENABLE_HANDLE_PID", "False").lower() == "true"
+""" boolean: enable handle server PID support.
 """

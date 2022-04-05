@@ -46,8 +46,6 @@ DATABASES = {
     }
 }
 
-DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
-
 BROKER_TRANSPORT_OPTIONS = {
     "visibility_timeout": 3600,
     "fanout_prefix": True,

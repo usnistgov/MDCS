@@ -1,4 +1,4 @@
-core_main_app==2.0.0-beta1
+core_main_app[mongodb]==2.0.0-beta1
 core_composer_app==2.0.0-beta1
 core_curate_app==2.0.0-beta1
 core_dashboard_common_app==2.0.0-beta1

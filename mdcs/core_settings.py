@@ -116,14 +116,14 @@ ENABLE_SAML2_SSO_AUTH = os.getenv("ENABLE_SAML2_SSO_AUTH", "False").lower() == "
 """ boolean: enable SAML2 SSO authentication.
 """
 
-MONGODB_INDEXING = os.getenv("MONGODB_INDEXING", "False").lower() == "true"
+MONGODB_INDEXING = True
 """ :py:class:`bool`: Use MongoDB for data indexing.
     If True: 
         - a copy of the data will be stored in MongoDB,
         - queries will be executed against MongoDB.
 """
 
-GRIDFS_STORAGE = os.getenv("GRIDFS_STORAGE", "False").lower() == "true"
+GRIDFS_STORAGE = True
 """ :py:class:`bool`: Use GridFS for file storage.
 """
 
@@ -145,4 +145,14 @@ MONGO_USER = os.getenv("MONGO_USER", "")
 
 MONGO_PASS = os.getenv("MONGO_PASS", "")
 """ :py:class:`str`: MongoDB password.
+"""
+
+CUSTOM_FILE_STORAGE = dict()
+""" :py:class:`dict`: File Storage by model.
+    Example:
+    {
+        'data': 'django.core.files.storage.FileSystemStorage',
+        'blob': 'core_main_app.utils.storage.gridfs_storage.GridFSStorage',
+        'exported_compressed_files': 'core_main_app.utils.storage.gridfs_storage.GridFSStorage'
+    }
 """

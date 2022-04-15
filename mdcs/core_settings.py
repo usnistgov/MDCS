@@ -82,13 +82,15 @@ DISPLAY_RULES_OF_BEHAVIOR_FOOTER = False
 """ boolean: display the rules of behavior link in the footer
 """
 
-ID_PROVIDER_SYSTEMS = {
-    "local": {
-        "class": "core_linked_records_app.utils.providers.local.LocalIdProvider",
-        "args": [],
-    }
+ID_PROVIDER_SYSTEM_NAME = "local"
+""" str: internal name of the provider system.
+"""
+
+ID_PROVIDER_SYSTEM_CONFIG = {
+    "class": "core_linked_records_app.utils.providers.local.LocalIdProvider",
+    "args": [],
 }
-""" dict: provider systems available for registering PIDs.
+""" dict: provider system configuration for resolving PIDs.
 """
 
 ID_PROVIDER_PREFIXES = (
@@ -99,6 +101,14 @@ ID_PROVIDER_PREFIXES = (
 """ list<str>: accepted providers if manually specifying PIDs (first item is the
 default prefix)
 """
+
+ID_PROVIDER_PREFIX_DEFAULT = os.getenv(
+    "ID_PROVIDER_PREFIX_DEFAULT", ID_PROVIDER_PREFIXES[0]
+)
+
+ID_PROVIDER_PREFIX_BLOB = os.getenv(
+    "ID_PROVIDER_PREFIX_BLOB", ID_PROVIDER_PREFIXES[0]
+)
 
 PID_XPATH = os.getenv("PID_XPATH", "root.pid")
 """ string: location of the PID in the document, specified as dot notation

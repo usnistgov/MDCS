@@ -488,15 +488,14 @@ if ENABLE_HANDLE_PID:
         f'{os.getenv("HANDLE_NET_USER", "ADMIN")}'
     )
 
-    ID_PROVIDER_SYSTEMS = {
-        "handle.net": {
-            "class": "core_linked_records_app.utils.providers.handle_net.HandleNetSystem",
-            "args": [
-                os.getenv("HANDLE_NET_URL", "https://handle-net.domain"),
-                HDL_USER,
-                os.getenv("HANDLE_NET_SECRET_KEY", "admin"),
-            ],
-        }
+    ID_PROVIDER_SYSTEM_NAME = "handle.net"
+    ID_PROVIDER_SYSTEM_CONFIG = {
+        "class": "core_linked_records_app.utils.providers.handle_net.HandleNetSystem",
+        "args": [
+            os.getenv("HANDLE_NET_URL", "https://handle-net.domain"),
+            HDL_USER,
+            os.getenv("HANDLE_NET_SECRET_KEY", "admin"),
+        ],
     }
 
     HANDLE_NET_RECORD_INDEX = os.getenv("HANDLE_NET_RECORD_INDEX", 1)

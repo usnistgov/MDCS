@@ -498,7 +498,8 @@ if ENABLE_HANDLE_PID:
     ID_PROVIDER_SYSTEM_CONFIG = {
         "class": "core_linked_records_app.utils.providers.handle_net.HandleNetSystem",
         "args": [
-            os.getenv("HANDLE_NET_URL", "https://handle-net.domain"),
+            os.getenv("HANDLE_NET_LOOKUP_URL", "https://hdl.handle.net"),
+            os.getenv("HANDLE_NET_REGISTRATION_URL", "https://handle-net.domain"),
             HDL_USER,
             os.getenv("HANDLE_NET_SECRET_KEY", "admin"),
         ],

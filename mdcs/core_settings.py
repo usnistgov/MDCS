@@ -106,9 +106,7 @@ ID_PROVIDER_PREFIX_DEFAULT = os.getenv(
     "ID_PROVIDER_PREFIX_DEFAULT", ID_PROVIDER_PREFIXES[0]
 )
 
-ID_PROVIDER_PREFIX_BLOB = os.getenv(
-    "ID_PROVIDER_PREFIX_BLOB", ID_PROVIDER_PREFIXES[0]
-)
+ID_PROVIDER_PREFIX_BLOB = os.getenv("ID_PROVIDER_PREFIX_BLOB", ID_PROVIDER_PREFIXES[0])
 
 PID_XPATH = os.getenv("PID_XPATH", "root.pid")
 """ string: location of the PID in the document, specified as dot notation
@@ -165,4 +163,8 @@ CUSTOM_FILE_STORAGE = dict()
         'blob': 'core_main_app.utils.storage.gridfs_storage.GridFSStorage',
         'exported_compressed_files': 'core_main_app.utils.storage.gridfs_storage.GridFSStorage'
     }
+"""
+
+OAI_ADMINS = os.environ["OAI_ADMINS"].split(",") if "OAI_ADMINS" in os.environ else None
+""" :py:class:`list`: Email addresses of OAI-PMH Administrators.
 """

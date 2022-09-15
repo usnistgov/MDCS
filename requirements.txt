@@ -1,3 +1,2 @@
 celery==5.2.3
 Django==3.2.*
-mongoengine==0.23.0

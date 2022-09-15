@@ -19,3 +19,8 @@ DATABASES = {
 }
 
 AUTH_PASSWORD_VALIDATORS = []
+
+# Disable async mongo updates
+MONGODB_ASYNC_SAVE = False
+# Enable captcha test mode (use PASSED)
+CAPTCHA_TEST_MODE = True

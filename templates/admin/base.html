@@ -1,0 +1,10 @@
+{% extends "admin/base.html" %}
+{% load static %}
+{% block extrastyle %}
+    <link rel="stylesheet" href="{% static 'core_main_app/admin/css/permissions.css' %}" />
+{% endblock %}
+
+{% block extrahead %}
+     <script src="{% static 'core_main_app/libs/jquery/3.5.1/jquery.js' %}"></script>
+     <script src="{% static 'core_main_app/admin/js/display_permissions.js' %}"></script>
+{% endblock %}

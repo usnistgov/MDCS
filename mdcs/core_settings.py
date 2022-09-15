@@ -106,9 +106,7 @@ ID_PROVIDER_PREFIX_DEFAULT = os.getenv(
     "ID_PROVIDER_PREFIX_DEFAULT", ID_PROVIDER_PREFIXES[0]
 )
 
-ID_PROVIDER_PREFIX_BLOB = os.getenv(
-    "ID_PROVIDER_PREFIX_BLOB", ID_PROVIDER_PREFIXES[0]
-)
+ID_PROVIDER_PREFIX_BLOB = os.getenv("ID_PROVIDER_PREFIX_BLOB", ID_PROVIDER_PREFIXES[0])
 
 PID_XPATH = os.getenv("PID_XPATH", "root.pid")
 """ string: location of the PID in the document, specified as dot notation
@@ -124,4 +122,49 @@ ENABLE_SAML2_SSO_AUTH = os.getenv("ENABLE_SAML2_SSO_AUTH", "False").lower() == "
 
 ENABLE_HANDLE_PID = os.getenv("ENABLE_HANDLE_PID", "False").lower() == "true"
 """ boolean: enable handle server PID support.
+"""
+
+MONGODB_INDEXING = True
+""" :py:class:`bool`: Use MongoDB for data indexing.
+    If True: 
+        - a copy of the data will be stored in MongoDB,
+        - queries will be executed against MongoDB.
+"""
+
+GRIDFS_STORAGE = True
+""" :py:class:`bool`: Use GridFS for file storage.
+"""
+
+MONGO_HOST = os.getenv("MONGO_HOST", "localhost")
+""" :py:class:`str`: MongoDB host.
+"""
+
+MONGO_PORT = os.getenv("MONGO_PORT", "27017")
+""" :py:class:`str`: MongoDB port.
+"""
+
+MONGO_DB = os.getenv("MONGO_DB", "")
+""" :py:class:`str`: MongoDB database.
+"""
+
+MONGO_USER = os.getenv("MONGO_USER", "")
+""" :py:class:`str`: MongoDB user.
+"""
+
+MONGO_PASS = os.getenv("MONGO_PASS", "")
+""" :py:class:`str`: MongoDB password.
+"""
+
+CUSTOM_FILE_STORAGE = dict()
+""" :py:class:`dict`: File Storage by model.
+    Example:
+    {
+        'data': 'django.core.files.storage.FileSystemStorage',
+        'blob': 'core_main_app.utils.storage.gridfs_storage.GridFSStorage',
+        'exported_compressed_files': 'core_main_app.utils.storage.gridfs_storage.GridFSStorage'
+    }
+"""
+
+OAI_ADMINS = os.environ["OAI_ADMINS"].split(",") if "OAI_ADMINS" in os.environ else None
+""" :py:class:`list`: Email addresses of OAI-PMH Administrators.
 """

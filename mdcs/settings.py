@@ -2,12 +2,11 @@
 Django settings for mdcs project.
 
 For more information on this file, see
-https://docs.djangoproject.com/en/2.2/topics/settings/
+https://docs.djangoproject.com/en/3.2/topics/settings/
 
 For the full list of settings and their values, see
-https://docs.djangoproject.com/en/2.2/ref/settings/
+https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-from mongoengine.connection import connect
 
 from core_main_app.utils.logger.logger_utils import (
     set_generic_handler,
@@ -15,7 +14,6 @@ from core_main_app.utils.logger.logger_utils import (
     update_logger_with_local_app,
 )
 from .core_settings import *
-import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -48,19 +46,6 @@ DATABASES = {
     }
 }
 
-DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
-
-MONGO_HOST = os.environ["MONGO_HOST"] if "MONGO_HOST" in os.environ else ""
-MONGO_PORT = os.environ["MONGO_PORT"] if "MONGO_PORT" in os.environ else "27017"
-MONGO_DB = os.environ["MONGO_DB"] if "MONGO_DB" in os.environ else ""
-MONGO_USER = os.environ["MONGO_USER"] if "MONGO_USER" in os.environ else ""
-MONGO_PASS = os.environ["MONGO_PASS"] if "MONGO_PASS" in os.environ else ""
-MONGODB_URI = (
-    f"mongodb://{MONGO_USER}:{MONGO_PASS}@{MONGO_HOST}:{MONGO_PORT}/{MONGO_DB}"
-)
-connect(host=MONGODB_URI, connect=False)
-
-
 BROKER_TRANSPORT_OPTIONS = {
     "visibility_timeout": 3600,
     "fanout_prefix": True,
@@ -92,12 +77,12 @@ INSTALLED_APPS = (
     # Extra apps
     "rest_framework",
     "drf_yasg",
-    "rest_framework_mongoengine",
     "menu",
     "tz_detect",
     "defender",
     "captcha",
     "django_celery_beat",
+    "django_cleanup.apps.CleanupConfig",
     # Core apps
     "core_main_app",
     "core_exporters_app",
@@ -172,7 +157,7 @@ WSGI_APPLICATION = "mdcs.wsgi.application"
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/2.2/topics/i18n/
+# https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
 
@@ -187,10 +172,11 @@ USE_TZ = True
 LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
+# https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = "/static/"
 STATIC_ROOT = "static.prod"
+
 
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
@@ -198,6 +184,14 @@ STATICFILES_FINDERS = (
 )
 
 STATICFILES_DIRS = ("static",)
+
+# https://docs.djangoproject.com/en/3.2/topics/files/
+MEDIA_ROOT = "media"
+
+# https://docs.djangoproject.com/en/3.2/ref/contrib/sites/
+SITE_ID = 1
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Password Validators
 AUTH_PASSWORD_VALIDATORS = [

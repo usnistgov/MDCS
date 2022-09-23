@@ -7,13 +7,14 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import os  # noqa
 
 from core_main_app.utils.logger.logger_utils import (
     set_generic_handler,
     set_generic_logger,
     update_logger_with_local_app,
 )
-from .core_settings import *
+from .core_settings import *  # noqa: F403
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -271,7 +272,7 @@ SWAGGER_SETTINGS = {
 
 # Django Defender
 DEFENDER_REDIS_URL = REDIS_URL
-""" :py:class:`str`: The Redis url for defender. 
+""" :py:class:`str`: The Redis url for defender.
 """
 DEFENDER_COOLOFF_TIME = 60
 """ integer: Period of inactivity after which old failed login attempts will be forgotten
@@ -426,7 +427,7 @@ if LOGGING_DB:
 
 # SSL
 
-if SERVER_URI.lower().startswith("https"):
+if SERVER_URI.lower().startswith("https"):  # noqa: F405 (core setting)
     # Activate HTTPS
     os.environ["HTTPS"] = "on"
 
@@ -440,7 +441,7 @@ if SERVER_URI.lower().startswith("https"):
     # Set x-frame options
     X_FRAME_OPTIONS = "SAMEORIGIN"
 
-if ENABLE_SAML2_SSO_AUTH:
+if ENABLE_SAML2_SSO_AUTH:  # noqa: F405 (core setting)
     import saml2
     import saml2.saml
     from core_main_app.utils.saml2.utils import (
@@ -477,13 +478,15 @@ if ENABLE_SAML2_SSO_AUTH:
     SAML_ATTRIBUTE_MAPPING = load_django_attribute_map_from_env()
 
     # Configure Pysaml2
-    SAML_CONFIG = load_saml_config_from_env(server_uri=SERVER_URI, base_dir=BASE_DIR)
+    SAML_CONFIG = load_saml_config_from_env(
+        server_uri=SERVER_URI, base_dir=BASE_DIR  # noqa: F405 (core setting)
+    )
     SAML_ACS_FAILURE_RESPONSE_FUNCTION = "core_main_app.views.user.views.saml2_failure"
 
 # configure handle server PIDs according to environment settings
-if ENABLE_HANDLE_PID:
+if ENABLE_HANDLE_PID:  # noqa: F405 (core setting)
     HDL_USER = (
-        f"300%3A{ID_PROVIDER_PREFIX_DEFAULT}/"
+        f"300%3A{ID_PROVIDER_PREFIX_DEFAULT}/"  # noqa: F405 (core setting)
         f'{os.getenv("HANDLE_NET_USER", "ADMIN")}'
     )
 
@@ -505,7 +508,7 @@ if ENABLE_HANDLE_PID:
         "data": {
             "format": os.getenv("HANDLE_NET_ADMIN_DATA_FORMAT", "admin"),
             "value": {
-                "handle": f"0.NA/{ID_PROVIDER_PREFIX_DEFAULT}",
+                "handle": f"0.NA/{ID_PROVIDER_PREFIX_DEFAULT}",  # noqa: F405 (core setting)
                 "index": int(os.getenv("HANDLE_NET_ADMIN_DATA_INDEX", 200)),
                 "permissions": os.getenv(
                     "HANDLE_NET_ADMIN_DATA_PERMISSIONS", "011111110011"

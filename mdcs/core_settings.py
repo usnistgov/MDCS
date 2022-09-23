@@ -31,7 +31,7 @@ EXPLORE_ADD_DEFAULT_LOCAL_DATA_SOURCE_TO_QUERY = True
 """
 
 SSL_CERTIFICATES_DIR = True
-""" Either a boolean, in which case it controls whether requests verify the server's TLS certificate, 
+""" Either a boolean, in which case it controls whether requests verify the server's TLS certificate,
 or a string, in which case it must be a path to a CA bundle to use.
 """
 
@@ -43,7 +43,7 @@ DISPLAY_EDIT_BUTTON = True
 """ boolean: Display the edit button on the result page
 """
 DATA_SORTING_FIELDS = ["-last_modification_date"]
-""" Array<string>: Default sort fields for the data query. 
+""" Array<string>: Default sort fields for the data query.
 """
 DATA_DISPLAYED_SORTING_FIELDS = [
     {
@@ -126,7 +126,7 @@ ENABLE_HANDLE_PID = os.getenv("ENABLE_HANDLE_PID", "False").lower() == "true"
 
 MONGODB_INDEXING = True
 """ :py:class:`bool`: Use MongoDB for data indexing.
-    If True: 
+    If True:
         - a copy of the data will be stored in MongoDB,
         - queries will be executed against MongoDB.
 """

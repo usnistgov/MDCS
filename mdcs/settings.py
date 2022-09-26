@@ -82,7 +82,6 @@ INSTALLED_APPS = (
     "defender",
     "captcha",
     "django_celery_beat",
-    "django_cleanup.apps.CleanupConfig",
     # Core apps
     "core_main_app",
     "core_exporters_app",

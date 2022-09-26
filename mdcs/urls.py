@@ -25,7 +25,9 @@ urlpatterns = [
     re_path(r"^admin/", admin.site.urls),
     re_path(r"^core-admin/", core_admin_site.urls),
     re_path(r"^admin/defender/", include("defender.urls")),
-    re_path(r"^o/", include("oauth2_provider.urls", namespace="oauth2_provider")),
+    re_path(
+        r"^o/", include("oauth2_provider.urls", namespace="oauth2_provider")
+    ),
     re_path(r"^", include("core_main_app.urls")),
     re_path(r"^home/", include("mdcs_home.urls")),
     re_path(r"^", include("core_website_app.urls")),
@@ -36,7 +38,8 @@ urlpatterns = [
     re_path(r"^explore/common/", include("core_explore_common_app.urls")),
     re_path(r"^explore/example/", include("core_explore_example_app.urls")),
     re_path(
-        r"^explore/federated/search/", include("core_explore_federated_search_app.urls")
+        r"^explore/federated/search/",
+        include("core_explore_federated_search_app.urls"),
     ),
     re_path(r"^federated/search/", include("core_federated_search_app.urls")),
     re_path(r"^explore/keyword/", include("core_explore_keyword_app.urls")),

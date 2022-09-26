@@ -7,7 +7,9 @@ SERVER_URI = os.environ["SERVER_URI"] if "SERVER_URI" in os.environ else None
 # Website customization
 WEBSITE_SHORT_TITLE = "MDCS"
 CUSTOM_DATA = "Materials Data"
-CUSTOM_NAME = os.environ["SERVER_NAME"] if "SERVER_NAME" in os.environ else "Curator"
+CUSTOM_NAME = (
+    os.environ["SERVER_NAME"] if "SERVER_NAME" in os.environ else "Curator"
+)
 CUSTOM_TITLE = "Materials Data Curation System"
 CUSTOM_SUBTITLE = "Part of the Materials Genome Initiative"
 CURATE_MENU_NAME = "Data Curation"
@@ -106,7 +108,9 @@ ID_PROVIDER_PREFIX_DEFAULT = os.getenv(
     "ID_PROVIDER_PREFIX_DEFAULT", ID_PROVIDER_PREFIXES[0]
 )
 
-ID_PROVIDER_PREFIX_BLOB = os.getenv("ID_PROVIDER_PREFIX_BLOB", ID_PROVIDER_PREFIXES[0])
+ID_PROVIDER_PREFIX_BLOB = os.getenv(
+    "ID_PROVIDER_PREFIX_BLOB", ID_PROVIDER_PREFIXES[0]
+)
 
 PID_XPATH = os.getenv("PID_XPATH", "root.pid")
 """ string: location of the PID in the document, specified as dot notation
@@ -116,7 +120,9 @@ AUTO_SET_PID = os.getenv("AUTO_SET_PID", "False").lower() == "true"
 """ boolean: enable the automatic pid generation for saved data.
 """
 
-ENABLE_SAML2_SSO_AUTH = os.getenv("ENABLE_SAML2_SSO_AUTH", "False").lower() == "true"
+ENABLE_SAML2_SSO_AUTH = (
+    os.getenv("ENABLE_SAML2_SSO_AUTH", "False").lower() == "true"
+)
 """ boolean: enable SAML2 SSO authentication.
 """
 
@@ -165,6 +171,8 @@ CUSTOM_FILE_STORAGE = dict()
     }
 """
 
-OAI_ADMINS = os.environ["OAI_ADMINS"].split(",") if "OAI_ADMINS" in os.environ else None
+OAI_ADMINS = (
+    os.environ["OAI_ADMINS"].split(",") if "OAI_ADMINS" in os.environ else None
+)
 """ :py:class:`list`: Email addresses of OAI-PMH Administrators.
 """

@@ -20,14 +20,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = (
-    os.environ["DJANGO_SECRET_KEY"] if "DJANGO_SECRET_KEY" in os.environ else None
+    os.environ["DJANGO_SECRET_KEY"]
+    if "DJANGO_SECRET_KEY" in os.environ
+    else None
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = (
-    os.environ["ALLOWED_HOSTS"].split(",") if "ALLOWED_HOSTS" in os.environ else []
+    os.environ["ALLOWED_HOSTS"].split(",")
+    if "ALLOWED_HOSTS" in os.environ
+    else []
 )
 
 # Databases
@@ -35,12 +39,18 @@ ALLOWED_HOSTS = (
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "HOST": os.environ["POSTGRES_HOST"] if "POSTGRES_HOST" in os.environ else None,
+        "HOST": os.environ["POSTGRES_HOST"]
+        if "POSTGRES_HOST" in os.environ
+        else None,
         "PORT": int(os.environ["POSTGRES_PORT"])
         if "POSTGRES_PORT" in os.environ
         else 5432,
-        "NAME": os.environ["POSTGRES_DB"] if "POSTGRES_DB" in os.environ else None,
-        "USER": os.environ["POSTGRES_USER"] if "POSTGRES_USER" in os.environ else None,
+        "NAME": os.environ["POSTGRES_DB"]
+        if "POSTGRES_DB" in os.environ
+        else None,
+        "USER": os.environ["POSTGRES_USER"]
+        if "POSTGRES_USER" in os.environ
+        else None,
         "PASSWORD": os.environ["POSTGRES_PASS"]
         if "POSTGRES_PASS" in os.environ
         else None,
@@ -378,7 +388,10 @@ if LOGGING_CLIENT:
         "logging.handlers.RotatingFileHandler",
     )
     set_generic_logger(
-        LOGGING, "django.template", LOGGER_CLIENT_LEVEL, ["console", "logfile-template"]
+        LOGGING,
+        "django.template",
+        LOGGER_CLIENT_LEVEL,
+        ["console", "logfile-template"],
     )
     set_generic_handler(
         LOGGING,
@@ -390,7 +403,10 @@ if LOGGING_CLIENT:
         "logging.handlers.RotatingFileHandler",
     )
     set_generic_logger(
-        LOGGING, "django.request", LOGGER_CLIENT_LEVEL, ["console", "logfile-request"]
+        LOGGING,
+        "django.request",
+        LOGGER_CLIENT_LEVEL,
+        ["console", "logfile-request"],
     )
 
 if LOGGING_SERVER:
@@ -404,7 +420,10 @@ if LOGGING_SERVER:
         "logging.handlers.RotatingFileHandler",
     )
     set_generic_logger(
-        LOGGING, "django.server", LOGGER_SERVER_LEVEL, ["console", "logfile-server"]
+        LOGGING,
+        "django.server",
+        LOGGER_SERVER_LEVEL,
+        ["console", "logfile-server"],
     )
 
 if LOGGING_DB:
@@ -453,7 +472,9 @@ if ENABLE_SAML2_SSO_AUTH:  # noqa: F405 (core setting)
     if "djangosaml2" not in INSTALLED_APPS:
         INSTALLED_APPS = INSTALLED_APPS + ("djangosaml2",)
     if "djangosaml2.middleware.SamlSessionMiddleware" not in MIDDLEWARE:
-        MIDDLEWARE = MIDDLEWARE + ("djangosaml2.middleware.SamlSessionMiddleware",)
+        MIDDLEWARE = MIDDLEWARE + (
+            "djangosaml2.middleware.SamlSessionMiddleware",
+        )
     AUTHENTICATION_BACKENDS = (
         "django.contrib.auth.backends.ModelBackend",
         "djangosaml2.backends.Saml2Backend",
@@ -481,7 +502,9 @@ if ENABLE_SAML2_SSO_AUTH:  # noqa: F405 (core setting)
     SAML_CONFIG = load_saml_config_from_env(
         server_uri=SERVER_URI, base_dir=BASE_DIR  # noqa: F405 (core setting)
     )
-    SAML_ACS_FAILURE_RESPONSE_FUNCTION = "core_main_app.views.user.views.saml2_failure"
+    SAML_ACS_FAILURE_RESPONSE_FUNCTION = (
+        "core_main_app.views.user.views.saml2_failure"
+    )
 
 # configure handle server PIDs according to environment settings
 if ENABLE_HANDLE_PID:  # noqa: F405 (core setting)
@@ -495,7 +518,9 @@ if ENABLE_HANDLE_PID:  # noqa: F405 (core setting)
         "class": "core_linked_records_app.utils.providers.handle_net.HandleNetSystem",
         "args": [
             os.getenv("HANDLE_NET_LOOKUP_URL", "https://hdl.handle.net"),
-            os.getenv("HANDLE_NET_REGISTRATION_URL", "https://handle-net.domain"),
+            os.getenv(
+                "HANDLE_NET_REGISTRATION_URL", "https://handle-net.domain"
+            ),
             HDL_USER,
             os.getenv("HANDLE_NET_SECRET_KEY", "admin"),
         ],

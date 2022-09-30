@@ -32,10 +32,10 @@
 """
 
 from django.urls import reverse
+from mdcs.settings import CURATE_MENU_NAME
 from menu import Menu, MenuItem
 
 from core_main_app.utils.labels import get_form_label, get_data_label
-from mdcs.settings import CURATE_MENU_NAME
 
 Menu.add_item(
     "nodropdown", MenuItem("Home", reverse("core_main_app_homepage"), icon="home")

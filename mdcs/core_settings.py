@@ -176,3 +176,7 @@ OAI_ADMINS = (
 )
 """ :py:class:`list`: Email addresses of OAI-PMH Administrators.
 """
+
+GA_TRACKING_ID = os.getenv("GA_TRACKING_ID", None)
+""" :py:class:`str`: Google Analytics tracking ID. Adds gtag to user pages if set.
+"""

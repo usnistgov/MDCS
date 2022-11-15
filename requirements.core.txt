@@ -6,10 +6,8 @@ core_dashboard_app==2.1.*
 core_explore_example_app==2.1.*
 core_explore_keyword_app==2.1.*
 core_explore_federated_search_app==2.1.*
-core_explore_oaipmh_app==2.1.*
 core_exporters_app==2.1.*
 core_federated_search_app==2.1.*
-core_oaipmh_provider_app==2.1.*
 core_website_app==2.1.*
 core_module_blob_host_app==2.1.*
 core_module_remote_blob_host_app==2.1.*

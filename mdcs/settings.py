@@ -98,9 +98,6 @@ INSTALLED_APPS = (
     "core_exporters_app",
     "core_exporters_app.exporters.xsl",
     "core_website_app",
-    "core_oaipmh_common_app",
-    "core_oaipmh_harvester_app",
-    "core_oaipmh_provider_app",
     "core_curate_app",
     "core_parser_app",
     "core_parser_app.tools.modules",  # FIXME: make modules an app
@@ -109,7 +106,6 @@ INSTALLED_APPS = (
     "core_explore_federated_search_app",
     "core_federated_search_app",
     "core_explore_common_app",
-    "core_explore_oaipmh_app",
     "core_explore_example_app",
     "core_explore_keyword_app",
     "core_dashboard_app",

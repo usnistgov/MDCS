@@ -18,7 +18,6 @@ WEBSITE_ADMIN_COLOR = "yellow"
 
 DATA_SOURCES_EXPLORE_APPS = [
     "core_explore_federated_search_app",
-    "core_explore_oaipmh_app",
 ]
 
 # Lists in data not stored if number of elements is over the limit (e.g. 100)
@@ -169,12 +168,6 @@ CUSTOM_FILE_STORAGE = dict()
         'blob': 'core_main_app.utils.storage.gridfs_storage.GridFSStorage',
         'exported_compressed_files': 'core_main_app.utils.storage.gridfs_storage.GridFSStorage'
     }
-"""
-
-OAI_ADMINS = (
-    os.environ["OAI_ADMINS"].split(",") if "OAI_ADMINS" in os.environ else None
-)
-""" :py:class:`list`: Email addresses of OAI-PMH Administrators.
 """
 
 GA_TRACKING_ID = os.getenv("GA_TRACKING_ID", None)

@@ -136,6 +136,11 @@ MONGODB_INDEXING = True
         - queries will be executed against MongoDB.
 """
 
+MONGODB_ASYNC_SAVE = True
+""" :py:class:`bool`: Save data in MongoDB asynchronously.
+    If True, data are saved in MongoDB asynchronously.
+"""
+
 GRIDFS_STORAGE = True
 """ :py:class:`bool`: Use GridFS for file storage.
 """

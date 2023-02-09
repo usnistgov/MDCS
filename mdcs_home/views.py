@@ -50,7 +50,7 @@ def tiles(request):
             "logo": "fa-edit",
             "link": reverse("core_curate_index"),
             "title": "Curate your Materials Data",
-            "text": "Click here to select a form template and then fill out the corresponding form.",
+            "text": "Click above to start the data form process.",
         }
 
         context["tiles"].append(curate_tile)
@@ -60,7 +60,7 @@ def tiles(request):
             "logo": "fa-flask",
             "link": reverse("core_explore_example_index"),
             "title": "Build your own queries",
-            "text": "Click here to search for Materials Data in the repository using flexible queries.",
+            "text": "Click above to search for MetaMaterial Data in the repository using flexible queries.",
         }
 
         context["tiles"].append(explore_example_tile)
@@ -70,11 +70,12 @@ def tiles(request):
             "logo": "fa-search",
             "link": reverse("core_explore_keyword_app_search"),
             "title": "Search by keyword",
-            "text": "Click here to explore for Materials Data in the repository using keywords.",
+            "text": "Click here to explore for MetaMaterial Data in the repository using keywords.",
         }
 
         context["tiles"].append(explore_keywords_tile)
 
+    '''
     if "core_composer_app" in installed_apps:
         compose_tile = {
             "logo": "fa-file-code",
@@ -84,5 +85,6 @@ def tiles(request):
         }
 
         context["tiles"].append(compose_tile)
+    '''
 
     return render(request, "mdcs_home/tiles.html", context)

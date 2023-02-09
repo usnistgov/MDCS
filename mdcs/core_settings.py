@@ -5,14 +5,14 @@ import os
 SERVER_URI = os.environ["SERVER_URI"] if "SERVER_URI" in os.environ else None
 
 # Website customization
-WEBSITE_SHORT_TITLE = "MDCS"
+WEBSITE_SHORT_TITLE = "MetaGenome"
 CUSTOM_DATA = "Materials Data"
 CUSTOM_NAME = (
     os.environ["SERVER_NAME"] if "SERVER_NAME" in os.environ else "Curator"
 )
-CUSTOM_TITLE = "Materials Data Curation System"
+CUSTOM_TITLE = "MetaGenome Database Project"
 CUSTOM_SUBTITLE = "Part of the Materials Genome Initiative"
-CURATE_MENU_NAME = "Data Curation"
+CURATE_MENU_NAME = "Data Submission"
 WEBSITE_ADMIN_COLOR = "yellow"
 # black, black-light, blue, blue-light, green, green-light, purple, purple-light, red, red-light, yellow, yellow-light
 

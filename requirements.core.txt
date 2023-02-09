@@ -1,5 +1,5 @@
-core_main_app[mongodb]==2.1.*
-core_composer_app==2.1.*
+git+https://www.github.com/Meta-Genome-Org/core_main_app.git@initial-changes#egg=core_main_app
+git+https://www.github.com/Meta-Genome-Org/core_composer_app.git@initial-changes#egg=core_composer_app
 core_curate_app==2.1.*
 core_dashboard_common_app==2.1.*
 core_dashboard_app==2.1.*

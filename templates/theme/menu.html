@@ -74,7 +74,7 @@
                     <li><a href="{% url 'core_main_app_logout' %}" class="cdcs-menu-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                 </ul>
                 {% else %}
-                    <a href="{% url 'core_main_app_login' %}">
+                    <a href="{% url LOGIN_URL %}">
                         <i class="fas fa-sign-in-alt"></i> Log In / Sign Up
                     </a>
                 {% endif %}

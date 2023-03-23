@@ -125,6 +125,14 @@ ENABLE_SAML2_SSO_AUTH = (
 """ boolean: enable SAML2 SSO authentication.
 """
 
+ENABLE_2FA = os.getenv("ENABLE_2FA", "False").lower() == "true"
+""" :py:class:`bool`: Enable 2 Factor Authentication login
+"""
+
+ENABLE_2FA_EMAIL = os.getenv("ENABLE_2FA_EMAIL", "False").lower() == "true"
+""" :py:class:`bool`: Enable 2 Factor Authentication login. Ignored if ENABLE_2FA is False.
+"""
+
 ENABLE_HANDLE_PID = os.getenv("ENABLE_HANDLE_PID", "False").lower() == "true"
 """ boolean: enable handle server PID support.
 """

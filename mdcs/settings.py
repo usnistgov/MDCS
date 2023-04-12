@@ -537,24 +537,4 @@ if ENABLE_HANDLE_PID:  # noqa: F405 (core setting)
         },
     }
 
-# Django two-factor auth
-if ENABLE_2FA:  # noqa: F405 (core setting)
-    LOGIN_URL = "two_factor:login"
-    LOGIN_REDIRECT_URL = "two_factor:profile"
-
-    INSTALLED_APPS = INSTALLED_APPS + (
-        "django_otp",
-        "django_otp.plugins.otp_static",
-        "django_otp.plugins.otp_totp",
-        "two_factor",
-        "two_factor.plugins.phonenumber",
-    )
-    MIDDLEWARE = MIDDLEWARE + ("django_otp.middleware.OTPMiddleware",)
-
-    if ENABLE_2FA_EMAIL:  # noqa: F405 (core setting)
-        INSTALLED_APPS = INSTALLED_APPS + (
-            "django_otp.plugins.otp_email",
-            "two_factor.plugins.email",
-        )
-else:
-    LOGIN_URL = "core_main_app_login"
+LOGIN_URL = "core_main_app_login"

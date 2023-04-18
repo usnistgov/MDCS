@@ -93,6 +93,7 @@ INSTALLED_APPS = (
     "defender",
     "captcha",
     "django_celery_beat",
+    "fontawesomefree",
     # Core apps
     "core_main_app",
     "core_exporters_app",

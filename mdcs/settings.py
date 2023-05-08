@@ -87,7 +87,7 @@ INSTALLED_APPS = (
     "oauth2_provider",
     # Extra apps
     "rest_framework",
-    "drf_yasg",
+    "drf_spectacular",
     "menu",
     "tz_detect",
     "defender",
@@ -256,24 +256,17 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
     ),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
-# drf-yasg
-SWAGGER_SETTINGS = {
-    "exclude_namespaces": [],  # List URL namespaces to ignore
-    "api_version": "1.1",  # Specify your API's version
-    "api_path": "/",  # Specify the path to your API not a root level
-    "enabled_methods": [  # Specify which methods to enable in Swagger UI
-        "get",
-        "post",
-        "put",
-        "patch",
-        "delete",
-    ],
-    "api_key": "",  # An API key
-    "is_authenticated": False,  # Set to True to enforce user authentication,
-    "is_superuser": False,  # Set to True to enforce admin only access
-    "LOGOUT_URL": "core_main_app_logout",
+# drf-spectacular
+SPECTACULAR_SETTINGS = {
+    "TITLE": WEBSITE_SHORT_TITLE,  # noqa: F405 (core setting)
+    "DESCRIPTION": os.getenv(
+        "PROJECT_DESCRIPTION", "Your project description"
+    ),
+    "VERSION": PROJECT_VERSION,  # noqa: F405 (core setting)
+    "SERVE_INCLUDE_SCHEMA": False,
 }
 
 # Django Defender

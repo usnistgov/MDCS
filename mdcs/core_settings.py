@@ -4,6 +4,10 @@ import os
 
 SERVER_URI = os.environ["SERVER_URI"] if "SERVER_URI" in os.environ else None
 
+PROJECT_VERSION = os.getenv("PROJECT_VERSION", "0.0.0")
+""" :py:class:`str`: Project version number.
+"""
+
 # Website customization
 WEBSITE_SHORT_TITLE = "MDCS"
 CUSTOM_DATA = "Materials Data"

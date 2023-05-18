@@ -267,6 +267,7 @@ SPECTACULAR_SETTINGS = {
     ),
     "VERSION": PROJECT_VERSION,  # noqa: F405 (core setting)
     "SERVE_INCLUDE_SCHEMA": False,
+    "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAuthenticated"],
 }
 
 # Django Defender

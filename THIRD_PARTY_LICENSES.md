@@ -16,4 +16,3 @@ this package (`requirements.*` files) and their dependencies.
 | Name                  | License                                                 |
 |-----------------------|---------------------------------------------------------|
 | jQuery Dropotron      | MIT License                                             |
-| skel                  | MIT License                                             |

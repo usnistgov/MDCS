@@ -3089,9 +3089,3 @@
             }
 
 	}
-/* Bootstrap overide */
-.badge {
-    background-color: #585757 !important;
-    border-radius: 12px;
-    font-size: .65em;
-}

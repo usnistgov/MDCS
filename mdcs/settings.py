@@ -89,7 +89,6 @@ INSTALLED_APPS = (
     "rest_framework",
     "drf_spectacular",
     "menu",
-    "tz_detect",
     "defender",
     "captcha",
     "django_celery_beat",
@@ -136,7 +135,6 @@ MIDDLEWARE = (
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.security.SecurityMiddleware",
-    "tz_detect.middleware.TimezoneMiddleware",
 )
 
 

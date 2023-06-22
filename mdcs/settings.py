@@ -2,10 +2,10 @@
 Django settings for mdcs project.
 
 For more information on this file, see
-https://docs.djangoproject.com/en/3.2/topics/settings/
+https://docs.djangoproject.com/en/4.2/topics/settings/
 
 For the full list of settings and their values, see
-https://docs.djangoproject.com/en/3.2/ref/settings/
+https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os  # noqa
 
@@ -163,7 +163,7 @@ WSGI_APPLICATION = "mdcs.wsgi.application"
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/3.2/topics/i18n/
+# https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
 
@@ -178,7 +178,7 @@ USE_TZ = True
 LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
+# https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "/static/"
 STATIC_ROOT = "static.prod"
@@ -191,10 +191,10 @@ STATICFILES_FINDERS = (
 
 STATICFILES_DIRS = ("static",)
 
-# https://docs.djangoproject.com/en/3.2/topics/files/
+# https://docs.djangoproject.com/en/4.2/topics/files/
 MEDIA_ROOT = "media"
 
-# https://docs.djangoproject.com/en/3.2/ref/contrib/sites/
+# https://docs.djangoproject.com/en/4.2/ref/contrib/sites/
 SITE_ID = 1
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

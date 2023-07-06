@@ -186,3 +186,7 @@ GA_TRACKING_ID = os.getenv("GA_TRACKING_ID", None)
 CAN_ANONYMOUS_ACCESS_PUBLIC_DOCUMENT = False
 """ :py:class:`bool`: Can anonymous user access public document.
 """
+
+BOOTSTRAP_VERSION = os.getenv("BOOTSTRAP_VERSION", "5.1.3")
+""" :py:class:`str`: Version of the boostrap library.
+"""

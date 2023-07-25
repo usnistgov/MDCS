@@ -85,7 +85,7 @@
         <!-- End float left menu-->
 
         <!-- Start float right menu-->
-        <li class="nested {% if BOOTSTRAP_VERSION == "4.6.2" %}float-right{% elif BOOTSTRAP_VERSION == "5.1.3" %}float-end{% endif %}">
+        <li class="nested {% if BOOTSTRAP_VERSION|first == "4" %}float-right{% elif BOOTSTRAP_VERSION|first == "5" %}float-end{% endif %}">
             {% if user.is_authenticated %}
                 <div class="dropdown">
                     <a class="dropdown-toggle"
@@ -141,7 +141,7 @@
                 </a>
             {% endif %}
         </li>
-        <li class="nested {% if BOOTSTRAP_VERSION == "4.6.2" %}float-right{% elif BOOTSTRAP_VERSION == "5.1.3" %}float-end{% endif %}">
+        <li class="nested {% if BOOTSTRAP_VERSION|first == "4" %}float-right{% elif BOOTSTRAP_VERSION|first == "5" %}float-end{% endif %}">
             <div class="dropdown">
                 <a class="dropdown-toggle"
                    type="button"

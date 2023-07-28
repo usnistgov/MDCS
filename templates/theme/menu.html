@@ -2,96 +2,170 @@
 {% load static %}
 {% load get_attribute %}
 <nav id="nav">
-        <ul>
-            <!-- Start MDCS title left -->
-            <li id="cdcs-main" style="padding:0;">
-                <div id="cdcs-menu-title">
-                    <a href="https://cdcs.nist.gov/" title="Configurable Data Curation System (CDCS)">
-                        Materials Data Curation System
-                    </a>
-                </div>
-            </li>
-            <!-- End MDCS title left -->
+    <ul>
+        <!-- Start MDCS title left -->
+        <li id="cdcs-main" style="padding:0;">
+            <div id="cdcs-menu-title">
+                <a href="https://cdcs.nist.gov/"
+                   title="Configurable Data Curation System (CDCS)">
+                    Materials Data Curation System
+                </a>
+            </div>
+        </li>
+        <!-- End MDCS title left -->
 
-            <!-- Start float left menu-->
-            {% block navigation_menu %}
+        <!-- Start float left menu-->
+        {% block navigation_menu %}
             {% generate_menu %}
             {% for item in menus.nodropdown %}
-            <li>
-                <a href="{{ item.url }}">{% if item|get_attribute:'icon' %}<i class="fas fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a>
-            </li>
+                <li>
+                    <a href="{{ item.url }}">{% if item|get_attribute:'icon' %}
+                        <i class="fas fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}
+                    </a>
+                </li>
             {% endfor %}
             <li class="nested">
-                <a href="#">
-                    Data Exploration <i class="fas fa-caret-down"></i></a>
-                </a>
-                <ul>
-                    {% generate_menu %}
-                    {% for item in menus.explorer %}
-                        <li><a href="{{ item.url }}" class="cdcs-menu-item">{% if item|get_attribute:'icon' %}<i class="fas fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
-                    {% endfor %}
-                </ul>
+                <div class="dropdown">
+                    <a class="dropdown-toggle"
+                       type="button"
+                       id="dropdownExploration"
+                       {% if BOOTSTRAP_VERSION|first == "4" %}data-toggle="dropdown"
+                       {% elif BOOTSTRAP_VERSION|first == "5" %}data-bs-toggle="dropdown"
+                       {% endif %}
+                       aria-haspopup="true"
+                       aria-expanded="false"
+                    >
+                        Data Exploration
+                    </a>
+                    <ul class="dropdown-menu"
+                        aria-labelledby="dropdownExploration">
+                        {% generate_menu %}
+                        {% for item in menus.explorer %}
+                            <li class="dropdown-item">
+                                <a href="{{ item.url }}">
+                                    {% if item|get_attribute:'icon' %}
+                                        <i class="fas fa-{{ item.icon }}"></i>
+                                    {% endif %}
+                                    {{ item.title }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </li>
             <li class="nested">
-                <a href="#">
-                    Composer <i class="fas fa-caret-down"></i>
-                </a>
-                <ul>
-                    {% generate_menu %}
-                    {% for item in menus.composer %}
-                        {% if not item|get_attribute:'require_authentication' or user.is_authenticated %}<li><a href="{{ item.url }}" class="cdcs-menu-item">{% if item|get_attribute:'icon' %}<i class="fas fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>{% endif %}
-                    {% endfor %}
-                </ul>
-            </li>
-            {% endblock %}
-            <!-- End float right menu-->
-
-            <!-- Start float right menu-->
-            <li class="nested {% if BOOTSTRAP_VERSION == "4.6.2" %}float-right{% elif BOOTSTRAP_VERSION == "5.1.3" %}float-end{% endif %}">
-                {% if user.is_authenticated %}
-                <a href="#">
-                    <i class="fas fa-user-circle"></i> {{ user }} <i class="fas fa-caret-down"></i>
-                </a>
-                <ul>
-                    {% block dashboard_menu %}
-                        {% generate_menu %}
-
-                        {% for item in menus.dashboard %}
-                            <li><a href="{{ item.url }}" class="cdcs-menu-item">{% if item|get_attribute:'icon' %}<i class="fas fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
-                        {% endfor %}
-                    {% endblock %}
-                    <li class="divider"></li>
-                    {% block user_menu %}
-                        {% generate_menu %}
-
-                        {% for item in menus.user %}
-                            <li><a href="{{ item.url }}" class="cdcs-menu-item">{% if item|get_attribute:'icon' %}<i class="fas fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
-                        {% endfor %}
-                    {% endblock %}
-                    {% if user.is_staff %}
-                    <li><a href="{% url 'core-admin:core_main_app_admin_home' %}" class="cdcs-menu-item"><i class="fas fa-cog"></i> Administration</a></li>
-                    {% endif %}
-                    <li><a href="{% url 'core_main_app_logout' %}" class="cdcs-menu-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-                </ul>
-                {% else %}
-                    <a href="{% url LOGIN_URL %}">
-                        <i class="fas fa-sign-in-alt"></i> Log In / Sign Up
+                <div class="dropdown">
+                    <a class="dropdown-toggle"
+                       type="button"
+                       id="dropdownComposer"
+                       {% if BOOTSTRAP_VERSION|first == "4" %}data-toggle="dropdown"
+                       {% elif BOOTSTRAP_VERSION|first == "5" %}data-bs-toggle="dropdown"
+                       {% endif %}
+                       aria-haspopup="true"
+                       aria-expanded="false">
+                        Composer
                     </a>
-                {% endif %}
+                    <ul class="dropdown-menu"
+                        aria-labelledby="dropdownComposer">
+                        {% generate_menu %}
+                        {% for item in menus.composer %}
+                            {% if not item|get_attribute:'require_authentication' or user.is_authenticated %}
+                                <li class="dropdown-item"><a href="{{ item.url }}">
+                                    {% if item|get_attribute:'icon' %}
+                                        <i class="fas fa-{{ item.icon }}"></i>
+                                    {% endif %}
+                                    {{ item.title }}
+                                </a></li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
             </li>
-            <li class="nested {% if BOOTSTRAP_VERSION == "4.6.2" %}float-right{% elif BOOTSTRAP_VERSION == "5.1.3" %}float-end{% endif %}">
-                <a href="#">
-                    Help <i class="fas fa-caret-down"></i>
+        {% endblock %}
+        <!-- End float left menu-->
+
+        <!-- Start float right menu-->
+        <li class="nested {% if BOOTSTRAP_VERSION == "4.6.2" %}float-right{% elif BOOTSTRAP_VERSION == "5.1.3" %}float-end{% endif %}">
+            {% if user.is_authenticated %}
+                <div class="dropdown">
+                    <a class="dropdown-toggle"
+                       type="button"
+                       id="dropdownDashboard"
+                       {% if BOOTSTRAP_VERSION|first == "4" %}data-toggle="dropdown"
+                       {% elif BOOTSTRAP_VERSION|first == "5" %}data-bs-toggle="dropdown"
+                       {% endif %}
+                       aria-haspopup="true"
+                       aria-expanded="false">
+                        <i class="fas fa-user-circle"></i> {{ user }}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right"
+                        aria-labelledby="dropdownDashboard">
+                        {% block dashboard_menu %}
+                            {% generate_menu %}
+                            {% for item in menus.dashboard %}
+                                <li class="dropdown-item"><a href="{{ item.url }}">
+                                    {% if item|get_attribute:'icon' %}
+                                        <i class="fas fa-{{ item.icon }}"></i>
+                                    {% endif %}
+                                    {{ item.title }}
+                                </a></li>
+                            {% endfor %}
+                        {% endblock %}
+                        <li class="divider"></li>
+                        {% block user_menu %}
+                            {% generate_menu %}
+                            {% for item in menus.user %}
+                                <li class="dropdown-item"><a href="{{ item.url }}">
+                                    {% if item|get_attribute:'icon' %}
+                                        <i class="fas fa-{{ item.icon }}"></i>
+                                    {% endif %}
+                                    {{ item.title }}
+                                </a></li>
+                            {% endfor %}
+                        {% endblock %}
+                        {% if user.is_staff %}
+                            <li class="dropdown-item">
+                                <a href="{% url 'core-admin:core_main_app_admin_home' %}">
+                                    <i class="fas fa-cog"></i> Administration
+                                </a>
+                            </li>
+                        {% endif %}
+                        <li class="dropdown-item"><a href="{% url 'core_main_app_logout' %}">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a></li>
+                    </ul>
+                </div>
+            {% else %}
+                <a href="{% url LOGIN_URL %}">
+                    <i class="fas fa-sign-in-alt"></i> Log In / Sign Up
                 </a>
-                <ul>
+            {% endif %}
+        </li>
+        <li class="nested {% if BOOTSTRAP_VERSION == "4.6.2" %}float-right{% elif BOOTSTRAP_VERSION == "5.1.3" %}float-end{% endif %}">
+            <div class="dropdown">
+                <a class="dropdown-toggle"
+                   type="button"
+                   id="dropdownHelp"
+                   {% if BOOTSTRAP_VERSION|first == "4" %}data-toggle="dropdown"
+                   {% elif BOOTSTRAP_VERSION|first == "5" %}data-bs-toggle="dropdown"
+                   {% endif %}
+                   aria-haspopup="true"
+                   aria-expanded="false">
+                    Help
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right"
+                    aria-labelledby="dropdownHelp">
                     {% generate_menu %}
                     {% for item in menus.help %}
-                        <li><a href="{{ item.url }}" class="cdcs-menu-item">{% if item|get_attribute:'icon' %}<i class="fas fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}</a></li>
+                        <li class="dropdown-item"><a href="{{ item.url }}">
+                            {% if item|get_attribute:'icon' %}
+                                <i class="fas fa-{{ item.icon }}"></i>{% endif %} {{ item.title }}
+                        </a></li>
                     {% endfor %}
                 </ul>
-            </li>
-            <!-- End float right menu-->
-
-        </ul>
+            </div>
+        </li>
+        <!-- End float right menu-->
+    </ul>
 </nav>
 

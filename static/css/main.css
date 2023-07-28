@@ -2369,12 +2369,14 @@
 			}
 
                 /* Added by NIST */
-			    #nav > ul > li > a:not(.btn-custom) {
+				#nav > ul > li > a:not(.btn-custom),
+				#nav > ul > li > div > a:not(.btn-custom) {
 					color: #fff/*#c0c0c0*/;
 					padding-bottom: 9pt;
 				}
 
-				#nav > ul > li a {
+				#nav > ul > li > a,
+				#nav > ul > li > div > a {
 					text-decoration: none;
 					border: 0;
 					display: block;
@@ -2383,24 +2385,18 @@
 					/*margin: 0.25em 0;*/
 				}
 
-
 				#nav > ul > li:first-child {
 					margin-left: 0;
 				}
 
-				#nav > ul > li > a:hover{
+				#nav > ul > li > a:hover,
+				#nav > ul > li > div > a:hover {
 					background-color: #774b26;
 				}
 
 				#nav > ul > li > ul {
 					display: none;
 				}
-
-
-.cdcs-menu-item {
-    padding: 3px;
-    min-width: 205px;
-}
 
 .float-right {
     float: right !important;
@@ -2424,10 +2420,6 @@
   margin-bottom: 0;
 }
 
-.cdcs-menu__item {
-  list-style: none;
-}
-
 .cdcs-logo {
     bottom: -15px;
     width: 1.75em;
@@ -2435,42 +2427,34 @@
     margin-left: 0;
 }
 
-/* Dropotron */
+/* Nav Dropdown */
 
-	.dropotron {
+	#nav .dropdown-menu {
 		background-color: #fff;
 		border-radius: 5px;
 		color: #000;
-		min-width: 10em;
-		/*padding: 1em 0;*/
-		/*text-align: center;*/
-		/*box-shadow: 0 1em 1em 0 rgba(0, 0, 0, 0.5);*/
+		min-width: max-content;
 		box-shadow: 0 6px 12px rgba(0,0,0,.175)
 	}
 
-		.dropotron > li {
-			line-height: 2em;
-			/*padding: 0 1.1em 0 1em;*/
+		#nav .dropdown-menu > li {
+			padding: 0.1rem 1rem;
+			line-height: 2rem;
 		}
 
-			.dropotron > li > a {
+		#nav .dropdown-menu .dropdown-item:hover {
+			/* Added by NIST */
+			background-color: #e0e0e0;
+		}
+
+			#nav .dropdown-menu > li > a {
 				color: #000/*#c0c0c0*/;
 				text-decoration: none;
+				font-size: 1rem;
 				border: 0;
-				padding-left: 1em;
+				padding: 0.25rem;
 			}
 
-			.dropotron > li.active > a, .dropotron > li:hover > a {
-				/* Added by NIST */
-				background-color: #e0e0e0;
-			}
-
-		.dropotron.level-0 {
-			border-radius: 0 0 5px 5px;
-			font-size: 0.8em;
-			padding-top: 0;
-			margin-top: -1px;
-		}
 
 /* Banner */
 

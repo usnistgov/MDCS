@@ -532,3 +532,8 @@ if ENABLE_HANDLE_PID:  # noqa: F405 (core setting)
     }
 
 LOGIN_URL = "core_main_app_login"
+
+# Default view for Django Exception Reports
+DEFAULT_EXCEPTION_REPORTER_FILTER = (
+    "core_main_app.views.admin.views.CustomExceptionReporter"
+)

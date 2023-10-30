@@ -171,8 +171,31 @@ docker-compose down -v
 
 ## Connect CDCS server to the stack
 
+Copy the `.env.dev.example` file from the mdcs folder and rename it `.env`. This file should not be pushed to the git repository.
+Then fill the values in `.env` file. Make sure to use the same credentials used to initialize the dev components from the previous section.
+This `.env` file also has a few extra settings that are specific to the Django/CDCS server, make sure to provide a value for these.
+
+```shell
+# TODO: Set values for the databases configuration and credentials 
+#  (Set the same values used in .env for docker-compose.yml file)
+POSTGRES_USER=
+POSTGRES_PASS=
+POSTGRES_DB=
+MONGO_ADMIN_USER=
+MONGO_ADMIN_PASS=
+MONGO_USER=
+MONGO_PASS=
+MONGO_DB=
+REDIS_PASS=
+
+# TODO: Set Django/CDCS settings
+DJANGO_SECRET_KEY=
+SERVER_URI=
+SERVER_NAME=
+```
+
 See [installation_instructions](https://github.com/usnistgov/MDCS/blob/master/docs/mdcs-2.0-install-pypi.md#edit-and-save-install_pathmdcs-mastermdcssettingspy-file)
-about CDCS settings and creating a `.env` file for development.
+for more information about CDCS settings.
 
 ## PyCharm
 
@@ -192,17 +215,21 @@ Select /Users/user/anaconda3/envs/core/bin/python
 
 #### Migrate
 
-Script:             project/manage.py
+Script:                 mdcs/manage.py
 
-Script parameters:  migrate
+Script parameters:      migrate
+
+Environment variables:  DJANGO_SETTINGS_MODULE=mdcs.dev_settings
 
 Run migrate to initialize the database (and then again anytime a change is made to models/permissions).
 
 #### Create a Super User
 
-Script:             project/manage.py
+Script:                 mdcs/manage.py
 
-Script parameters:  createsuperuser
+Script parameters:      createsuperuser
+
+Environment variables:  DJANGO_SETTINGS_MODULE=mdcs.dev_settings
 
 Emulate terminal in output console
 
@@ -210,18 +237,22 @@ Run createsuperuser to create the first user of the system (and then anytime the
 
 #### Start Celery worker (optional)
 
-Script:             /Users/user/anaconda3/envs/core/bin/celery
+Script:                 /Users/user/anaconda3/envs/core/bin/celery
 
-Script parameters:  -A mdcs worker -E -l debug -P solo
+Script parameters:      -A mdcs worker -E -l debug -P solo
+
+Environment variables:  DJANGO_SETTINGS_MODULE=mdcs.dev_settings
 
 Run celery and have it running in background (can be run in debug mode).
 
 
 #### Run Server
 
-Script:             project/manage.py
+Script:                 mdcs/manage.py
 
-Script parameters:  runserver
+Script parameters:      runserver
+
+Environment variables:  DJANGO_SETTINGS_MODULE=mdcs.dev_settings
 
 Run runserver to deploy the webserver (can be run in debug mode).
 

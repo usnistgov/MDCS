@@ -1,11 +1,10 @@
-# MDCS 2.0 Installation Process
-10/04/2018
+# MDCS 3.x Installation Process
 
 ## INTRODUCTION
 
-* This document describes a step by step installation process for installing MDCS 2.0 using familiar `pip install` processes through the Python Packaging Index (PyPI).
+* This document describes a step by step installation process for installing MDCS 3.x using familiar `pip install` processes through the Python Packaging Index (PyPI).
 
-* These instructions support the manual installation process for MDCS software version 2.0 (a.k.a., __mdcs__ located at https://github.com/usnistgov/mdcs .
+* These instructions support the manual installation process for MDCS software version 3.x (a.k.a., __mdcs__ located at https://github.com/usnistgov/mdcs .
 
 * More information about the Materials Data Curation System (MDCS) as a configuration of the Configurable Data Curation System (CDCS) of modular applications exists in the form of a [system manual](https://cdcs.nist.gov/cdcs-documentation/index.html), [tutorials](https://cdcs.nist.gov/cdcs-documentation/17-tutorials.html), and more at http://cdcs.nist.gov .
 
@@ -20,13 +19,13 @@
   1. **Supporting Utilities:** The specific supporting utilities that are downloaded (i.e., redis, celery, mongo) - the install links for all those point to generic locations where you should just choose the ones appropriate to your platform.
 
   2. **Virtual Environment:** The specific python virtual environment may be varied, but it doesn't have to be.
-     1. That is, you can install `Anaconda` on Windows, Linux or Mac. So, those commands should remain identical.
+     1. That is, you can install `Pyenv` on Windows, Linux or Mac. So, those commands should remain identical.
      2. If you decide to use a different one, just substitute any desired python virtual environment application and the instructions inside of it should remain the same.
      3. If you use an alternative application for creating and using python virtual environments, then merely use the appropriate equivalent commands for each command involving the python virtual environment.
      4. Mostly, the commands used for the python virtual environment have to do with:
-       1. creating it (`conda create`),
-       2. activating it (`conda activate <mdcs_virtual_environment_name>`),
-       3. deactivating it (`deactivate <mdcs_virtual_environment_name>`).
+       1. creating it (`pyenv virtualenv`),
+       2. activating it (`pyenv activate <mdcs_virtual_environment_name>`),
+       3. deactivating it (`pyenv deactivate`).
          * NOTE: Corresponding commands for related utilities often use very similar or identical commands.
 
   3. **Command Shell:** The commands executed in this installation occur in a windows command shell, in the case of Linux or Mac, they would be in the standard scripting shell (which is usually some kind of bash variant).
@@ -53,12 +52,12 @@
 | Installation Parameter                     | Example Installation Parameter Value |
 | :------------------------------------------| :-------------------------------------------:|
 | MDCS application installation platform     | Windows operating system                     |
-| MDCS application installation path         | c:\mdcs                             |
+| MDCS application installation path         | c:\mdcs                                      |
 | MDCS application IP address                | 127.0.0.1                                    |
 | MDCS application port number               | 8000                                         |
-| MDCS virtual environment name              | mdcs_env                            |
+| MDCS virtual environment name              | mdcs_env                                     |
 | MDCS Superuser username                    | mgi_superuser                                |
-| MDCS Superuser email                       | user_email@example.com                   |
+| MDCS Superuser email                       | user_email@example.com                  	    |
 | MDCS Superuser password                    | mgi_superuser_pwd                            |
 | MongoDB administrative username            | mdb_admin_user                               |
 | MongoDB administrative password            | mdb_admin_pwd                                |
@@ -83,7 +82,7 @@
 | MongoDB administrative password            | `<mongodb_admin_password>`                   |
 | MongoDB non-administrative username        | `<mongodb_nonadmin_username>`                |
 | MongoDB non-administrative password        | `<mongodb_nonadmin_password>`	            |
-| Redis configuration file                   | `<redis_configuration_filename>`	        |
+| Redis configuration file                   | `<redis_configuration_filename>`	            |
 
 ### Assumptions
 
@@ -110,11 +109,11 @@
 
 ###	1. Install supporting applications on your host system.
 
-* Python 3.6.8: https://www.anaconda.com/distribution/ (choose python 3.x)
-* MongoDB 4.4: https://www.mongodb.com/download-center#community
-* Redis 5.0: https://redis.io/download
+* Python 3.8: https://www.python.org/downloads/release/python-380/ (NOTE: this will be installed via a virtual environment)
+* MongoDB 6.0: https://www.mongodb.com/download-center#community
+* Redis 7.0: https://redis.io/download
 * Celery    : NOTE: This is installed below via `pip install`.
-* gettext   : This utility is necessary for supporting internationalization in MDCS 2.0 systems >= MDCS 2.0 beta2.
+* gettext   : This utility is necessary for supporting internationalization in MDCS 3.x systems.
     - On Linux,
       - $$ `apt-get install gettext`
     -On Windows,
@@ -128,34 +127,37 @@
 
 #### Open a terminal window.
 
-```
+```shell
 $ cmd.exe
 ```
 
-#### Install Anaconda
+#### Install Pyenv
 
 
 * NOTE: This enables you to install the MDCS software in Python virtual environments.
 
-- Download and Install [Anaconda](https://www.anaconda.com/distribution/) for the Python 3.x distribution
-- Start the Anaconda Navigator and:
-   - click on "Environment",
-   - then click on "base (root)",
-   - and "Open Terminal".
+- Download and install [Pyenv](https://github.com/pyenv/pyenv#installation) and 
+[Pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv#installation)
+  
+* Install a version of Python supported by the CDCS (see `python_requires` in [setup.py](https://github.com/usnistgov/core_main_app/blob/master/setup.py)):
 
+```shell
+$ pyenv install 3.8
+```
 
 * Then run the following commands:
-```
-$(base) conda create -n <mdcs_virtual_environment_name> python=<python_version>
-$(base) conda activate <mdcs_virtual_environment_name>
-```
-* Example:
-```
-$(base) conda create -n mdcs_env python=3.6.8
-$(base) conda activate mdcs_env
-$(mdcs_env)
+```shell
+$(base) pyenv virtualenv 3.8 <mdcs_virtual_environment_name>
+$(base) pyenv activate <mdcs_virtual_environment_name>
 ```
 
+* Example:
+```shell
+$(base) pyenv install 3.8
+$(base) pyenv virtualenv 3.8 mdcs_env
+$(base) pyenv activate mdcs_env
+$(mdcs_env) 
+```
 
 #### Install the latest version of pip installation utility inside the newly-created virtual-environment.
 
@@ -169,19 +171,19 @@ $$ python -m pip install --upgrade pip
 * Extract mdcs-master.zip to form the following base installation directory: <install_path>\mdcs-master\ .
 * Then move into that base install directory.
 
-```
+```shell
 $$ cd mdcs-master
 ```
 
 #### Create configuration file directory for MongoDB.
 
-```
+```shell
 $$ mkdir conf
 ```
 
 #### Create data directory for MongoDB.
 
-```
+```shell
 $$ mkdir data\db
 ```
 
@@ -216,13 +218,13 @@ storage:
 
 #### Install MDCS supporting and core software packages.
 
-```
+```shell
 $$ pip install --no-cache-dir -r requirements.txt
 $$ pip install --no-cache-dir -r requirements.core.txt
 ```
 
 #### Start MongoDB server.
-```
+```shell
 $$ mongod --config conf\mongodb.conf
 ```
 
@@ -230,20 +232,20 @@ $$ mongod --config conf\mongodb.conf
 
 #### Open terminal window.
 
-```
+```shell
 $ cmd.exe
 ```
 
 #### Open virtual environment and move to the release installation directory.
 
 * Command:
-```
-$ conda activate <mdcs_virtual_environment_name>
+```shell
+$ pyenv activate <mdcs_virtual_environment_name>
 $$ cd <install_path>\mdcs-master\
 ```
 * Example:
-```
-$ conda activate mdcs_env
+```shell
+$ pyenv activate mdcs_env
 $$ cd <install_path>\mdcs-master\
 ```
 
@@ -253,7 +255,7 @@ $$ cd <install_path>\mdcs-master\
 
 **NOTE:** Enter your own mongodb administrative username and password here. See the example below.
 
-```
+```shell
 $$ mongo --port 27017
 
 	use admin
@@ -269,7 +271,7 @@ $$ mongo --port 27017
 
 * Example:
 
-```
+```shell
 $$ mongo --port 27017
 
 	use admin
@@ -294,7 +296,7 @@ $$ mongo --port 27017
 
 	* Enter your own mongodb usernames and passwords for administrative and non-administrative accounts, respectively, here. Please see the example below.
 
-```
+```shell
 $$ mongo --port 27017 -u "<mongodb_admin_username>" -p "<mongodb_admin_password>" --authenticationDatabase admin
 	use mgi
 	db.createUser(
@@ -310,7 +312,7 @@ $$ mongo --port 27017 -u "<mongodb_admin_username>" -p "<mongodb_admin_password>
 
 * Example:
 
-```
+```shell
 $$ mongo --port 27017 -u "mdb_admin_user" -p "mdb_admin_pwd" --authenticationDatabase admin
 	use mgi
 	db.createUser(
@@ -373,20 +375,20 @@ MONGO_PASSWORD=mdb_pwd
 
 To run django commands, using a custom settings file, you can use the
 following syntax:
-```
+```shell
 python manage.py <command> --settings=<custom_settings>
 ```
 Example: start the server with development settings
-```
+```shell
 python manage.py runserver --settings=mdcs.dev_settings
 ```
 Or set the `DJANGO_SETTINGS_MODULE` environment variable:
-```
+```shell
 export DJANGO_SETTINGS_MODULE=<custom_settings>
 python manage.py <command>
 ```
 Example:
-```
+```shell
 export DJANGO_SETTINGS_MODULE=mdcs.dev_settings
 python manage.py runserver
 ```
@@ -411,12 +413,12 @@ https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 #### Start Redis server.
 
 * Command:
-```
+```shell
 $$ redis-server <redis_configuration_filename>
 ```
 
 * Example:
-```
+```shell
 $$ redis-server "c:\Program Files\Redis\redis.windows.conf"
 ```
 
@@ -426,35 +428,21 @@ $$ redis-server "c:\Program Files\Redis\redis.windows.conf"
 
 #### Start celery.
 
-```
+```shell
 $$ celery --app=mdcs worker -E -l info
 $$ celery --app=mdcs beat -l info
 ```
 
 ###	5. Open terminal window #3 and perform the last set of installation commands.
 
-```
+```shell
 $ cd <install_path>\mdcs-master\
-$ conda activate mdcs_env
+$ pyenv activate mdcs_env
 
-
-$$ python manage.py migrate auth
 $$ python manage.py migrate
 $$ python manage.py collectstatic --noinput
-
-* Ensure `gettext` utility is installed
-    - On Linux,
-      - $$ apt-get install gettext
-    -On Windows,
-	  - install gettext from https://mlocati.github.io/articles/gettext-iconv-windows.html
-
 $$ python manage.py compilemessages
-	  * NOTES:
-		- The `compilemessages` process requires the `gettext` utility.
-		- If you receive an error message, check previous step was successful.
-
 $$ python manage.py createsuperuser
-
 ```
 * Command:
 	* When prompted, fill in the following info:
@@ -471,12 +459,12 @@ $$ python manage.py createsuperuser
 #### Run the system.
 
 * Command:
-```
+```shell
 $$ python manage.py runserver <ip_address>:<port_number>
 ```
 
 * Example:
-```
+```shell
 $$ python manage.py runserver 127.0.0.1:8000
 ```
 
@@ -498,13 +486,13 @@ $$ python manage.py runserver 127.0.0.1:8000
 
 #### in terminal window #1
 
-```
+```shell
 $$ mongod --config conf\mongodb.conf
 ```
 
 #### in terminal window #2
 
-```
+```shell
 $$ redis-server "c:\Program Files\Redis\redis.windows.conf"
 ```
 
@@ -512,7 +500,7 @@ $$ redis-server "c:\Program Files\Redis\redis.windows.conf"
 	* The above is the syntax for a Window's Redis install. This may be different on other operating systems.
 	* When redis-server starts, it will create a background process and will return to the command terminal prompt, allowing one to reuse that terminal to run other commands
 
-```
+```shell
 $$ celery --app=mdcs worker -E -l info
 $$ celery --app=mdcs beat -l info
 ```
@@ -522,12 +510,12 @@ $$ celery --app=mdcs beat -l info
 #### Run the system.
 
 * Command:
-```
+```shell
 $$ python manage.py runserver <ip_address>:<port_number>
 ```
 
 * Example:
-```
+```shell
 $$ python manage.py runserver 127.0.0.1:8000
 ```
 

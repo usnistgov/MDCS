@@ -20,14 +20,21 @@ git checkout master
 
 ## Python environment
 
-Download and install [Anaconda](https://www.anaconda.com/download/) to configure 
+Download and install [Pyenv](https://github.com/pyenv/pyenv#installation) and 
+[Pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv#installation) to configure 
 a python environment with all the required python packages. 
 
 ### Create a new environment
 
+Install a version of Python supported by the CDCS (see `python_requires` in [setup.py](https://github.com/usnistgov/core_main_app/blob/master/setup.py)):
+
 ```shell
-conda create --name core python=3.7
-Proceed ([y]/n)? y
+pyenv install 3.8
+```
+
+```shell
+pyenv virtualenv 3.8 core
+pyenv virtualenvs
 ```
 
 ### Install required python packages
@@ -35,7 +42,7 @@ Proceed ([y]/n)? y
 Activate the environment and install the required python packages.
 
 ```
-conda activate core
+pyenv activate core
 cd mdcs
 pip install -r requirements.txt
 pip install -r requirements.core.txt
@@ -209,7 +216,7 @@ Open project: Select workspace folder
 
 PyCharm > Preferences > Project Interpreter
 
-Select /Users/user/anaconda3/envs/core/bin/python
+Select /path/to/env/core/bin/python
 
 ### Add run configurations
 
@@ -237,7 +244,7 @@ Run createsuperuser to create the first user of the system (and then anytime the
 
 #### Start Celery worker (optional)
 
-Script:                 /Users/user/anaconda3/envs/core/bin/celery
+Script:                 /path/to/env/core/bin/celery
 
 Script parameters:      -A mdcs worker -E -l debug -P solo
 

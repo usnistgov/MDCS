@@ -183,10 +183,6 @@ CUSTOM_FILE_STORAGE = dict()
     }
 """
 
-GA_TRACKING_ID = os.getenv("GA_TRACKING_ID", None)
-""" :py:class:`str`: Google Analytics tracking ID. Adds gtag to user pages if set.
-"""
-
 ENABLE_XML_ENTITIES_TOOLTIPS = True
 """ :py:class:`bool`: Enable XML entities tooltips during curation.
 """

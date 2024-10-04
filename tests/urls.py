@@ -1,0 +1,4 @@
+""" Url router
+"""
+
+urlpatterns = []

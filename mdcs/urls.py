@@ -12,6 +12,7 @@ Class-based views
 Including another URLconf
     1. Add a URL to urlpatterns:  re_path(r'^blog/', include('blog.urls'))
 """
+
 from django.conf.urls import include
 from django.contrib import admin
 from django.urls import re_path
@@ -23,7 +24,6 @@ admin.autodiscover()
 urlpatterns = [
     re_path(r"^admin/", admin.site.urls),
     re_path(r"^core-admin/", core_admin_site.urls),
-    re_path(r"^admin/defender/", include("defender.urls")),
     re_path(
         r"^o/", include("oauth2_provider.urls", namespace="oauth2_provider")
     ),

@@ -1,5 +1,6 @@
 """ Django settings for core applications.
 """
+
 import os
 
 SERVER_URI = os.environ["SERVER_URI"] if "SERVER_URI" in os.environ else None
@@ -125,6 +126,23 @@ PID_XPATH = os.getenv("PID_XPATH", "root.pid")
 
 AUTO_SET_PID = os.getenv("AUTO_SET_PID", "False").lower() == "true"
 """ boolean: enable the automatic pid generation for saved data.
+"""
+
+ENABLE_ALLAUTH = os.getenv("ENABLE_ALLAUTH", "False").lower() == "true"
+""" boolean: enable Django-allauth
+"""
+
+ENABLE_ALLAUTH_LOCAL_MFA = (
+    os.getenv("ENABLE_ALLAUTH_LOCAL_MFA", "False").lower() == "true"
+)
+""" boolean: enable local MFA for Django-allauth
+"""
+
+ALLAUTH_ACCOUNT_REQUESTS_FOR_NEW_USERS = (
+    os.getenv("ALLAUTH_ACCOUNT_REQUESTS_FOR_NEW_USERS", "False").lower()
+    == "true"
+)
+""" :py:class:`bool`: Signing up with Django-allauth create a CDCS account requests
 """
 
 ENABLE_SAML2_SSO_AUTH = (

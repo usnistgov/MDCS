@@ -15,8 +15,6 @@
 		margin: 0;
 		padding: 0;
 		border: 0;
-		font-size: 100%;
-		font: inherit;
 		vertical-align: baseline;
 	}
 
@@ -1875,16 +1873,6 @@
 			font-weight: 300;
 		}
 
-	h2 {
-		font-size: 1.75em;
-		letter-spacing: -0.025em;
-	}
-
-	h3 {
-		font-size: 1.2em;
-		letter-spacing: -0.025em;
-	}
-
 	sub {
 		font-size: 0.8em;
 		position: relative;
@@ -2927,18 +2915,6 @@
 
 			body, input, select, textarea {
 				font-size: 11pt;
-				line-height: 1.35em;
-			}
-
-			h2 {
-				font-size: 1.25em;
-				letter-spacing: 0;
-				line-height: 1.35em;
-			}
-
-			h3 {
-				font-size: 1em;
-				letter-spacing: 0;
 				line-height: 1.35em;
 			}
 

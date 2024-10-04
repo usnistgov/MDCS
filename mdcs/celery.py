@@ -1,5 +1,6 @@
 """ Celery instance configuration
 """
+
 import os
 
 from celery import Celery

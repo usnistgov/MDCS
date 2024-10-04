@@ -27,3 +27,8 @@ MONGODB_ASYNC_SAVE = False
 CAPTCHA_TEST_MODE = True
 # Run celery tasks in the main process
 CELERY_ALWAYS_EAGER = True
+
+# Django Allauth dev settings
+MFA_WEBAUTHN_ALLOW_INSECURE_ORIGIN = True
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+ACCOUNT_EMAIL_VERIFICATION = "none"

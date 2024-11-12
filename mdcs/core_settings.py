@@ -155,7 +155,7 @@ ENABLE_HANDLE_PID = os.getenv("ENABLE_HANDLE_PID", "False").lower() == "true"
 """ boolean: enable handle server PID support.
 """
 
-MONGODB_INDEXING = True
+MONGODB_INDEXING = os.getenv("MONGODB_INDEXING", "True").lower() == "true"
 """ :py:class:`bool`: Use MongoDB for data indexing.
     If True:
         - a copy of the data will be stored in MongoDB,
@@ -167,7 +167,7 @@ MONGODB_ASYNC_SAVE = True
     If True, data are saved in MongoDB asynchronously.
 """
 
-GRIDFS_STORAGE = True
+GRIDFS_STORAGE = os.getenv("GRIDFS_STORAGE", "True").lower() == "true"
 """ :py:class:`bool`: Use GridFS for file storage.
 """
 
@@ -216,4 +216,18 @@ BOOTSTRAP_VERSION = os.getenv("BOOTSTRAP_VERSION", "5.1.3")
 TEXT_EDITOR_LIBRARY = os.getenv("TEXT_EDITOR_LIBRARY", "Monaco")
 """ :py:class:`str`: Set to `Monaco` to enable use external text editor Monaco,`None` to use default text editor,
 or specify another external text editor to set it up.
+"""
+
+ENABLE_JSON_SCHEMA_SUPPORT = (
+    os.getenv("ENABLE_JSON_SCHEMA_SUPPORT", "False").lower() == "true"
+)
+""" :py:class:`bool`: Set to `True` to enable JSON Schema support.
+"""
+
+BACKWARD_COMPATIBILITY_DATA_XML_CONTENT = (
+    os.getenv("BACKWARD_COMPATIBILITY_DATA_XML_CONTENT", "True").lower()
+    == "true"
+)
+""" :py:class:`bool`: Set to `True` to continue using Data.xml_content (deprecated)
+    instead of Data.content in the REST API.
 """

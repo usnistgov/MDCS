@@ -1,4 +1,4 @@
-core_main_app[mongodb]==2.12.*
+core_main_app[mongodb,auth,allauth]==2.12.*
 core_composer_app==2.12.*
 core_curate_app==2.12.*
 core_dashboard_common_app==2.12.*

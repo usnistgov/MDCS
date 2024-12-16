@@ -96,6 +96,7 @@ INSTALLED_APPS = (
     "oauth2_provider",
     # Extra apps
     "rest_framework",
+    "rest_framework.authtoken",
     "drf_spectacular",
     "menu",
     "captcha",
@@ -261,6 +262,7 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.BasicAuthentication",
         "rest_framework.authentication.SessionAuthentication",
         "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
+        "rest_framework.authentication.TokenAuthentication",
     ),
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }

@@ -16,14 +16,15 @@ Including another URLconf
 from django.conf.urls import include
 from django.contrib import admin
 from django.urls import re_path
+from mdcs.core_settings import ADMIN_URLS_PREFIX
 
 from core_main_app.admin import core_admin_site
 
 admin.autodiscover()
 
 urlpatterns = [
-    re_path(r"^admin/", admin.site.urls),
-    re_path(r"^core-admin/", core_admin_site.urls),
+    re_path(rf"^{ADMIN_URLS_PREFIX}admin/", admin.site.urls),
+    re_path(rf"^{ADMIN_URLS_PREFIX}core-admin/", core_admin_site.urls),
     re_path(
         r"^o/", include("oauth2_provider.urls", namespace="oauth2_provider")
     ),

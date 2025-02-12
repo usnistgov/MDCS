@@ -231,3 +231,7 @@ BACKWARD_COMPATIBILITY_DATA_XML_CONTENT = (
 """ :py:class:`bool`: Set to `True` to continue using Data.xml_content (deprecated)
     instead of Data.content in the REST API.
 """
+
+ADMIN_URLS_PREFIX = os.getenv("ADMIN_URLS_PREFIX", "staff-")
+""" :py:class:`str`: Prefix added to admin urls.
+"""

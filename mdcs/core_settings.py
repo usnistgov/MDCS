@@ -139,7 +139,7 @@ ENABLE_ALLAUTH_LOCAL_MFA = (
 """
 
 ALLAUTH_ACCOUNT_REQUESTS_FOR_NEW_USERS = (
-    os.getenv("ALLAUTH_ACCOUNT_REQUESTS_FOR_NEW_USERS", "False").lower()
+    os.getenv("ALLAUTH_ACCOUNT_REQUESTS_FOR_NEW_USERS", "True").lower()
     == "true"
 )
 """ :py:class:`bool`: Signing up with Django-allauth create a CDCS account requests

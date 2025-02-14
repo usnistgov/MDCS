@@ -132,19 +132,6 @@ ENABLE_ALLAUTH = os.getenv("ENABLE_ALLAUTH", "False").lower() == "true"
 """ boolean: enable Django-allauth
 """
 
-ENABLE_ALLAUTH_LOCAL_MFA = (
-    os.getenv("ENABLE_ALLAUTH_LOCAL_MFA", "False").lower() == "true"
-)
-""" boolean: enable local MFA for Django-allauth
-"""
-
-ALLAUTH_ACCOUNT_REQUESTS_FOR_NEW_USERS = (
-    os.getenv("ALLAUTH_ACCOUNT_REQUESTS_FOR_NEW_USERS", "True").lower()
-    == "true"
-)
-""" :py:class:`bool`: Signing up with Django-allauth create a CDCS account requests
-"""
-
 ENABLE_SAML2_SSO_AUTH = (
     os.getenv("ENABLE_SAML2_SSO_AUTH", "False").lower() == "true"
 )

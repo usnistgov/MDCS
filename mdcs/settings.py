@@ -436,80 +436,77 @@ if SERVER_URI.lower().startswith("https"):  # noqa: F405 (core setting)
     # Set x-frame options
     X_FRAME_OPTIONS = "SAMEORIGIN"
 
-if not ENABLE_ALLAUTH:  # noqa: F405 (core setting)
-    if "defender" not in INSTALLED_APPS:
-        INSTALLED_APPS = INSTALLED_APPS + ("defender",)
+if "defender" not in INSTALLED_APPS:
+    INSTALLED_APPS = INSTALLED_APPS + ("defender",)
 
-    if "defender.middleware.FailedLoginMiddleware" not in MIDDLEWARE:
+if "defender.middleware.FailedLoginMiddleware" not in MIDDLEWARE:
+    MIDDLEWARE = MIDDLEWARE + ("defender.middleware.FailedLoginMiddleware",)
+# Django Defender
+DEFENDER_REDIS_URL = REDIS_URL
+""" :py:class:`str`: The Redis url for defender.
+"""
+DEFENDER_COOLOFF_TIME = 60
+""" integer: Period of inactivity after which old failed login attempts will be forgotten
+"""
+DEFENDER_LOGIN_FAILURE_LIMIT = 3
+""" integer: The number of login attempts allowed before a record is created for the failed login.
+"""
+DEFENDER_STORE_ACCESS_ATTEMPTS = True
+""" boolean: Store the login attempt to the database.
+"""
+DEFENDER_USE_CELERY = True
+""" boolean: Use Celery to store the login attempt to the database.
+"""
+DEFENDER_LOCKOUT_URL = "/locked"
+""" string: url to the defender error page (defined in core_main_app)
+"""
+
+if ENABLE_SAML2_SSO_AUTH:  # noqa: F405 (core setting)
+    import saml2
+    import saml2.saml
+    from core_main_app.utils.saml2.utils import (
+        load_saml_config_from_env,
+        load_django_attribute_map_from_env,
+    )
+
+    # Update Django Settings
+    if "djangosaml2" not in INSTALLED_APPS:
+        INSTALLED_APPS = INSTALLED_APPS + ("djangosaml2",)
+    if "djangosaml2.middleware.SamlSessionMiddleware" not in MIDDLEWARE:
         MIDDLEWARE = MIDDLEWARE + (
-            "defender.middleware.FailedLoginMiddleware",
+            "djangosaml2.middleware.SamlSessionMiddleware",
         )
-    # Django Defender
-    DEFENDER_REDIS_URL = REDIS_URL
-    """ :py:class:`str`: The Redis url for defender.
-    """
-    DEFENDER_COOLOFF_TIME = 60
-    """ integer: Period of inactivity after which old failed login attempts will be forgotten
-    """
-    DEFENDER_LOGIN_FAILURE_LIMIT = 3
-    """ integer: The number of login attempts allowed before a record is created for the failed login.
-    """
-    DEFENDER_STORE_ACCESS_ATTEMPTS = True
-    """ boolean: Store the login attempt to the database.
-    """
-    DEFENDER_USE_CELERY = True
-    """ boolean: Use Celery to store the login attempt to the database.
-    """
-    DEFENDER_LOCKOUT_URL = "/locked"
-    """ string: url to the defender error page (defined in core_main_app)
-    """
-    if ENABLE_SAML2_SSO_AUTH:  # noqa: F405 (core setting)
-        import saml2
-        import saml2.saml
-        from core_main_app.utils.saml2.utils import (
-            load_saml_config_from_env,
-            load_django_attribute_map_from_env,
-        )
+    AUTHENTICATION_BACKENDS = (
+        "django.contrib.auth.backends.ModelBackend",
+        "djangosaml2.backends.Saml2Backend",
+    )
 
-        # Update Django Settings
-        if "djangosaml2" not in INSTALLED_APPS:
-            INSTALLED_APPS = INSTALLED_APPS + ("djangosaml2",)
-        if "djangosaml2.middleware.SamlSessionMiddleware" not in MIDDLEWARE:
-            MIDDLEWARE = MIDDLEWARE + (
-                "djangosaml2.middleware.SamlSessionMiddleware",
-            )
-        AUTHENTICATION_BACKENDS = (
-            "django.contrib.auth.backends.ModelBackend",
-            "djangosaml2.backends.Saml2Backend",
-        )
+    # Configure djangosaml2
+    SAML_SESSION_COOKIE_NAME = "saml_session"
+    LOGIN_REDIRECT_URL = "/"
+    LOGOUT_REDIRECT_URL = "/"
+    SAML_DEFAULT_BINDING = saml2.BINDING_HTTP_POST
+    SAML_LOGOUT_REQUEST_PREFERRED_BINDING = saml2.BINDING_HTTP_POST
+    SAML_IGNORE_LOGOUT_ERRORS = True
+    SAML_DJANGO_USER_MAIN_ATTRIBUTE = os.getenv(
+        "SAML_DJANGO_USER_MAIN_ATTRIBUTE", "username"
+    )
+    SAML_USE_NAME_ID_AS_USERNAME = (
+        os.getenv("SAML_USE_NAME_ID_AS_USERNAME", "False").lower() == "true"
+    )
+    SAML_CREATE_UNKNOWN_USER = (
+        os.getenv("SAML_CREATE_UNKNOWN_USER", "False").lower() == "true"
+    )
+    SAML_ATTRIBUTE_MAPPING = load_django_attribute_map_from_env()
 
-        # Configure djangosaml2
-        SAML_SESSION_COOKIE_NAME = "saml_session"
-        LOGIN_REDIRECT_URL = "/"
-        LOGOUT_REDIRECT_URL = "/"
-        SAML_DEFAULT_BINDING = saml2.BINDING_HTTP_POST
-        SAML_LOGOUT_REQUEST_PREFERRED_BINDING = saml2.BINDING_HTTP_POST
-        SAML_IGNORE_LOGOUT_ERRORS = True
-        SAML_DJANGO_USER_MAIN_ATTRIBUTE = os.getenv(
-            "SAML_DJANGO_USER_MAIN_ATTRIBUTE", "username"
-        )
-        SAML_USE_NAME_ID_AS_USERNAME = (
-            os.getenv("SAML_USE_NAME_ID_AS_USERNAME", "False").lower()
-            == "true"
-        )
-        SAML_CREATE_UNKNOWN_USER = (
-            os.getenv("SAML_CREATE_UNKNOWN_USER", "False").lower() == "true"
-        )
-        SAML_ATTRIBUTE_MAPPING = load_django_attribute_map_from_env()
-
-        # Configure Pysaml2
-        SAML_CONFIG = load_saml_config_from_env(
-            server_uri=SERVER_URI,  # noqa: F405 (core setting)
-            base_dir=BASE_DIR,  # noqa: F405 (core setting)
-        )
-        SAML_ACS_FAILURE_RESPONSE_FUNCTION = (
-            "core_main_app.views.user.views.saml2_failure"
-        )
+    # Configure Pysaml2
+    SAML_CONFIG = load_saml_config_from_env(
+        server_uri=SERVER_URI,  # noqa: F405 (core setting)
+        base_dir=BASE_DIR,  # noqa: F405 (core setting)
+    )
+    SAML_ACS_FAILURE_RESPONSE_FUNCTION = (
+        "core_main_app.views.user.views.saml2_failure"
+    )
 
 # configure handle server PIDs according to environment settings
 if ENABLE_HANDLE_PID:  # noqa: F405 (core setting)
@@ -553,63 +550,3 @@ LOGIN_URL = "core_main_app_login"
 DEFAULT_EXCEPTION_REPORTER_FILTER = (
     "core_main_app.views.admin.views.CustomExceptionReporter"
 )
-
-if ENABLE_ALLAUTH:  # noqa: F405 (core setting)
-    for app in [
-        "allauth",
-        "allauth.account",
-        "allauth.socialaccount",
-    ]:
-        if app not in INSTALLED_APPS:
-            INSTALLED_APPS = INSTALLED_APPS + (app,)
-
-    if "allauth.account.middleware.AccountMiddleware" not in MIDDLEWARE:
-        MIDDLEWARE = MIDDLEWARE + (
-            "allauth.account.middleware.AccountMiddleware",
-        )
-
-    AUTHENTICATION_BACKENDS = (
-        "django.contrib.auth.backends.ModelBackend",
-        "allauth.account.auth_backends.AuthenticationBackend",
-    )
-
-    SOCIALACCOUNT_PROVIDERS = dict()
-    SOCIALACCOUNT_AUTO_SIGNUP = False
-    # Account adapter creates user account request instead of user
-    ACCOUNT_ADAPTER = (
-        "core_main_app.utils.allauth.cdcs_adapter.CDCSAccountAdapter"
-    )
-    # Signup form uses CDCS account request form with captcha
-    ACCOUNT_SIGNUP_FORM_CLASS = (
-        "core_main_app.utils.allauth.forms.CoreSignupForm"
-    )
-
-    ACCOUNT_EMAIL_REQUIRED = True
-    ACCOUNT_SESSION_REMEMBER = False
-    ACCOUNT_LOGOUT_ON_GET = True
-    ACCOUNT_SIGNUP_FORM_HONEYPOT_FIELD = os.getenv(
-        "ACCOUNT_SIGNUP_FORM_HONEYPOT_FIELD", "organization"
-    )
-    LOGIN_URL = "account_login"
-    LOGIN_REDIRECT_URL = "/"
-    LOGOUT_REDIRECT_URL = "/"
-
-    if ENABLE_SAML2_SSO_AUTH:  # noqa: F405 (core setting)
-        from core_main_app.utils.allauth.saml import (
-            load_allauth_saml_conf_from_env,
-        )
-
-        if "allauth.socialaccount.providers.saml" not in INSTALLED_APPS:
-            INSTALLED_APPS = INSTALLED_APPS + (
-                "allauth.socialaccount.providers.saml",
-            )
-        SOCIALACCOUNT_PROVIDERS["saml"] = load_allauth_saml_conf_from_env()
-
-    if ENABLE_ALLAUTH_LOCAL_MFA:  # noqa: F405 (core setting)
-        # local MFA
-        for app in ["allauth.mfa", "django.contrib.humanize"]:
-            if app not in INSTALLED_APPS:
-                INSTALLED_APPS = INSTALLED_APPS + (app,)
-        MFA_SUPPORTED_TYPES = ["webauthn"]
-        # Optional: enable support for logging in using a (WebAuthn) passkey.
-        MFA_PASSKEY_LOGIN_ENABLED = True

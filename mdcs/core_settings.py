@@ -5,7 +5,7 @@ import os
 
 SERVER_URI = os.environ["SERVER_URI"] if "SERVER_URI" in os.environ else None
 
-PROJECT_VERSION = os.getenv("PROJECT_VERSION", "3.16.0")
+PROJECT_VERSION = os.getenv("PROJECT_VERSION", "3.17.0")
 """ :py:class:`str`: Project version number.
 """
 

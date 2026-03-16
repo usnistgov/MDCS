@@ -1,5 +1,4 @@
-""" Settings file to run the tests.
-"""
+"""Settings file to run the tests."""
 
 from dotenv import load_dotenv  # noqa
 

@@ -1,34 +1,34 @@
-""" Menu configuration for mdcs. The following menus are displayed:
+"""Menu configuration for mdcs. The following menus are displayed:
 
-  * No dropdown menu
+* No dropdown menu
 
-    * Home
-    * Data Curation
+  * Home
+  * Data Curation
 
-  * Data Exploration menu
+* Data Exploration menu
 
-    * Search by Keyword
-    * Build a Custom Query
+  * Search by Keyword
+  * Build a Custom Query
 
-  * Composer menu
+* Composer menu
 
-    * Create New Template
-    * My Templates
-    * My Types
+  * Create New Template
+  * My Templates
+  * My Types
 
-  * Dashboard menu
+* Dashboard menu
 
-    * My Workspaces
-    * My Records
-    * My Forms
-    * My Files
-    * My Queries
+  * My Workspaces
+  * My Records
+  * My Forms
+  * My Files
+  * My Queries
 
-  * Help menu
+* Help menu
 
-    * API Documentation
-    * Contact
-    * Help
+  * API Documentation
+  * Contact
+  * Help
 """
 
 from django.urls import reverse

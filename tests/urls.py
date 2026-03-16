@@ -1,4 +1,3 @@
-""" Url router
-"""
+"""Url router"""
 
 urlpatterns = []

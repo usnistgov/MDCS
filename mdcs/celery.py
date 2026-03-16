@@ -1,5 +1,4 @@
-""" Celery instance configuration
-"""
+"""Celery instance configuration"""
 
 import os
 

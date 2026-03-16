@@ -1,5 +1,4 @@
-""" Development Settings
-"""
+"""Development Settings"""
 
 from dotenv import load_dotenv
 

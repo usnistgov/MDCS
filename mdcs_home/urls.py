@@ -1,5 +1,4 @@
-"""mdcs URL Configuration
-"""
+"""mdcs URL Configuration"""
 
 from django.urls import re_path
 

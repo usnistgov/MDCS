@@ -1,5 +1,4 @@
-""" Admin urls
-"""
+"""Admin urls"""
 
 from core_main_app.utils.admin_site.model_admin_class import (
     register_simple_history_models,

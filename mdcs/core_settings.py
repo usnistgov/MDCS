@@ -1,5 +1,4 @@
-""" Django settings for core applications.
-"""
+"""Django settings for core applications."""
 
 import os
 

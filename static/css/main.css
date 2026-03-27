@@ -3049,3 +3049,10 @@
             }
 
 	}
+
+.monaco-editor .button {
+    background-color: transparent !important;
+    background-image: none !important;
+    min-width: unset !important;
+    color: inherit !important;
+}

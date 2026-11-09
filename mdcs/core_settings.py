@@ -27,7 +27,7 @@ DATA_SOURCES_EXPLORE_APPS = [
 # Lists in data not stored if number of elements is over the limit (e.g. 100)
 SEARCHABLE_DATA_OCCURRENCES_LIMIT = None
 
-PARSER_DOWNLOAD_DEPENDENCIES = True
+PARSER_DOWNLOAD_DEPENDENCIES = False
 """ boolean: Does the parser download dependencies
 """
 
